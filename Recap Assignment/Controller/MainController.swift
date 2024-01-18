@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     @IBOutlet var mainEmptyImage: UIImageView!
     @IBOutlet var mainEmptyLabel: UILabel!
     
-    var searchKeywordList : [String] = [] {
+    var searchKeywordList : [String] = UserDefaultManager.shared.search {
         didSet {
             print(#function)
             print(searchKeywordList)
@@ -82,6 +82,8 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     @objc func mainCellButtonTapped(sender : UIButton) {
         print("\(sender.tag) 버튼이 눌러졌고, 삭제가 될까")
         searchKeywordList.remove(at: sender.tag)
+        
+        UserDefaultManager.shared.search = searchKeywordList // UserDefault Update
     }
     
 }
@@ -95,9 +97,9 @@ extension MainViewController : UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let addText = searchBar.text else { return}
         searchKeywordList.insert(addText, at: 0) // 새로운 값은 무조건 앞으로
+        
+        UserDefaultManager.shared.search = searchKeywordList // UserDefault Update
     }
-    
-    
 }
 
 // 일반 function
