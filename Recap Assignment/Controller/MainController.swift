@@ -33,10 +33,6 @@ class MainViewController: UIViewController {
         configureTableViewDesign()
         configureDesign()
         
-        searchKeywordList.append("hi1")
-        searchKeywordList.append("hi2")
-        searchKeywordList.append("hi3")
-        
     }
     @IBAction func keyboardHide(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -95,10 +91,12 @@ extension MainViewController : UISearchBarDelegate {
         mainSearchbar.delegate = self
     }
     
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        <#code#>
-//    }
-//    
+    //TODO: - Whitespace, lowercase, 중복제거
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let addText = searchBar.text else { return}
+        searchKeywordList.insert(addText, at: 0) // 새로운 값은 무조건 앞으로
+    }
+    
     
 }
 
