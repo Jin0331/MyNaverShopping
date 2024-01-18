@@ -17,7 +17,6 @@ class MainViewController: UIViewController {
     var searchKeywordList : [String] = [] {
         didSet {
             print(#function)
-            searchKeywordList.reverse() // 리스트의 순서를 역순으로 바꾸어, 늦게 들어온 값이 제일 위에 보이도록.!
             print(searchKeywordList)
             setEmptyUI() // emptyUI
             mainTableView.reloadData()
@@ -34,10 +33,6 @@ class MainViewController: UIViewController {
         configureTableViewDesign()
         configureDesign()
         
-        searchKeywordList.append("hi1")
-        searchKeywordList.append("hi2")
-        searchKeywordList.append("hi3")
-        searchKeywordList.append("hi4")
     }
 }
 
@@ -81,6 +76,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     // cell button action fuction
     @objc func mainCellButtonTapped(sender : UIButton) {
         print("\(sender.tag) 버튼이 눌러졌고, 삭제가 될까")
+        searchKeywordList.remove(at: sender.tag)
     }
     
 }
