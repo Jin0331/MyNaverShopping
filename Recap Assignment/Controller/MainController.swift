@@ -74,16 +74,24 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         // cell의 label 데이터 나타내기
         cell.setCellDate(labelString: searchKeywordList[indexPath.row])
         
-        
         return cell
     }
     
     // cell button action fuction
+    //TODO: - 검색 결과 전달되어야 함
     @objc func mainCellButtonTapped(sender : UIButton) {
         print("\(sender.tag) 버튼이 눌러졌고, 삭제가 될까")
         searchKeywordList.remove(at: sender.tag)
         
-        UserDefaultManager.shared.search = searchKeywordList // UserDefault Update
+        // UserDefault Update
+        UserDefaultManager.shared.search = searchKeywordList
+    }
+    
+    //TODO: - Cell 클릭했을 때, 해당 검색어를 전달받는 검색 결과화면 나타나야 됨.
+    //TODO: - 값전달은 아직 안 함
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+        screenTransition()
     }
     
 }
@@ -98,7 +106,11 @@ extension MainViewController : UISearchBarDelegate {
         guard let addText = searchBar.text else { return}
         searchKeywordList.insert(addText, at: 0) // 새로운 값은 무조건 앞으로
         
-        UserDefaultManager.shared.search = searchKeywordList // UserDefault Update
+        // UserDefault Update
+        UserDefaultManager.shared.search = searchKeywordList
+        
+        // 화면 전환 -> 검색 결과 화면(Push)
+        screenTransition()
     }
 }
 
@@ -119,7 +131,13 @@ extension MainViewController {
         mainTableView.isHidden = searchKeywordList.count == 0 ? true : false
         mainEmptyImage.isHidden = searchKeywordList.count == 0 ? false : true
         mainEmptyLabel.isHidden = searchKeywordList.count == 0 ? false : true
+    }
+    
+    func screenTransition() {
+        let sb = UIStoryboard(name: SearchResultController.identifier, bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: SearchResultController.identifier) as! SearchResultController
         
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
