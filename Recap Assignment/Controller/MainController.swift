@@ -8,29 +8,42 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
     @IBOutlet var mainSearchbar: UISearchBar!
     @IBOutlet var mainTableView: UITableView!
     @IBOutlet var mainEmptyImage: UIImageView!
     @IBOutlet var mainEmptyLabel: UILabel!
     
+    var searchKeywordList : [String] = [] {
+        didSet {
+            print(#function)
+            searchKeywordList.reverse() // 리스트의 순서를 역순으로 바꾸어, 늦게 들어온 값이 제일 위에 보이도록.!
+            print(searchKeywordList)
+            setEmptyUI() // emptyUI
+            mainTableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureProtocol()
+        configureTableViewProtocol()
+        configureSearchBarProtocol()
+        
+        setEmptyUI() // emptyUI
         configureTableViewDesign()
         configureDesign()
         
-//        mainTableView.isHidden = true
-        
+        searchKeywordList.append("hi1")
+        searchKeywordList.append("hi2")
+        searchKeywordList.append("hi3")
+        searchKeywordList.append("hi4")
     }
-
-
 }
 
-
+//MARK: - Extension
 extension MainViewController : UITableViewDelegate, UITableViewDataSource {
-    func configureProtocol() {
+    func configureTableViewProtocol() {
         mainTableView.delegate = self
         mainTableView.dataSource = self
         
@@ -40,7 +53,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     
     func configureTableViewDesign() {
         mainTableView.separatorStyle = .none
-         
+        
     }
     
     
@@ -49,7 +62,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return searchKeywordList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,14 +70,34 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         
         cell.selectionStyle = .none // 선택 삭제
         
-        
+        // cell 안에 button action
+        cell.mainCellButton.tag = indexPath.row
+        cell.mainCellButton.addTarget(self, action: #selector(mainCellButtonTapped), for: .touchUpInside)
         
         
         return cell
     }
     
+    // cell button action fuction
+    @objc func mainCellButtonTapped(sender : UIButton) {
+        print("\(sender.tag) 버튼이 눌러졌고, 삭제가 될까")
+    }
+    
 }
 
+extension MainViewController : UISearchBarDelegate {
+    func configureSearchBarProtocol() {
+        mainSearchbar.delegate = self
+    }
+    
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        <#code#>
+//    }
+//    
+    
+}
+
+// 일반 function
 extension MainViewController {
     func configureDesign() {
         mainSearchbar.searchBarStyle = .minimal
@@ -76,4 +109,13 @@ extension MainViewController {
         mainEmptyLabel.font = ImageStyle.headerFontSize
         mainEmptyLabel.textColor = ImageStyle.textColor
     }
+    
+    func setEmptyUI() {
+        mainTableView.isHidden = searchKeywordList.count == 0 ? true : false
+        mainEmptyImage.isHidden = searchKeywordList.count == 0 ? false : true
+        mainEmptyLabel.isHidden = searchKeywordList.count == 0 ? false : true
+        
+    }
 }
+
+
