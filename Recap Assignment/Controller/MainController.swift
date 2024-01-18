@@ -11,12 +11,18 @@ class MainViewController: UIViewController {
 
     @IBOutlet var mainSearchbar: UISearchBar!
     @IBOutlet var mainTableView: UITableView!
+    @IBOutlet var mainEmptyImage: UIImageView!
+    @IBOutlet var mainEmptyLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureProtocol()
-        configureTableViewDesign() 
+        configureTableViewDesign()
+        configureDesign()
+        
+//        mainTableView.isHidden = true
+        
     }
 
 
@@ -43,7 +49,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -51,7 +57,23 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         
         cell.selectionStyle = .none // 선택 삭제
         
+        
+        
+        
         return cell
     }
     
+}
+
+extension MainViewController {
+    func configureDesign() {
+        mainSearchbar.searchBarStyle = .minimal
+        mainSearchbar.placeholder = "브랜드, 상품, 프로필, 태그 등"
+        mainEmptyImage.image = ImageStyle.emptyImage
+        mainEmptyImage.contentMode = .scaleAspectFit
+        mainEmptyLabel.text = "최근 검색어가 없어요!"
+        mainEmptyLabel.textAlignment = .center
+        mainEmptyLabel.font = ImageStyle.headerFontSize
+        mainEmptyLabel.textColor = ImageStyle.textColor
+    }
 }

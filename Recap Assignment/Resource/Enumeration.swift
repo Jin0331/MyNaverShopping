@@ -17,4 +17,5 @@ enum ImageStyle {
     static let search = UIImage(systemName: "magnifyingglass")
     static let menu = UIImage(systemName: "list.dash")
     static let remove = UIImage(systemName: "multiply")
+    static let emptyImage = UIImage(named: "empty")
 }
