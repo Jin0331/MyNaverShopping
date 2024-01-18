@@ -31,4 +31,8 @@ extension MainTableViewCell {
         mainCellLabel.textColor = ImageStyle.textColor
         mainCellLabel.font = ImageStyle.normalFontSize
     }
+    
+    func setCellDate(labelString : String) {
+        mainCellLabel.text = labelString
+    }
 }

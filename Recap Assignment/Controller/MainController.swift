@@ -33,6 +33,13 @@ class MainViewController: UIViewController {
         configureTableViewDesign()
         configureDesign()
         
+        searchKeywordList.append("hi1")
+        searchKeywordList.append("hi2")
+        searchKeywordList.append("hi3")
+        
+    }
+    @IBAction func keyboardHide(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }
 
@@ -51,7 +58,6 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
@@ -65,9 +71,12 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         
         cell.selectionStyle = .none // 선택 삭제
         
-        // cell 안에 button action
+        // cell 내부의 Button 실행 -> cell remove!
         cell.mainCellButton.tag = indexPath.row
         cell.mainCellButton.addTarget(self, action: #selector(mainCellButtonTapped), for: .touchUpInside)
+        
+        // cell의 label 데이터 나타내기
+        cell.setCellDate(labelString: searchKeywordList[indexPath.row])
         
         
         return cell
