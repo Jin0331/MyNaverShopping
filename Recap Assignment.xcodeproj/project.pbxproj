@@ -13,6 +13,9 @@
 		DB9070DD2B590563006EF2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9070DB2B590563006EF2EE /* Main.storyboard */; };
 		DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB9070DE2B590565006EF2EE /* Assets.xcassets */; };
 		DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9070E02B590565006EF2EE /* LaunchScreen.storyboard */; };
+		DB9070EE2B590790006EF2EE /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070ED2B590790006EF2EE /* Protocol.swift */; };
+		DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070EF2B5907A8006EF2EE /* Extension.swift */; };
+		DB9070F22B5907BE006EF2EE /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		DB9070DE2B590565006EF2EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB9070E12B590565006EF2EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB9070E32B590565006EF2EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB9070ED2B590790006EF2EE /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
+		DB9070EF2B5907A8006EF2EE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,10 @@
 		DB9070D42B590563006EF2EE /* Recap Assignment */ = {
 			isa = PBXGroup;
 			children = (
+				DB9070EC2B59071D006EF2EE /* Controller */,
+				DB9070EB2B590719006EF2EE /* Model */,
+				DB9070EA2B590714006EF2EE /* View */,
+				DB9070E92B590703006EF2EE /* Resource */,
 				DB9070D52B590563006EF2EE /* AppDelegate.swift */,
 				DB9070D72B590563006EF2EE /* SceneDelegate.swift */,
 				DB9070D92B590563006EF2EE /* ViewController.swift */,
@@ -65,6 +75,37 @@
 				DB9070E32B590565006EF2EE /* Info.plist */,
 			);
 			path = "Recap Assignment";
+			sourceTree = "<group>";
+		};
+		DB9070E92B590703006EF2EE /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				DB9070ED2B590790006EF2EE /* Protocol.swift */,
+				DB9070EF2B5907A8006EF2EE /* Extension.swift */,
+				DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		DB9070EA2B590714006EF2EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB9070EB2B590719006EF2EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB9070EC2B59071D006EF2EE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +179,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB9070F22B5907BE006EF2EE /* UserDefaultManager.swift in Sources */,
+				DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */,
 				DB9070DA2B590563006EF2EE /* ViewController.swift in Sources */,
 				DB9070D62B590563006EF2EE /* AppDelegate.swift in Sources */,
 				DB9070D82B590563006EF2EE /* SceneDelegate.swift in Sources */,
+				DB9070EE2B590790006EF2EE /* Protocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
