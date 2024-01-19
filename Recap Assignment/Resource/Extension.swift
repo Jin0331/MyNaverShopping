@@ -18,3 +18,10 @@ extension UITableViewCell : ResuableProtocol {
         return String(describing: self)
     }
 }
+
+extension UICollectionViewCell : ResuableProtocol {
+    static var identifier: String {
+        return String(describing: self)
+    }
+    
+}

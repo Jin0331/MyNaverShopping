@@ -26,6 +26,9 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
 extension SearchResultCollectionViewCell {
     
     func configureCellDesign() {
-        
+        searchResultImage.clipsToBounds = true
+        searchResultImage.layer.cornerRadius = 10
+        searchResultMallName.font = ImageStyle.normalFontSize
+        searchResultMallName.textColor = ImageStyle.textColor
     }
 }
