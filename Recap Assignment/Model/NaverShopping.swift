@@ -33,6 +33,17 @@ struct NaverShopping : Codable {
     let lastBuildDate: String
     let total, start, display: Int
     let items: [NaverShoppingItem]
+    
+    // Product ID와 좋아요를 위한 Bool 값 반환 (defualt value)
+    var productIdwithLike : [String : Bool] {
+        get {
+            let temp = items.map({ (item : NaverShoppingItem) -> [String:Bool] in
+                return [item.productId : false]
+            })
+            
+            return Dictionary(uniqueKeysWithValues: temp.flatMap { $0 })
+        }
+    }
 }
 
 // MARK: - Item
@@ -43,4 +54,6 @@ struct NaverShoppingItem: Codable {
     let lprice, hprice, mallName, productId: String
     let productType, brand, maker, category1: String
     let category2, category3, category4: String
+    
+
 }

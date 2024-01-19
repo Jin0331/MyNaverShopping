@@ -46,5 +46,11 @@ extension SearchResultCollectionViewCell {
     func configureCellData(item : NaverShoppingItem) {
         let imageUrl = URL(string : item.image)
         searchResultImage.kf.setImage(with: imageUrl)
+        
+        
+        //TODO: - title 특수문자 제거, price formatter로 천단위 콤마 추가해야 됨
+        searchResultMallName.text = item.mallName
+        searchResultTitle.text = item.title
+        searchResultPrice.text = item.lprice
     }
 }

@@ -18,6 +18,7 @@ class UserDefaultManager {
     
     enum UDkey : String {
         case search
+        case like
     }
     
     
@@ -31,13 +32,22 @@ class UserDefaultManager {
     }
     
     //TODO: - 좋아요는 어떻게하지?????? Array<Dictionary>로 하면될듯???
-//    var target : String {
-//        get {
-//            ud.string(forKey: UDKey.target.rawValue) ?? "ko"
-//        }
-//        set {
-//            ud.set(newValue, forKey: UDKey.target.rawValue)
-//        }
-//    }
-
+    var like : [String:Bool] {
+        get {
+            ud.object(forKey: UDkey.like.rawValue) as? [String:Bool] ?? [:]
+        }
+        set {
+            ud.set(newValue, forKey: UDkey.like.rawValue)
+        }
+    }
+    
+    // function
+    func userDefaultUpdateForLike(new : [String:Bool]) {
+        var currentValue = ud.object(forKey: UDkey.like.rawValue) as? [String:Bool] ?? [:]
+        
+        // merge를 할 때, 중복될 경우 현재 값을 보존한다.
+        let keepingCurrent = currentValue.merging(new) { (current, _) in current }
+        
+        ud.setValue(keepingCurrent, forKey: UDkey.like.rawValue)
+    }
 }

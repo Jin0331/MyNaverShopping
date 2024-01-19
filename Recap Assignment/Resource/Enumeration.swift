@@ -19,3 +19,11 @@ enum ImageStyle {
     static let remove = UIImage(systemName: "multiply")
     static let emptyImage = UIImage(named: "empty")
 }
+
+//MARK: - API request sort 관련
+enum RequestSort : String {
+    case sim
+    case date
+    case asc
+    case dsc
+}

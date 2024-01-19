@@ -29,13 +29,23 @@ class SearchResultController: UIViewController {
         configureCollectionViewProtocol()
         searchResultCollectionView.collectionViewLayout = configureCellLayout()
         
+        // view가 띄워질 때, API request에서 sim(default)로 반환된다.
         callRequest(text: searchKeyword) { value in
             self.searchResult = value
+            
+//            // userDefault 값 초기화
+//            UserDefaultManager.shared.like = [:]
+//            print(UserDefaultManager.shared.like)
+                
+            //TODO: - 기존 값에 새로운 값이 추가되었을 때 비교하여 저장하는 함수 필요
+            UserDefaultManager.shared.userDefaultUpdateForLike(new: self.searchResult.productIdwithLike)
+            print(UserDefaultManager.shared.like)
         }
         
     }
 }
 
+//MARK: - collection View 관련
 extension SearchResultController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func configureCollectionViewProtocol () {
@@ -64,7 +74,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
     
     
 }
-
+//MARK: - normal function
 extension SearchResultController {
     func configureDesgin() {
         navigationItem.title = "\(searchKeyword)"
@@ -89,16 +99,18 @@ extension SearchResultController {
         // item간 간격 설정
         layout.minimumLineSpacing = itemSpacing        // 최소 줄간 간격 (수직 간격)
         layout.minimumInteritemSpacing = itemSpacing   // 최소 행간 간격 (수평 간격)
+        
         return layout
     }
 }
 
+//MARK: - API request
 extension SearchResultController {
     //completaionHandler : @escaping (NaverShopping) -> ()
-    func callRequest(text : String, completaionHandler : @escaping (NaverShopping) -> ()) {
+    func callRequest(text : String, sort : String = RequestSort.sim.rawValue, completaionHandler : @escaping (NaverShopping) -> ()) {
         
         let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=30"
+        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=30&sort=\(sort)"
         
         let header : HTTPHeaders = [
             "X-Naver-Client-Id" : API.naverClientId,
