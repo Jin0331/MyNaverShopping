@@ -44,6 +44,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVC-mo-5fi">
+                                <rect key="frame" x="115" y="92" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Led-fk-b5a"/>
+                                    <constraint firstAttribute="height" constant="40" id="h9W-0V-t7B"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title=""/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemYellowColor"/>
                         <constraints>
@@ -54,6 +63,8 @@
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="sne-lO-FL5" secondAttribute="bottom" constant="2" id="Qe2-d8-2Ir"/>
                             <constraint firstItem="sne-lO-FL5" firstAttribute="leading" secondItem="4Z9-Wa-s9a" secondAttribute="leading" id="Vzb-MN-n3k"/>
                             <constraint firstItem="sne-lO-FL5" firstAttribute="trailing" secondItem="4Z9-Wa-s9a" secondAttribute="trailing" id="W77-cO-fnM"/>
+                            <constraint firstItem="sVC-mo-5fi" firstAttribute="trailing" secondItem="waF-pp-lyp" secondAttribute="trailing" constant="-18" id="YVJ-mI-4Dg"/>
+                            <constraint firstItem="sVC-mo-5fi" firstAttribute="bottom" secondItem="waF-pp-lyp" secondAttribute="bottom" constant="-18" id="aIs-9M-cfL"/>
                             <constraint firstItem="waF-pp-lyp" firstAttribute="leading" secondItem="Obv-RA-lbc" secondAttribute="leading" id="aqS-JN-OHk"/>
                             <constraint firstItem="Ijy-Ty-CUU" firstAttribute="top" secondItem="waF-pp-lyp" secondAttribute="bottom" constant="7" id="nLS-Pl-Xfw"/>
                             <constraint firstAttribute="trailing" secondItem="waF-pp-lyp" secondAttribute="trailing" id="uDq-52-ba0"/>
@@ -62,12 +73,6 @@
                             <constraint firstItem="Ijy-Ty-CUU" firstAttribute="leading" secondItem="waF-pp-lyp" secondAttribute="leading" constant="7" id="xLK-wM-YGV"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVC-mo-5fi">
-                        <rect key="frame" x="114" y="111" width="30" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title=""/>
-                    </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -85,7 +90,7 @@
                 <outlet property="searchResultPrice" destination="sne-lO-FL5" id="Ecg-OU-noa"/>
                 <outlet property="searchResultTitle" destination="4Z9-Wa-s9a" id="2bG-3r-NBl"/>
             </connections>
-            <point key="canvasLocation" x="222.13740458015266" y="75.352112676056336"/>
+            <point key="canvasLocation" x="222.13740458015266" y="74.647887323943664"/>
         </collectionViewCell>
     </objects>
     <resources>

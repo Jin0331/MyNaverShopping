@@ -28,7 +28,20 @@ extension SearchResultCollectionViewCell {
     func configureCellDesign() {
         searchResultImage.clipsToBounds = true
         searchResultImage.layer.cornerRadius = 10
+        searchResultImage.contentMode = .scaleAspectFill
+        
+        searchResultButton.clipsToBounds = true
+        searchResultButton.backgroundColor = .white
+        searchResultButton.tintColor = .black
+        
         searchResultMallName.font = ImageStyle.normalFontSize
         searchResultMallName.textColor = ImageStyle.textColor
+        
+        searchResultTitle.font = ImageStyle.normalFontSize
+        searchResultTitle.textColor = ImageStyle.textColor
+        
+        searchResultPrice.font = ImageStyle.headerFontSize
+        searchResultPrice.textColor = ImageStyle.textColor
+
     }
 }
