@@ -88,10 +88,10 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     //TODO: - Cell 클릭했을 때, 해당 검색어를 전달받는 검색 결과화면 나타나야 됨.
-    //TODO: - 값전달은 아직 안 함,
+    //TODO: - 값전달 매개변수 바꿔야됨
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
-        screenTransition()
+        screenTransition(sendText: "test")
     }
     
 }
@@ -110,7 +110,7 @@ extension MainViewController : UISearchBarDelegate {
         UserDefaultManager.shared.search = searchKeywordList
         
         // 화면 전환 -> 검색 결과 화면(Push)
-        screenTransition()
+        screenTransition(sendText: addText)
     }
 }
 
@@ -135,10 +135,11 @@ extension MainViewController {
     
     // 화면 전환
     //TODO: - 데이터 전달
-    func screenTransition() {
+    func screenTransition(sendText : String) {
         let sb = UIStoryboard(name: SearchResultController.identifier, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: SearchResultController.identifier) as! SearchResultController
         
+        vc.searchKeyword = sendText
         navigationController?.pushViewController(vc, animated: true)
     }
 }

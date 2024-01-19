@@ -18,6 +18,7 @@ class SearchResultController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDesgin()
         configureCollectionViewProtocol()
         searchResultCollectionView.collectionViewLayout = configureCellLayout()
     }
@@ -52,6 +53,11 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
 }
 
 extension SearchResultController {
+    func configureDesgin() {
+        navigationItem.title = "\(searchKeyword) 내비게이션 타이틀입니다."
+        navigationItem.rightBarButtonItem?.title = nil
+    }
+    
     func configureCellLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         
