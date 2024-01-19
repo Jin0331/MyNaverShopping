@@ -28,11 +28,7 @@ extension SearchResultCollectionViewCell {
         searchResultImage.clipsToBounds = true
         searchResultImage.layer.cornerRadius = 15
         searchResultImage.contentMode = .scaleAspectFill
-        
-        searchResultButton.clipsToBounds = true
-        searchResultButton.backgroundColor = .white
-        searchResultButton.tintColor = .black
-        
+                
         searchResultMallName.font = ImageStyle.normalFontSize
         searchResultMallName.textColor = ImageStyle.textColor
         
@@ -52,5 +48,23 @@ extension SearchResultCollectionViewCell {
         searchResultMallName.text = item.mallName
         searchResultTitle.text = item.title
         searchResultPrice.text = item.lprice
+        
+        
+    }
+    
+    func configureCellLikeButton(item : NaverShoppingItem) {
+        
+        // setDesign
+        searchResultButton.tintColor = .black
+        searchResultButton.backgroundColor = .white
+        
+        searchResultButton.clipsToBounds = true
+        searchResultButton.layer.cornerRadius = searchResultButton.layer.frame.width / 2
+        
+        let buttonImage = UserDefaultManager.shared.like[item.productId] ?? false ? "heart.fill" : "heart"
+        
+        searchResultButton.setImage(UIImage(systemName: buttonImage), for: .normal)
+
+
     }
 }

@@ -31,7 +31,6 @@ class UserDefaultManager {
         }
     }
     
-    //TODO: - 좋아요는 어떻게하지?????? Array<Dictionary>로 하면될듯???
     var like : [String:Bool] {
         get {
             ud.object(forKey: UDkey.like.rawValue) as? [String:Bool] ?? [:]
@@ -43,7 +42,7 @@ class UserDefaultManager {
     
     // function
     func userDefaultUpdateForLike(new : [String:Bool]) {
-        var currentValue = ud.object(forKey: UDkey.like.rawValue) as? [String:Bool] ?? [:]
+        let currentValue = ud.object(forKey: UDkey.like.rawValue) as? [String:Bool] ?? [:]
         
         // merge를 할 때, 중복될 경우 현재 값을 보존한다.
         let keepingCurrent = currentValue.merging(new) { (current, _) in current }

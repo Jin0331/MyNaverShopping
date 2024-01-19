@@ -18,6 +18,7 @@ enum ImageStyle {
     static let menu = UIImage(systemName: "list.dash")
     static let remove = UIImage(systemName: "multiply")
     static let emptyImage = UIImage(named: "empty")
+
 }
 
 //MARK: - API request sort 관련

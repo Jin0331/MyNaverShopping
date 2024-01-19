@@ -8,6 +8,8 @@
 import UIKit
 import Alamofire
 
+//TODO: - 좋아요 버튼 눌렀을 때, button이미지의 변화와 Userdefault에 업데이트 필요함
+
 class SearchResultController: UIViewController {
     @IBOutlet var searchResultTotalCount: UILabel!
     //TODO: - Enum으로 case 정해야할 듯. 만약 안되면, button 별로 IBOutlet 연결해서 따로 진행해야 함
@@ -67,6 +69,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         
         cell.configureCellDesign()
         cell.configureCellData(item: searchResult.items[indexPath.item])
+        cell.configureCellLikeButton(item: searchResult.items[indexPath.item])
         
         return cell
         
