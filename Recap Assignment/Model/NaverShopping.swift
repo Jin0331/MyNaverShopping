@@ -40,7 +40,7 @@ struct NaverShoppingItem: Codable {
     let title: String
     let link: String
     let image: String
-    let lprice, hprice, mallName, productID: String
+    let lprice, hprice, mallName, productId: String
     let productType, brand, maker, category1: String
     let category2, category3, category4: String
 }

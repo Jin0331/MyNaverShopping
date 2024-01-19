@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class SearchResultController: UIViewController {
     @IBOutlet var searchResultTotalCount: UILabel!
@@ -21,6 +22,32 @@ class SearchResultController: UIViewController {
         configureDesgin()
         configureCollectionViewProtocol()
         searchResultCollectionView.collectionViewLayout = configureCellLayout()
+        
+        callRequest(text: searchKeyword)
+        
+    }
+    
+    //completaionHandler : @escaping (NaverShopping) -> ()
+    func callRequest(text : String) {
+        
+        let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=30&sort=dsc"
+        
+        let header : HTTPHeaders = [
+            "X-Naver-Client-Id" : API.naverClientId,
+            "X-Naver-Client-Secret": API.naverClientSecret]
+        
+        AF.request(url, method: .get, headers: header)
+            .responseDecodable(of: NaverShopping.self) { response in
+                switch response.result {
+                case .success(let success) :
+                    dump(success)
+                    
+                case .failure(let failure) :
+                    print(#function)
+                    dump(failure)
+                }
+            }
     }
 
 }
