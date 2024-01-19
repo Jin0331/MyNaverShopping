@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchResultCollectionViewCell: UICollectionViewCell {
 
@@ -17,8 +18,6 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        configureCellDesign()
     }
 
 }
@@ -27,7 +26,7 @@ extension SearchResultCollectionViewCell {
     
     func configureCellDesign() {
         searchResultImage.clipsToBounds = true
-        searchResultImage.layer.cornerRadius = 10
+        searchResultImage.layer.cornerRadius = 15
         searchResultImage.contentMode = .scaleAspectFill
         
         searchResultButton.clipsToBounds = true
@@ -42,6 +41,10 @@ extension SearchResultCollectionViewCell {
         
         searchResultPrice.font = ImageStyle.headerFontSize
         searchResultPrice.textColor = ImageStyle.textColor
-
+    }
+    
+    func configureCellData(item : NaverShoppingItem) {
+        let imageUrl = URL(string : item.image)
+        searchResultImage.kf.setImage(with: imageUrl)
     }
 }

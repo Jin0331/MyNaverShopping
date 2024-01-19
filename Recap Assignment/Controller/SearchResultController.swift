@@ -14,8 +14,14 @@ class SearchResultController: UIViewController {
     @IBOutlet var searchResultButtonCollection: [UIButton]!
     @IBOutlet var searchResultCollectionView: UICollectionView!
     
-    //TODO: - 메인화면에서 넘어오는 keyword를 가지고 해당 VC에서 API 호출을 담당한다.
+    //TODO: -
     var searchKeyword : String = ""
+    var searchResult : NaverShopping = NaverShopping(lastBuildDate: "", total: 0, start: 0, display: 0, items: []) {
+        didSet {
+            print(#function, "searchResult 수정됨")
+            searchResultCollectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,33 +29,11 @@ class SearchResultController: UIViewController {
         configureCollectionViewProtocol()
         searchResultCollectionView.collectionViewLayout = configureCellLayout()
         
-        callRequest(text: searchKeyword)
+        callRequest(text: searchKeyword) { value in
+            self.searchResult = value
+        }
         
     }
-    
-    //completaionHandler : @escaping (NaverShopping) -> ()
-    func callRequest(text : String) {
-        
-        let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=30&sort=dsc"
-        
-        let header : HTTPHeaders = [
-            "X-Naver-Client-Id" : API.naverClientId,
-            "X-Naver-Client-Secret": API.naverClientSecret]
-        
-        AF.request(url, method: .get, headers: header)
-            .responseDecodable(of: NaverShopping.self) { response in
-                switch response.result {
-                case .success(let success) :
-                    dump(success)
-                    
-                case .failure(let failure) :
-                    print(#function)
-                    dump(failure)
-                }
-            }
-    }
-
 }
 
 extension SearchResultController : UICollectionViewDelegate, UICollectionViewDataSource {
@@ -64,13 +48,15 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return searchResult.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = searchResultCollectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
         
+        cell.configureCellDesign()
+        cell.configureCellData(item: searchResult.items[indexPath.item])
         
         return cell
         
@@ -81,7 +67,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
 
 extension SearchResultController {
     func configureDesgin() {
-        navigationItem.title = "\(searchKeyword) 내비게이션 타이틀입니다."
+        navigationItem.title = "\(searchKeyword)"
         navigationItem.rightBarButtonItem?.title = nil
     }
     
@@ -95,7 +81,7 @@ extension SearchResultController {
         let itemWidth: CGFloat = width / rowCount
         
         // 각 item의 크기 설정 (아래 코드는 정사각형을 그린다는 가정)
-        layout.itemSize = CGSize(width: itemWidth , height: itemWidth + 50)
+        layout.itemSize = CGSize(width: itemWidth - 5 , height: itemWidth + 80)
         // 스크롤 방향 설정
         layout.scrollDirection = .vertical
         // Section간 간격 설정
@@ -104,5 +90,31 @@ extension SearchResultController {
         layout.minimumLineSpacing = itemSpacing        // 최소 줄간 간격 (수직 간격)
         layout.minimumInteritemSpacing = itemSpacing   // 최소 행간 간격 (수평 간격)
         return layout
+    }
+}
+
+extension SearchResultController {
+    //completaionHandler : @escaping (NaverShopping) -> ()
+    func callRequest(text : String, completaionHandler : @escaping (NaverShopping) -> ()) {
+        
+        let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=30"
+        
+        let header : HTTPHeaders = [
+            "X-Naver-Client-Id" : API.naverClientId,
+            "X-Naver-Client-Secret": API.naverClientSecret]
+        
+        AF.request(url, method: .get, headers: header)
+            .responseDecodable(of: NaverShopping.self) { response in
+                switch response.result {
+                case .success(let success) :
+                    print("조회 성공")
+                    completaionHandler(success)
+                    
+                case .failure(let failure) :
+                    print(#function)
+                    dump(failure)
+                }
+            }
     }
 }

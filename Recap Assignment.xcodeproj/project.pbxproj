@@ -10,6 +10,8 @@
 		DB1CA5102B5A4724000EB832 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA50F2B5A4724000EB832 /* API.swift */; };
 		DB1CA5122B5A4928000EB832 /* NaverShopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA5112B5A4928000EB832 /* NaverShopping.swift */; };
 		DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DB1CA5142B5A4941000EB832 /* Alamofire */; };
+		DB1CA51A2B5A57EC000EB832 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DB1CA5192B5A57EC000EB832 /* Kingfisher */; };
+		DB1CA51E2B5A5C53000EB832 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB1CA51D2B5A5C53000EB832 /* Empty.xib */; };
 		DB81C4342B594EA00068CEB7 /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81C4332B594EA00068CEB7 /* Enumeration.swift */; };
 		DB9070D62B590563006EF2EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D52B590563006EF2EE /* AppDelegate.swift */; };
 		DB9070D82B590563006EF2EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D72B590563006EF2EE /* SceneDelegate.swift */; };
@@ -31,6 +33,7 @@
 /* Begin PBXFileReference section */
 		DB1CA50F2B5A4724000EB832 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		DB1CA5112B5A4928000EB832 /* NaverShopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShopping.swift; sourceTree = "<group>"; };
+		DB1CA51D2B5A5C53000EB832 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
 		DB81C4332B594EA00068CEB7 /* Enumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
 		DB9070D22B590563006EF2EE /* Recap Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recap Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9070D52B590563006EF2EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB1CA51A2B5A57EC000EB832 /* Kingfisher in Frameworks */,
 				DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +153,7 @@
 			children = (
 				DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */,
 				DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */,
+				DB1CA51D2B5A5C53000EB832 /* Empty.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 			name = "Recap Assignment";
 			packageProductDependencies = (
 				DB1CA5142B5A4941000EB832 /* Alamofire */,
+				DB1CA5192B5A57EC000EB832 /* Kingfisher */,
 			);
 			productName = "Recap Assignment";
 			productReference = DB9070D22B590563006EF2EE /* Recap Assignment.app */;
@@ -202,6 +208,7 @@
 			mainGroup = DB9070C92B590563006EF2EE;
 			packageReferences = (
 				DB1CA5132B5A4941000EB832 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = DB9070D32B590563006EF2EE /* Products */;
 			projectDirPath = "";
@@ -221,6 +228,7 @@
 				DBA43A4B2B59805D00DED8CD /* SearchResultCollectionViewCell.xib in Resources */,
 				DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */,
 				DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */,
+				DB1CA51E2B5A5C53000EB832 /* Empty.xib in Resources */,
 				DB9070F92B594A33006EF2EE /* MainTableViewCell.xib in Resources */,
 				DB9070DD2B590563006EF2EE /* Main.storyboard in Resources */,
 			);
@@ -485,6 +493,14 @@
 				minimumVersion = 5.8.1;
 			};
 		};
+		DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -492,6 +508,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DB1CA5132B5A4941000EB832 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		DB1CA5192B5A57EC000EB832 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
