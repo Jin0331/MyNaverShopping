@@ -9,9 +9,23 @@ import UIKit
 
 class SearchResultCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet var searchResultImage: UIImageView!
+    @IBOutlet var searchResultMallName: UILabel!
+    @IBOutlet var searchResultTitle : UILabel!
+    @IBOutlet var searchResultPrice: UILabel!
+    @IBOutlet var searchResultButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        configureCellDesign()
     }
 
+}
+
+extension SearchResultCollectionViewCell {
+    
+    func configureCellDesign() {
+        
+    }
 }

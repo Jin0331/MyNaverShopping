@@ -88,7 +88,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     //TODO: - Cell 클릭했을 때, 해당 검색어를 전달받는 검색 결과화면 나타나야 됨.
-    //TODO: - 값전달은 아직 안 함
+    //TODO: - 값전달은 아직 안 함,
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
         screenTransition()
@@ -133,6 +133,8 @@ extension MainViewController {
         mainEmptyLabel.isHidden = searchKeywordList.count == 0 ? false : true
     }
     
+    // 화면 전환
+    //TODO: - 데이터 전달
     func screenTransition() {
         let sb = UIStoryboard(name: SearchResultController.identifier, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: SearchResultController.identifier) as! SearchResultController
