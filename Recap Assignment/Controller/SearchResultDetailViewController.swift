@@ -29,11 +29,14 @@ class SearchResultDetailViewController: UIViewController {
 extension SearchResultDetailViewController {
     func configureDesign () {
         
+        self.view.backgroundColor = ImageStyle.backgroundColor
+        
         guard let i = item else { return }
         guard let url = URL(string: "\(defaultUrl)\(i.productId)") else { return }
         
         //webView
         let request = URLRequest(url: url)
+        searchDetailWebView.backgroundColor = .clear
         searchDetailWebView.load(request)
         
         // title & html 태그 제거
@@ -47,7 +50,7 @@ extension SearchResultDetailViewController {
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: buttonImage), style: .plain, target: self, action: #selector(searchResultDetailButtonTapped))
         
-        self.navigationItem.rightBarButtonItem?.tintColor = ImageStyle.pointColor
+        self.navigationItem.rightBarButtonItem?.tintColor = ImageStyle.textColor
     }
     
     @objc func searchResultDetailButtonTapped(sender : UIBarButtonItem) {

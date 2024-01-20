@@ -13,6 +13,8 @@ class MainViewController: UIViewController {
     @IBOutlet var mainTableView: UITableView!
     @IBOutlet var mainEmptyImage: UIImageView!
     @IBOutlet var mainEmptyLabel: UILabel!
+    @IBOutlet var latestLabel: UILabel!
+    @IBOutlet var removeButton: UIButton!
     
     var searchKeywordList : [String] = UserDefaultManager.shared.search {
         didSet {
@@ -36,6 +38,11 @@ class MainViewController: UIViewController {
     }
     @IBAction func keyboardHide(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    @IBAction func searchKeywordRemove(_ sender: UIButton) {
+        searchKeywordList = []
+        UserDefaultManager.shared.search = []
+        mainTableView.reloadData()
     }
 }
 
@@ -65,6 +72,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
         
+        cell.backgroundColor = .clear
         cell.selectionStyle = .none // 선택 삭제
         
         // cell 내부의 Button 실행 -> cell remove!
@@ -118,7 +126,12 @@ extension MainViewController : UISearchBarDelegate {
 // 일반 function
 extension MainViewController {
     func configureDesign() {
+        self.view.backgroundColor = ImageStyle.backgroundColor
+        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
+        mainTableView.backgroundColor = .clear
         mainSearchbar.searchBarStyle = .minimal
+        mainSearchbar.barStyle = .black
+        mainSearchbar.tintColor = ImageStyle.textColor
         mainSearchbar.placeholder = "브랜드, 상품, 프로필, 태그 등"
         mainEmptyImage.image = ImageStyle.emptyImage
         mainEmptyImage.contentMode = .scaleAspectFit
@@ -126,9 +139,17 @@ extension MainViewController {
         mainEmptyLabel.textAlignment = .center
         mainEmptyLabel.font = ImageStyle.headerFontSize
         mainEmptyLabel.textColor = ImageStyle.textColor
+        latestLabel.text = "최근 검색"
+        latestLabel.textColor = ImageStyle.textColor
+        latestLabel.font = ImageStyle.normalFontSize
+        removeButton.setTitle("모두 지우기", for: .normal)
+        removeButton.setTitleColor(ImageStyle.pointColor, for: .normal)
+        removeButton.titleLabel?.font = ImageStyle.normalFontSize
+        removeButton.titleLabel?.textAlignment = .right
         
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-        backBarButtonItem.tintColor = ImageStyle.pointColor
+        backBarButtonItem.tintColor = ImageStyle.textColor
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     

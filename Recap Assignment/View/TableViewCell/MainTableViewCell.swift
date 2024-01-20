@@ -24,9 +24,9 @@ class MainTableViewCell: UITableViewCell {
 extension MainTableViewCell {
     func configureCellDesign () {
         mainCellImageView.image = ImageStyle.search
-        mainCellImageView.tintColor = ImageStyle.pointColor
+        mainCellImageView.tintColor = ImageStyle.textColor
         mainCellButton.setTitle("", for: .normal)
-        mainCellButton.tintColor = ImageStyle.pointColor
+        mainCellButton.tintColor = ImageStyle.textColor
         mainCellButton.setImage(ImageStyle.remove, for: .normal)
         mainCellLabel.textColor = ImageStyle.textColor
         mainCellLabel.font = ImageStyle.normalFontSize

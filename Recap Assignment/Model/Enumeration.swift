@@ -9,8 +9,8 @@ import UIKit
 
 //MARK: -Desgin 관련 enum
 enum ImageStyle {
-    static let pointColor = UIColor(red: 73, green: 220, blue: 146, alpha: 1)
-    static let backgroundColor = UIColor(red: 0, green: 0, blue: 146, alpha: 1)
+    static let pointColor = UIColor.green
+    static let backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
     static let textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
     static let headerFontSize = UIFont.systemFont(ofSize: 17)
     static let normalFontSize = UIFont.systemFont(ofSize: 13)

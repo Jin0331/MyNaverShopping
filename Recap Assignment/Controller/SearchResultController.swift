@@ -79,6 +79,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         
         let cell = searchResultCollectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCollectionViewCell.identifier, for: indexPath) as! SearchResultCollectionViewCell
         
+        cell.backgroundColor = .clear
         cell.configureCellDesign()
         cell.configureCellData(item: searchResult.items[indexPath.item])
         cell.configureCellLikeButton(item: searchResult.items[indexPath.item])
@@ -147,11 +148,15 @@ extension SearchResultController {
         // navgiation
         self.navigationItem.title = "\(searchKeyword)"
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-        backBarButtonItem.tintColor = ImageStyle.pointColor
+        backBarButtonItem.tintColor = ImageStyle.textColor
         self.navigationItem.backBarButtonItem = backBarButtonItem
         
+        self.view.backgroundColor = ImageStyle.backgroundColor
+        searchResultCollectionView.backgroundColor = .clear
         
-        searchResultTotalCount.text = "\(searchResult.total) 개의 검색 결과"
+        searchResultTotalCount.text = "\(searchResult.totalChange) 개의 검색 결과"
+        searchResultTotalCount.textColor = ImageStyle.pointColor
+        searchResultTotalCount.font = ImageStyle.headerFontSize
         
         //TODO: - Enum으로 case 정해야할 듯. 만약 안되면, button 별로 IBOutlet 연결해서 따로 진행해야 함 - 완료
         //TODO: - button의 name에 실행될 기능 추가 - 완료
@@ -159,6 +164,13 @@ extension SearchResultController {
         for value in requestSort {
             searchResultButtonCollection[value.index].setTitle(value.rawValue, for: .normal)
             searchResultButtonCollection[value.index].layer.name = value.caseValue
+            searchResultButtonCollection[value.index].setTitleColor(ImageStyle.textColor, for: .normal)
+            searchResultButtonCollection[value.index].titleLabel?.font = ImageStyle.normalFontSize
+            searchResultButtonCollection[value.index].layer.borderWidth = 1
+            searchResultButtonCollection[value.index].layer.borderColor = ImageStyle.textColor.cgColor
+            searchResultButtonCollection[value.index].clipsToBounds = true
+            searchResultButtonCollection[value.index].layer.cornerRadius = 10
+            
         }
     }
     

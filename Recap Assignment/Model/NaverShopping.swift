@@ -1,3 +1,4 @@
+import Foundation
 
 //MARK: - Naver Shopping API 호출 결과
 /*
@@ -46,6 +47,18 @@ struct NaverShopping : Codable {
             return Dictionary(uniqueKeysWithValues: temp.flatMap { $0 })
         }
     }
+    
+    var totalChange : String {
+        get {
+            
+            let numberFormatter: NumberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+
+            let result: String = numberFormatter.string(for: total)!
+            
+            return result
+        }
+    }
 }
 
 // MARK: - Item
@@ -57,5 +70,16 @@ struct NaverShoppingItem: Codable {
     let productType, brand, maker, category1: String
     let category2, category3, category4: String
     
+    var lpriceChange : String {
+        get {
+            
+            let numberFormatter: NumberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+
+            let result: String = numberFormatter.string(for: lprice)!
+            
+            return result
+        }
+    }
 
 }
