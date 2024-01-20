@@ -41,7 +41,7 @@ class UserDefaultManager {
     }
     
     // function
-    func userDefaultUpdateForLike(new : [String:Bool]) {
+    func userDefaultUpdateForLike(new : [String:Bool]) { // 전체 검색이 되었을 떄 실해되는 함수
         let currentValue = ud.object(forKey: UDkey.like.rawValue) as? [String:Bool] ?? [:]
         
         // merge를 할 때, 중복될 경우 현재 값을 보존한다.
@@ -49,4 +49,14 @@ class UserDefaultManager {
         
         ud.setValue(keepingCurrent, forKey: UDkey.like.rawValue)
     }
+    
+    func userDefaultButtonUpdate(productID : String) { // button이 클릭될 떄마다, user
+        var currentValue = ud.object(forKey: UDkey.like.rawValue) as? [String:Bool] ?? [:]
+        
+        currentValue[productID]?.toggle()
+        
+        ud.setValue(currentValue, forKey: UDkey.like.rawValue)
+        
+    }
+    
 }

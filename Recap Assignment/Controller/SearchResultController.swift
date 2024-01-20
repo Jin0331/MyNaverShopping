@@ -39,11 +39,10 @@ class SearchResultController: UIViewController {
 //            UserDefaultManager.shared.like = [:]
 //            print(UserDefaultManager.shared.like)
                 
-            //TODO: - 기존 값에 새로운 값이 추가되었을 때 비교하여 저장하는 함수 필요
+            //TODO: - 기존 값에 새로운 값이 추가되었을 때 비교하여 저장하는 함수 필요 - 구현완료
             UserDefaultManager.shared.userDefaultUpdateForLike(new: self.searchResult.productIdwithLike)
             print(UserDefaultManager.shared.like)
         }
-        
     }
 }
 
@@ -71,10 +70,30 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         cell.configureCellData(item: searchResult.items[indexPath.item])
         cell.configureCellLikeButton(item: searchResult.items[indexPath.item])
         
+        //TODO: - cell 내의 button 동작을 위한 함수 구현
+        cell.searchResultButton.tag = indexPath.item
+        cell.searchResultButton.layer.name = searchResult.items[indexPath.item].productId // Button에 ProductID 전달
+        
+        cell.searchResultButton.addTarget(self, action: #selector(searchResultButtonTapped), for: .touchUpInside)
+        
         return cell
         
     }
     
+    //TODO: - 눌렀을 때, UserDefault의 Key값을 기준으로 값 변경, 토글 떄리면 될 듯!
+    //TODO: -
+    @objc func searchResultButtonTapped(sender : UIButton) {
+        print(#function)
+        print(sender.layer.name) // optional 들어옴
+        
+        guard let productID = sender.layer.name else { return }
+        
+//        print(UserDefaultManager.shared.like[productID])
+        
+        UserDefaultManager.shared.userDefaultButtonUpdate(productID: productID)
+        
+//        print(UserDefaultManager.shared.like[productID])
+    }
     
 }
 //MARK: - normal function
