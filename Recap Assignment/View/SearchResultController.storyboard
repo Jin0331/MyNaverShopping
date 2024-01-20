@@ -43,10 +43,9 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfn-Ix-2b5">
-                                <rect key="frame" x="0.0" y="94" width="42" height="21"/>
+                                <rect key="frame" x="5" y="94" width="383" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9nI-7r-slm"/>
-                                    <constraint firstAttribute="width" constant="42" id="Ouy-Pt-Nu4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -78,8 +77,9 @@
                         <constraints>
                             <constraint firstItem="K0z-af-mgo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="0I7-JT-rej"/>
                             <constraint firstItem="K0z-af-mgo" firstAttribute="top" secondItem="jfn-Ix-2b5" secondAttribute="bottom" constant="18" id="4Hy-gM-EZu"/>
-                            <constraint firstItem="jfn-Ix-2b5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AVX-US-7Or"/>
+                            <constraint firstItem="jfn-Ix-2b5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="5" id="AVX-US-7Or"/>
                             <constraint firstItem="lWQ-49-H0p" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="C4o-V7-RGK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jfn-Ix-2b5" secondAttribute="trailing" constant="5" id="Pq8-TE-4KX"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="K0z-af-mgo" secondAttribute="trailing" constant="63" id="VL4-vT-T70"/>
                             <constraint firstItem="lWQ-49-H0p" firstAttribute="top" secondItem="K0z-af-mgo" secondAttribute="bottom" constant="16.670000000000002" id="WcC-PF-u2t"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lWQ-49-H0p" secondAttribute="trailing" constant="-16" id="gcK-zi-NpQ"/>

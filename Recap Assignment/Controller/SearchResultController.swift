@@ -8,7 +8,9 @@
 import UIKit
 import Alamofire
 
-//TODO: - 좋아요 버튼 눌렀을 때, button이미지의 변화와 Userdefault에 업데이트 필요함
+//TODO: - 좋아요 버튼 눌렀을 때, button이미지의 변화와 Userdefault에 업데이트 필요함 - 완료
+//TODO: - pagination
+//TODO: - button 별 sort request
 
 class SearchResultController: UIViewController {
     @IBOutlet var searchResultTotalCount: UILabel!
@@ -16,17 +18,18 @@ class SearchResultController: UIViewController {
     @IBOutlet var searchResultButtonCollection: [UIButton]!
     @IBOutlet var searchResultCollectionView: UICollectionView!
     
-    //TODO: -
     var searchKeyword : String = ""
     var searchResult : NaverShopping = NaverShopping(lastBuildDate: "", total: 0, start: 0, display: 0, items: []) {
         didSet {
             print(#function, "searchResult 수정됨")
             searchResultCollectionView.reloadData()
+            configureDesgin()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureDesgin()
         configureCollectionViewProtocol()
         searchResultCollectionView.collectionViewLayout = configureCellLayout()
@@ -70,7 +73,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         cell.configureCellData(item: searchResult.items[indexPath.item])
         cell.configureCellLikeButton(item: searchResult.items[indexPath.item])
         
-        //TODO: - cell 내의 button 동작을 위한 함수 구현
+        //TODO: - cell 내의 button 동작을 위한 함수 구현 - 완료
         cell.searchResultButton.tag = indexPath.item
         cell.searchResultButton.layer.name = searchResult.items[indexPath.item].productId // Button에 ProductID 전달
         
@@ -88,19 +91,21 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         
         guard let productID = sender.layer.name else { return }
         
-//        print(UserDefaultManager.shared.like[productID])
-        
+        // 좋아요 토글
         UserDefaultManager.shared.userDefaultButtonUpdate(productID: productID)
+        print(UserDefaultManager.shared.like[productID])
         
-//        print(UserDefaultManager.shared.like[productID])
+        searchResultCollectionView.reloadData()
     }
     
 }
 //MARK: - normal function
 extension SearchResultController {
+    //TODO: - 숫자 콤마 적용해야됨
     func configureDesgin() {
         navigationItem.title = "\(searchKeyword)"
         navigationItem.rightBarButtonItem?.title = nil
+        searchResultTotalCount.text = "\(searchResult.total) 개의 검색 결과"
     }
     
     func configureCellLayout() -> UICollectionViewFlowLayout {
