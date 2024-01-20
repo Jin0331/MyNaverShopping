@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 //TODO: - 좋아요 버튼 눌렀을 때, button이미지의 변화와 Userdefault에 업데이트 필요함 - 완료
-//TODO: - pagination
+//TODO: - pagination - 완료
 //TODO: - button 별 sort request
 
 class SearchResultController: UIViewController {
@@ -27,6 +27,11 @@ class SearchResultController: UIViewController {
         }
     }
     
+    // api request 관련
+    var start = 1
+    var display = 20
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,16 +40,9 @@ class SearchResultController: UIViewController {
         searchResultCollectionView.collectionViewLayout = configureCellLayout()
         
         // view가 띄워질 때, API request에서 sim(default)로 반환된다.
-        callRequest(text: searchKeyword) { value in
-            self.searchResult = value
+        callRequest(text: searchKeyword) { value, start  in
             
-//            // userDefault 값 초기화
-//            UserDefaultManager.shared.like = [:]
-//            print(UserDefaultManager.shared.like)
-                
-            //TODO: - 기존 값에 새로운 값이 추가되었을 때 비교하여 저장하는 함수 필요 - 구현완료
-            UserDefaultManager.shared.userDefaultUpdateForLike(new: self.searchResult.productIdwithLike)
-            print(UserDefaultManager.shared.like)
+            self.searchResultUpdate(value: value, start: start)
         }
     }
 }
@@ -59,6 +57,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         
         searchResultCollectionView.delegate = self
         searchResultCollectionView.dataSource = self
+        searchResultCollectionView.prefetchDataSource = self
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -86,19 +85,44 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
     //TODO: - 눌렀을 때, UserDefault의 Key값을 기준으로 값 변경, 토글 떄리면 될 듯!
     //TODO: -
     @objc func searchResultButtonTapped(sender : UIButton) {
-        print(#function)
         print(sender.layer.name) // optional 들어옴
         
         guard let productID = sender.layer.name else { return }
         
         // 좋아요 토글
         UserDefaultManager.shared.userDefaultButtonUpdate(productID: productID)
-        print(UserDefaultManager.shared.like[productID])
+        //        print(UserDefaultManager.shared.like[productID])
         
         searchResultCollectionView.reloadData()
     }
     
 }
+
+//MARK: - collection View pagination
+extension SearchResultController : UICollectionViewDataSourcePrefetching {
+    //TODO: - Collection View pagination 적용
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+        print(#function, "- collection View pagination")
+        for item in indexPaths {
+            if searchResult.items.count - 8 == item.item  && searchResult.items.count < searchResult.total {
+                print(#function, "- collection View pagination")
+                
+                start += display
+                callRequest(text: searchKeyword) { value, start in
+                    self.searchResultUpdate(value: value, start: start)
+                }
+            }
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        
+    }
+    
+}
+
 //MARK: - normal function
 extension SearchResultController {
     //TODO: - 숫자 콤마 적용해야됨
@@ -134,10 +158,10 @@ extension SearchResultController {
 //MARK: - API request
 extension SearchResultController {
     //completaionHandler : @escaping (NaverShopping) -> ()
-    func callRequest(text : String, sort : String = RequestSort.sim.rawValue, completaionHandler : @escaping (NaverShopping) -> ()) {
+    func callRequest(text : String, sort : String = RequestSort.sim.rawValue, completaionHandler : @escaping (NaverShopping, Int) -> ()) {
         
         let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=30&sort=\(sort)"
+        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=\(self.display)&sort=\(sort)&start=\(self.start)"
         
         let header : HTTPHeaders = [
             "X-Naver-Client-Id" : API.naverClientId,
@@ -148,12 +172,24 @@ extension SearchResultController {
                 switch response.result {
                 case .success(let success) :
                     print("조회 성공")
-                    completaionHandler(success)
+                    
+                    completaionHandler(success, self.start)
                     
                 case .failure(let failure) :
                     print(#function)
                     dump(failure)
                 }
             }
+    }
+    
+    func searchResultUpdate(value: NaverShopping, start : Int){
+        if start == 1 {
+            self.searchResult = value
+        } else {
+            self.searchResult.items.append(contentsOf: value.items)
+        }
+        //TODO: - 기존 값에 새로운 값이 추가되었을 때 비교하여 저장하는 함수 필요 - 구현완료
+        UserDefaultManager.shared.userDefaultUpdateForLike(new: self.searchResult.productIdwithLike)
+        print(#function)
     }
 }

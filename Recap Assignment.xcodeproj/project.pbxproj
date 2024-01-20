@@ -104,9 +104,6 @@
 			children = (
 				DB9070ED2B590790006EF2EE /* Protocol.swift */,
 				DB9070EF2B5907A8006EF2EE /* Extension.swift */,
-				DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */,
-				DB81C4332B594EA00068CEB7 /* Enumeration.swift */,
-				DB1CA50F2B5A4724000EB832 /* API.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -126,6 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				DB1CA5112B5A4928000EB832 /* NaverShopping.swift */,
+				DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */,
+				DB81C4332B594EA00068CEB7 /* Enumeration.swift */,
+				DB1CA50F2B5A4724000EB832 /* API.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

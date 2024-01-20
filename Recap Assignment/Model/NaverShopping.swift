@@ -32,7 +32,7 @@
 struct NaverShopping : Codable {
     let lastBuildDate: String
     let total, start, display: Int
-    let items: [NaverShoppingItem]
+    var items: [NaverShoppingItem]
     
     // Product ID와 좋아요를 위한 Bool 값 반환 (defualt value)
     var productIdwithLike : [String : Bool] {
