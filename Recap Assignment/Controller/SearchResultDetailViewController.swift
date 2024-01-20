@@ -13,11 +13,11 @@ class SearchResultDetailViewController: UIViewController {
     @IBOutlet var searchDetailWebView: WKWebView!
     
     var detailURL : URL?
+    var productTitle : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(detailURL)
         configureDesign()
     }
 
@@ -25,13 +25,19 @@ class SearchResultDetailViewController: UIViewController {
 
 extension SearchResultDetailViewController {
     func configureDesign () {
-        guard let url = detailURL else {
-            print("Error: detailURL is nil")
-            return
-        }
-
+        
+        
+        guard let url = detailURL else { return }
+        guard let pdTitle = productTitle else { return }
+        
+        //webView
         let request = URLRequest(url: url)
-        print(request)
         searchDetailWebView.load(request)
+        
+        // title & html 태그 제거
+        navigationItem.title = pdTitle.replacingOccurrences(of: "<[^>]+>|&quot;", 
+                                                            with: "",
+                                                            options: .regularExpression,
+                                                            range: nil)
     }
 }

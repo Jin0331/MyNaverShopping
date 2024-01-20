@@ -94,6 +94,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         let vc = sb.instantiateViewController(withIdentifier: SearchResultDetailViewController.identifier) as! SearchResultDetailViewController
         
         vc.detailURL = URL(string: "https://msearch.shopping.naver.com/product/\(searchResult.items[indexPath.item].productId)")!
+        vc.productTitle = searchResult.items[indexPath.item].title
         
         navigationController?.pushViewController(vc, animated: true)
     }

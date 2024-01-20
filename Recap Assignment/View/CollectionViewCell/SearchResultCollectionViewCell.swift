@@ -44,9 +44,13 @@ extension SearchResultCollectionViewCell {
         searchResultImage.kf.setImage(with: imageUrl)
         
         
-        //TODO: - title 특수문자 제거, price formatter로 천단위 콤마 추가해야 됨
+        //TODO: - title 특수문자 제거- 완료
+        //TODO: - price formatter로 천단위 콤마 추가해야 됨
         searchResultMallName.text = item.mallName
-        searchResultTitle.text = item.title
+        searchResultTitle.text = item.title.replacingOccurrences(of: "<[^>]+>|&quot;",
+                                                                 with: "",
+                                                                 options: .regularExpression,
+                                                                 range: nil)
         searchResultPrice.text = item.lprice
         
         
