@@ -10,7 +10,9 @@ import Alamofire
 
 //TODO: - 좋아요 버튼 눌렀을 때, button이미지의 변화와 Userdefault에 업데이트 필요함 - 완료
 //TODO: - pagination - 완료
-//TODO: - button 별 sort request
+//TODO: - button 별 sort request - 완료
+//TODO: - cell 선택했을 때 상세화면
+//TODO: - 디자인
 
 class SearchResultController: UIViewController {
     @IBOutlet var searchResultTotalCount: UILabel!
@@ -87,8 +89,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         
     }
     
-    //TODO: - 눌렀을 때, UserDefault의 Key값을 기준으로 값 변경, 토글 떄리면 될 듯!
-    //TODO: -
+    //TODO: - 눌렀을 때, UserDefault의 Key값을 기준으로 값 변경, 토글 떄리면 될 듯! - 완료
     @objc func searchResultButtonTapped(sender : UIButton) {
         guard let productID = sender.layer.name else { return }
         
@@ -103,7 +104,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
 
 //MARK: - collection View pagination
 extension SearchResultController : UICollectionViewDataSourcePrefetching {
-    //TODO: - Collection View pagination 적용
+    //TODO: - Collection View pagination 적용 - 완료
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         
         print(#function, "- collection View pagination")
@@ -135,7 +136,7 @@ extension SearchResultController {
         searchResultTotalCount.text = "\(searchResult.total) 개의 검색 결과"
         
         //TODO: - Enum으로 case 정해야할 듯. 만약 안되면, button 별로 IBOutlet 연결해서 따로 진행해야 함 - 완료
-        //TODO: - button의 name에 실행될 기능 추가
+        //TODO: - button의 name에 실행될 기능 추가 - 완료
         let requestSort = RequestSort.allCases
         for value in requestSort {
             searchResultButtonCollection[value.index].setTitle(value.rawValue, for: .normal)
