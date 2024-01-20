@@ -32,6 +32,10 @@ class SearchResultController: UIViewController {
     var start = 1
     var display = 30
     
+    override func viewWillAppear(_ animated: Bool) {
+        searchResultCollectionView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -92,9 +96,8 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         
         let sb = UIStoryboard(name: SearchResultDetailViewController.identifier, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: SearchResultDetailViewController.identifier) as! SearchResultDetailViewController
-        
-        vc.detailURL = URL(string: "https://msearch.shopping.naver.com/product/\(searchResult.items[indexPath.item].productId)")!
-        vc.productTitle = searchResult.items[indexPath.item].title
+
+        vc.item = searchResult.items[indexPath.item]
         
         navigationController?.pushViewController(vc, animated: true)
     }

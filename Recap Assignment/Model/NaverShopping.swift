@@ -37,8 +37,12 @@ struct NaverShopping : Codable {
     // Product ID와 좋아요를 위한 Bool 값 반환 (defualt value)
     var productIdwithLike : [String : Bool] {
         get {
-            let temp = items.map({ (item : NaverShoppingItem) -> [String:Bool] in
-                return [item.productId : false]
+            
+            let productID = items.map { return $0.productId}
+            
+            // 중복
+            let temp = Array(Set(productID)).map({ (item : String) -> [String:Bool] in
+                return [item : false]
             })
             
             return Dictionary(uniqueKeysWithValues: temp.flatMap { $0 })
