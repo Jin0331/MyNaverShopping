@@ -37,7 +37,7 @@ extension SearchResultDetailViewController {
         searchDetailWebView.load(request)
         
         // title & html 태그 제거
-        navigationItem.title = i.title.replacingOccurrences(of: "<[^>]+>|&quot;",
+        self.navigationItem.title = i.title.replacingOccurrences(of: "<[^>]+>|&quot;",
                                                             with: "",
                                                             options: .regularExpression,
                                                             range: nil)
@@ -45,9 +45,9 @@ extension SearchResultDetailViewController {
         // navgiation button
         let buttonImage = UserDefaultManager.shared.like[i.productId] ?? false ? "heart.fill" : "heart"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: buttonImage), style: .plain, target: self, action: #selector(searchResultDetailButtonTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: buttonImage), style: .plain, target: self, action: #selector(searchResultDetailButtonTapped))
         
-        navigationItem.rightBarButtonItem?.tintColor = ImageStyle.pointColor
+        self.navigationItem.rightBarButtonItem?.tintColor = ImageStyle.pointColor
     }
     
     @objc func searchResultDetailButtonTapped(sender : UIBarButtonItem) {

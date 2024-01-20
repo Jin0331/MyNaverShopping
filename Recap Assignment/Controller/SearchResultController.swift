@@ -144,8 +144,13 @@ extension SearchResultController : UICollectionViewDataSourcePrefetching {
 extension SearchResultController {
     //TODO: - 숫자 콤마 적용해야됨
     func configureDesgin() {
-        navigationItem.title = "\(searchKeyword)"
-        navigationItem.rightBarButtonItem?.title = nil
+        // navgiation
+        self.navigationItem.title = "\(searchKeyword)"
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
+        backBarButtonItem.tintColor = ImageStyle.pointColor
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
+        
         searchResultTotalCount.text = "\(searchResult.total) 개의 검색 결과"
         
         //TODO: - Enum으로 case 정해야할 듯. 만약 안되면, button 별로 IBOutlet 연결해서 따로 진행해야 함 - 완료

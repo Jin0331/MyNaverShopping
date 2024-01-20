@@ -126,6 +126,10 @@ extension MainViewController {
         mainEmptyLabel.textAlignment = .center
         mainEmptyLabel.font = ImageStyle.headerFontSize
         mainEmptyLabel.textColor = ImageStyle.textColor
+        
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
+        backBarButtonItem.tintColor = ImageStyle.pointColor
+        self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
     func setEmptyUI() {
