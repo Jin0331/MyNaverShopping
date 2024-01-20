@@ -12,6 +12,8 @@
 		DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DB1CA5142B5A4941000EB832 /* Alamofire */; };
 		DB1CA51A2B5A57EC000EB832 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DB1CA5192B5A57EC000EB832 /* Kingfisher */; };
 		DB1CA51E2B5A5C53000EB832 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB1CA51D2B5A5C53000EB832 /* Empty.xib */; };
+		DB1CA5202B5B79F6000EB832 /* SearchResultDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */; };
+		DB1CA5222B5B7A1D000EB832 /* SearchResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */; };
 		DB81C4342B594EA00068CEB7 /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81C4332B594EA00068CEB7 /* Enumeration.swift */; };
 		DB9070D62B590563006EF2EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D52B590563006EF2EE /* AppDelegate.swift */; };
 		DB9070D82B590563006EF2EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D72B590563006EF2EE /* SceneDelegate.swift */; };
@@ -34,6 +36,8 @@
 		DB1CA50F2B5A4724000EB832 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		DB1CA5112B5A4928000EB832 /* NaverShopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShopping.swift; sourceTree = "<group>"; };
 		DB1CA51D2B5A5C53000EB832 /* Empty.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
+		DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultDetailViewController.storyboard; sourceTree = "<group>"; };
+		DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDetailViewController.swift; sourceTree = "<group>"; };
 		DB81C4332B594EA00068CEB7 /* Enumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
 		DB9070D22B590563006EF2EE /* Recap Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recap Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9070D52B590563006EF2EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 				DB9070F52B5944DE006EF2EE /* TableViewCell */,
 				DB9070DB2B590563006EF2EE /* Main.storyboard */,
 				DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */,
+				DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 			children = (
 				DB9070D92B590563006EF2EE /* MainController.swift */,
 				DBA43A462B59802700DED8CD /* SearchResultController.swift */,
+				DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -228,6 +234,7 @@
 				DBA43A4B2B59805D00DED8CD /* SearchResultCollectionViewCell.xib in Resources */,
 				DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */,
 				DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */,
+				DB1CA5202B5B79F6000EB832 /* SearchResultDetailViewController.storyboard in Resources */,
 				DB1CA51E2B5A5C53000EB832 /* Empty.xib in Resources */,
 				DB9070F92B594A33006EF2EE /* MainTableViewCell.xib in Resources */,
 				DB9070DD2B590563006EF2EE /* Main.storyboard in Resources */,
@@ -247,6 +254,7 @@
 				DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */,
 				DB9070DA2B590563006EF2EE /* MainController.swift in Sources */,
 				DBA43A472B59802700DED8CD /* SearchResultController.swift in Sources */,
+				DB1CA5222B5B7A1D000EB832 /* SearchResultDetailViewController.swift in Sources */,
 				DB81C4342B594EA00068CEB7 /* Enumeration.swift in Sources */,
 				DB9070F82B594A33006EF2EE /* MainTableViewCell.swift in Sources */,
 				DB9070D62B590563006EF2EE /* AppDelegate.swift in Sources */,

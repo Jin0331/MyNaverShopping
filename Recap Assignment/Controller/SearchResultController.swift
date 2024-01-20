@@ -86,8 +86,18 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         cell.searchResultButton.addTarget(self, action: #selector(searchResultButtonTapped), for: .touchUpInside)
         
         return cell
-        
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let sb = UIStoryboard(name: SearchResultDetailViewController.identifier, bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: SearchResultDetailViewController.identifier) as! SearchResultDetailViewController
+        
+        vc.detailURL = URL(string: "https://msearch.shopping.naver.com/product/\(searchResult.items[indexPath.item].productId)")!
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     //TODO: - 눌렀을 때, UserDefault의 Key값을 기준으로 값 변경, 토글 떄리면 될 듯! - 완료
     @objc func searchResultButtonTapped(sender : UIButton) {
@@ -118,7 +128,6 @@ extension SearchResultController : UICollectionViewDataSourcePrefetching {
                 }
             }
         }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
