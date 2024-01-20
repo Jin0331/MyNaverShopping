@@ -24,21 +24,33 @@
                                         <rect key="frame" x="0.0" y="0.0" width="75" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonSearchSpecific:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Nxa-XR-Emw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKz-EF-Yrn">
                                         <rect key="frame" x="85" y="0.0" width="75" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonSearchSpecific:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="D64-TX-H4J"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7g-yi-4mO">
                                         <rect key="frame" x="170" y="0.0" width="75" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonSearchSpecific:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cBd-9n-LRM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rs6-V6-Knc">
                                         <rect key="frame" x="255" y="0.0" width="75" height="34.333333333333336"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonSearchSpecific:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hlP-Vi-yXA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

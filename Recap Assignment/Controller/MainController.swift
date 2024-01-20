@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
     var searchKeywordList : [String] = UserDefaultManager.shared.search {
         didSet {
             print(#function)
-            print(searchKeywordList)
+//            print(searchKeywordList)
             setEmptyUI() // emptyUI
             mainTableView.reloadData()
         }

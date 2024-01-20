@@ -14,7 +14,6 @@ import Alamofire
 
 class SearchResultController: UIViewController {
     @IBOutlet var searchResultTotalCount: UILabel!
-    //TODO: - Enum으로 case 정해야할 듯. 만약 안되면, button 별로 IBOutlet 연결해서 따로 진행해야 함
     @IBOutlet var searchResultButtonCollection: [UIButton]!
     @IBOutlet var searchResultCollectionView: UICollectionView!
     
@@ -29,8 +28,7 @@ class SearchResultController: UIViewController {
     
     // api request 관련
     var start = 1
-    var display = 20
-    
+    var display = 30
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,10 +39,17 @@ class SearchResultController: UIViewController {
         
         // view가 띄워질 때, API request에서 sim(default)로 반환된다.
         callRequest(text: searchKeyword) { value, start  in
-            
             self.searchResultUpdate(value: value, start: start)
         }
     }
+    
+    @IBAction func buttonSearchSpecific(_ sender: UIButton) {
+        callRequest(text: searchKeyword, sort: sender.layer.name!) { value, start  in
+            print(start)
+            self.searchResultUpdate(value: value, start: start)
+        }
+    }
+    
 }
 
 //MARK: - collection View 관련
@@ -85,8 +90,6 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
     //TODO: - 눌렀을 때, UserDefault의 Key값을 기준으로 값 변경, 토글 떄리면 될 듯!
     //TODO: -
     @objc func searchResultButtonTapped(sender : UIButton) {
-        print(sender.layer.name) // optional 들어옴
-        
         guard let productID = sender.layer.name else { return }
         
         // 좋아요 토글
@@ -130,6 +133,14 @@ extension SearchResultController {
         navigationItem.title = "\(searchKeyword)"
         navigationItem.rightBarButtonItem?.title = nil
         searchResultTotalCount.text = "\(searchResult.total) 개의 검색 결과"
+        
+        //TODO: - Enum으로 case 정해야할 듯. 만약 안되면, button 별로 IBOutlet 연결해서 따로 진행해야 함 - 완료
+        //TODO: - button의 name에 실행될 기능 추가
+        let requestSort = RequestSort.allCases
+        for value in requestSort {
+            searchResultButtonCollection[value.index].setTitle(value.rawValue, for: .normal)
+            searchResultButtonCollection[value.index].layer.name = value.caseValue
+        }
     }
     
     func configureCellLayout() -> UICollectionViewFlowLayout {
@@ -158,7 +169,7 @@ extension SearchResultController {
 //MARK: - API request
 extension SearchResultController {
     //completaionHandler : @escaping (NaverShopping) -> ()
-    func callRequest(text : String, sort : String = RequestSort.sim.rawValue, completaionHandler : @escaping (NaverShopping, Int) -> ()) {
+    func callRequest(text : String, sort : String = RequestSort.sim.caseValue, completaionHandler : @escaping (NaverShopping, Int) -> ()) {
         
         let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=\(self.display)&sort=\(sort)&start=\(self.start)"
@@ -182,12 +193,19 @@ extension SearchResultController {
             }
     }
     
+    // completion 내부에서 실행되는 함수
     func searchResultUpdate(value: NaverShopping, start : Int){
         if start == 1 {
             self.searchResult = value
         } else {
             self.searchResult.items.append(contentsOf: value.items)
         }
+        
+        // 상단으로 올리기
+        if start == 1 {
+            self.searchResultCollectionView.setContentOffset(.zero, animated: false)
+        }
+        
         //TODO: - 기존 값에 새로운 값이 추가되었을 때 비교하여 저장하는 함수 필요 - 구현완료
         UserDefaultManager.shared.userDefaultUpdateForLike(new: self.searchResult.productIdwithLike)
         print(#function)
