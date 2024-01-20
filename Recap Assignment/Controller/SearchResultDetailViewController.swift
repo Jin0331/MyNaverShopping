@@ -41,19 +41,23 @@ extension SearchResultDetailViewController {
                                                             with: "",
                                                             options: .regularExpression,
                                                             range: nil)
-        navigationItem.rightBarButtonItem?.tintColor = ImageStyle.pointColor
         
         // navgiation button
         let buttonImage = UserDefaultManager.shared.like[i.productId] ?? false ? "heart.fill" : "heart"
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: buttonImage), style: .plain, target: self, action: #selector(searchResultDetailButtonTapped))
         
+        navigationItem.rightBarButtonItem?.tintColor = ImageStyle.pointColor
     }
     
-    @objc func searchResultDetailButtonTapped(sender : UIButton) {
+    @objc func searchResultDetailButtonTapped(sender : UIBarButtonItem) {
         guard let i = item else { return }
         
         print(#function)
         UserDefaultManager.shared.userDefaultButtonUpdate(productID: i.productId)
+        
+        // navgiation button
+        let buttonImage = UserDefaultManager.shared.like[i.productId] ?? false ? "heart.fill" : "heart"
+        sender.image = UIImage(systemName: buttonImage)
     }
 }

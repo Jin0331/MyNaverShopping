@@ -39,8 +39,6 @@ struct NaverShopping : Codable {
         get {
             
             let productID = items.map { return $0.productId}
-            
-            // 중복
             let temp = Array(Set(productID)).map({ (item : String) -> [String:Bool] in
                 return [item : false]
             })
