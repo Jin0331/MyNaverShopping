@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationDesign()
         configureTableViewProtocol()
         configureSearchBarProtocol()
         

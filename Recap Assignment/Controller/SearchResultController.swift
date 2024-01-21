@@ -39,6 +39,7 @@ class SearchResultController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationDesign()
         configureDesgin()
         configureCollectionViewProtocol()
         searchResultCollectionView.collectionViewLayout = configureCellLayout()

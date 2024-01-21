@@ -11,6 +11,16 @@ extension UIViewController : ResuableProtocol {
     static var identifier: String {
         return String(describing: self)
     }
+    
+    func navigationDesign() {
+        view.backgroundColor = ImageStyle.backgroundColor
+        self.view.backgroundColor = ImageStyle.backgroundColor
+        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
+        backBarButtonItem.tintColor = ImageStyle.textColor
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+    }
 }
 
 extension UITableViewCell : ResuableProtocol {
@@ -62,18 +72,7 @@ extension String {
 //MARK: - main View design
 extension MainViewController {
     func configureDesign() {
-        self.view.backgroundColor = ImageStyle.backgroundColor
-        
-        
-        print(UserDefaultManager.shared.nickname)
-        
-        self.navigationItem.title = "\(UserDefaultManager.shared.nickname)님의 새싹쇼핑"
-        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-        backBarButtonItem.tintColor = ImageStyle.textColor
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-        
+        navigationItem.title = "\(UserDefaultManager.shared.nickname)님의 새싹쇼핑"
         mainTableView.backgroundColor = .clear
         mainSearchbar.searchBarStyle = .minimal
         mainSearchbar.barStyle = .black
@@ -117,13 +116,7 @@ extension SearchResultController {
     func configureDesgin() {
         // navgiation
         self.navigationItem.title = "\(searchKeyword)"
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-        backBarButtonItem.tintColor = ImageStyle.textColor
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-        
-        self.view.backgroundColor = ImageStyle.backgroundColor
         searchResultCollectionView.backgroundColor = .clear
-        
         searchResultTotalCount.text = "\(searchResult.totalChange) 개의 검색 결과"
         searchResultTotalCount.textColor = ImageStyle.pointColor
         searchResultTotalCount.font = ImageStyle.headerFontSize
@@ -170,21 +163,14 @@ extension SearchResultController {
 extension SettingViewController {
     func configureDesign() {
         //navigation
-        self.view.backgroundColor = ImageStyle.backgroundColor
-        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
         self.navigationItem.title = "설정"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-        backBarButtonItem.tintColor = ImageStyle.textColor
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-        
-        // table View 관련
         settingTable.backgroundColor = .clear
         
         // top item
         backgroundView.clipsToBounds = true
         backgroundView.layer.cornerRadius = 10
         backgroundView.backgroundColor = ImageStyle.cellColor
+        
         profileImage.image = UIImage(named: UserDefaultManager.shared.profileImage)
         profileImage.clipsToBounds = true
         profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
@@ -206,17 +192,10 @@ extension SettingViewController {
 //MARK: - Onboarding view desing
 extension OnboardingViewController {
     func configureViewDesign(){
-        view.backgroundColor = ImageStyle.backgroundColor
-        self.view.backgroundColor = ImageStyle.backgroundColor
-        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-        backBarButtonItem.tintColor = ImageStyle.textColor
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-        
         //image
         titleImage.image = #imageLiteral(resourceName: "sesacShopping")
         titleImage.contentMode = .scaleAspectFit
+        
         mainImage.image = #imageLiteral(resourceName: "onboarding")
         mainImage.contentMode = .scaleAspectFill
         
@@ -239,13 +218,6 @@ extension ProfileViewController {
         } else {
             navigationItem.title = "프로필 수정"
         }
-        self.view.backgroundColor = ImageStyle.backgroundColor
-        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-        backBarButtonItem.tintColor = ImageStyle.textColor
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-        
         //image
         profileImage.contentMode = .scaleAspectFill
         profileImage.image = UIImage(named: UserDefaultManager.shared.tempProfileImage)
@@ -291,12 +263,7 @@ extension ProfileImageViewController {
         } else {
             navigationItem.title = "프로필 수정"
         }
-        self.view.backgroundColor = ImageStyle.backgroundColor
-        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-        backBarButtonItem.tintColor = ImageStyle.textColor
-        self.navigationItem.backBarButtonItem = backBarButtonItem
+
         
         // collectionView
         profileCollectionView.backgroundColor = ImageStyle.backgroundColor
