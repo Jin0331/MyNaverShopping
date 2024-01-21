@@ -30,16 +30,16 @@ class UserDefaultManager {
         var state : Bool {
             switch self {
             case .new :
-                return true
-            case .old :
                 return false
+            case .old :
+                return true
             }
         }
     }
     
     var userState : Bool {
         get {
-            ud.bool(forKey: UDkey.userState.rawValue) ?? UserStateCode.new.state
+            ud.bool(forKey: UDkey.userState.rawValue) 
         }
         set {
             ud.setValue(UserStateCode.old.state, forKey: UDkey.userState.rawValue)

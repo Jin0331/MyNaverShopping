@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="OnboardingViewController" id="Y6W-OH-hqX" customClass="OnboardingViewController" customModule="Recap_Assignment" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="On">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RKG-Y3-Aof">
+                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="ZNw-uv-uwt"/>
+                                    <constraint firstAttribute="width" constant="300" id="bq3-hm-82H"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="401-NW-AeS">
+                                <rect key="frame" x="20" y="730" width="353" height="48"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="startButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YQV-SD-Sfg"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mss-fw-qME">
+                                <rect key="frame" x="71.666666666666686" y="83" width="250" height="147"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="a0k-64-HCD"/>
+                                    <constraint firstAttribute="height" constant="147" id="hWd-QV-PEf"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mss-fw-qME" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="750-Jq-YLd"/>
+                            <constraint firstItem="RKG-Y3-Aof" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="InM-wI-TZ4"/>
+                            <constraint firstItem="mss-fw-qME" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-269.5" id="Vhx-ES-1iM"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="401-NW-AeS" secondAttribute="trailing" constant="20" id="Xyr-Id-Pz4"/>
+                            <constraint firstItem="401-NW-AeS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Zk0-nY-Vhi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="401-NW-AeS" secondAttribute="bottom" constant="40" id="b63-4o-a14"/>
+                            <constraint firstItem="RKG-Y3-Aof" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="cbq-vd-ZLZ"/>
+                            <constraint firstItem="RKG-Y3-Aof" firstAttribute="centerX" secondItem="401-NW-AeS" secondAttribute="centerX" id="dvF-hb-b2p"/>
+                            <constraint firstItem="401-NW-AeS" firstAttribute="top" secondItem="RKG-Y3-Aof" secondAttribute="bottom" constant="154" id="icX-j4-lq9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainImage" destination="RKG-Y3-Aof" id="j6s-zd-nrs"/>
+                        <outlet property="startButton" destination="401-NW-AeS" id="boH-yh-leC"/>
+                        <outlet property="titleImage" destination="mss-fw-qME" id="QFW-8d-vIu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

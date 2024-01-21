@@ -13,10 +13,34 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        guard let _ = (scene as? UIWindowScene) else { return }
+        
+        // 코드를 통해 앱 시작 화면 설정
+        guard let scene = (scene as? UIWindowScene) else { return }
+        
+        // User state
+        /// User default는 bool을 Optional이 아님
+        let userState = UserDefaultManager.shared.userState
+        print(userState)
+        
+        if userState == UserDefaultManager.UserStateCode.new.state {
+            window = UIWindow(windowScene: scene)
+            
+            let sb = UIStoryboard(name: OnboardingViewController.identifier, bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
+//            let nav = UINavigationController(rootViewController: vc)
+            
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible() /// 해당 과정은 inpo.plist에서 바꾼것을 해당 과정으로 바꾼거임
+
+        } else { // onbaord 아님
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: MainTabbarViewController.identifier) as! MainTabbarViewController
+//            let nav = UINavigationController(rootViewController: vc)
+            
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+        }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

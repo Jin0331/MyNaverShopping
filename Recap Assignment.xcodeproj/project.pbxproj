@@ -34,7 +34,7 @@
 		DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */; };
 		DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */; };
 		DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */; };
-		DBC322C52B5CF0900064956A /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C42B5CF0900064956A /* Onboarding.storyboard */; };
+		DBC322C52B5CF0900064956A /* OnboardingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */; };
 		DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +66,7 @@
 		DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
-		DBC322C42B5CF0900064956A /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingViewController.storyboard; sourceTree = "<group>"; };
 		DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,7 +132,7 @@
 				DB9070DB2B590563006EF2EE /* Main.storyboard */,
 				DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */,
 				DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */,
-				DBC322C42B5CF0900064956A /* Onboarding.storyboard */,
+				DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBA43A442B597FCB00DED8CD /* SearchResultController.storyboard in Resources */,
-				DBC322C52B5CF0900064956A /* Onboarding.storyboard in Resources */,
+				DBC322C52B5CF0900064956A /* OnboardingViewController.storyboard in Resources */,
 				DBA43A4B2B59805D00DED8CD /* SearchResultCollectionViewCell.xib in Resources */,
 				DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */,
 				DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */,

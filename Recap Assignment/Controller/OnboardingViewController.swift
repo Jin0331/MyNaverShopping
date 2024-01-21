@@ -7,19 +7,32 @@
 
 import UIKit
 
+//TODO: - 글씨폰트???
+
 class OnboardingViewController: UIViewController {
     
-    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var titleImage: UIImageView!
     @IBOutlet var mainImage: UIImageView!
     @IBOutlet var startButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleLabel.text = "SeSAC\nShopping"
-        titleLabel.textAlignment = .center
-        titleLabel.font = ImageStyle.titleFontSize
-        titleLabel.textColor = ImageStyle.pointColor
+        view.backgroundColor = ImageStyle.backgroundColor
+        
+        //image
+        titleImage.image = #imageLiteral(resourceName: "sesacShopping")
+        titleImage.contentMode = .scaleAspectFit
+        mainImage.image = #imageLiteral(resourceName: "onboarding")
+        mainImage.contentMode = .scaleAspectFill
+        
+        //button
+        startButton.setTitle("시작하기", for: .normal)
+        startButton.setTitleColor(ImageStyle.textColor, for: .normal)
+        startButton.titleLabel?.font = ImageStyle.headerFontSize
+        startButton.backgroundColor = ImageStyle.pointColor
+        startButton.clipsToBounds = true
+        startButton.layer.cornerRadius = 10
         
     }
 
@@ -27,8 +40,10 @@ class OnboardingViewController: UIViewController {
         
         UserDefaults.standard.set(true, forKey: "UserState")
         
+        
+        //TODO: - 프로필 설정으로 가도록 해야됨. 현재는 메인
         let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: "mainTabBarController") as! UITabBarController
+        let vc = sb.instantiateViewController(withIdentifier: MainTabbarViewController.identifier) as! MainTabbarViewController
         
         
         vc.modalPresentationStyle = .fullScreen

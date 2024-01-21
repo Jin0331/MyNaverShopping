@@ -23,8 +23,8 @@ extension UICollectionViewCell : ResuableProtocol {
     static var identifier: String {
         return String(describing: self)
     }
-    
 }
+
 
 // 참고 -> https://kkh0977.tistory.com/1366
 extension String {

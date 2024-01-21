@@ -13,7 +13,7 @@ enum ImageStyle {
     static let backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
     static let textColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
     static let cellColor = UIColor(red: 28, green: 28, blue: 30, alpha: 1)
-    static let titleFontSize = UIFont.systemFont(ofSize: 30)
+    static let titleFontSize = UIFont.boldSystemFont(ofSize: 40)
 
     static let headerFontSize = UIFont.systemFont(ofSize: 17)
     static let normalFontSize = UIFont.systemFont(ofSize: 13)
