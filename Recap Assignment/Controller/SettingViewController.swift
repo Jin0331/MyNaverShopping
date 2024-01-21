@@ -20,7 +20,12 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDesign()
+        configureLabel()
         configureTableProtocol()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configureLabel()
     }
 }
 
@@ -59,7 +64,7 @@ extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//MARK: - Setting View Design 관련
+//MARK: - normal function
 extension SettingViewController {
     func configureDesign() {
         //navigation
@@ -77,5 +82,27 @@ extension SettingViewController {
         // top item
         backgroundView.clipsToBounds = true
         backgroundView.layer.cornerRadius = 10
+        backgroundView.backgroundColor = .darkGray
+        profileImage.clipsToBounds = true
+        profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
+        profileImage.layer.borderWidth = 2.5
+        profileImage.layer.borderColor = ImageStyle.pointColor.cgColor
+        
+        nicknameLabel.font = ImageStyle.headerFontSize
+        nicknameLabel.textColor = ImageStyle.textColor
+        
+        likeLabel.font = ImageStyle.normalFontSize
+        likeLabel.textColor = ImageStyle.textColor
+    }
+    
+    func configureLabel() {
+        
+        //TODO: - 닉네임 설정되면 바꿔야됨
+        nicknameLabel.text = "떠나고 싶은 고래밥"
+
+        // 좋아요 개수 측정
+        var likeDictionary = UserDefaultManager.shared.like
+        var likeCount = likeDictionary.values.filter{$0 == true}.count
+        likeLabel.text = "\(likeCount)개의 상품을 좋아하고 있어요!"
     }
 }

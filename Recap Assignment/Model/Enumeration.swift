@@ -52,7 +52,7 @@ enum RequestSort : String, CaseIterable {
 
 //MARK: - Setting Table 관련
 enum SettingTable : String, CaseIterable {
-    case noti = "공짖사항"
+    case noti = "공지사항"
     case question = "자주 묻는 질문"
     case dm = "1:1 문의"
     case notiSetting = "알림설정"

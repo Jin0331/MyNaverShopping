@@ -21,7 +21,6 @@ extension SettingTableViewCell {
     func configureDesign(item : SettingTable) {
         settingLabel.textColor = ImageStyle.textColor
         settingLabel.font = ImageStyle.normalFontSize
-        
         settingLabel.text = item.rawValue
     }
 }
