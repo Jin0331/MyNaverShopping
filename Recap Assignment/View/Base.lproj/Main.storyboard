@@ -166,10 +166,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WlR-cd-QHt">
+                                        <rect key="frame" x="16" y="12.666666666666657" width="60" height="60"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="profileSetting:" destination="Tcd-gT-wVw" eventType="touchUpInside" id="M51-QA-VNv"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="clz-Yh-ihS" firstAttribute="top" secondItem="s5E-qH-gtU" secondAttribute="bottom" constant="5" id="2Bb-Nn-mps"/>
+                                    <constraint firstItem="WlR-cd-QHt" firstAttribute="trailing" secondItem="EZo-Uh-vW6" secondAttribute="trailing" id="Cmy-eT-5xf"/>
+                                    <constraint firstItem="WlR-cd-QHt" firstAttribute="leading" secondItem="EZo-Uh-vW6" secondAttribute="leading" id="Dfs-K8-p5w"/>
                                     <constraint firstItem="s5E-qH-gtU" firstAttribute="top" secondItem="EZo-Uh-vW6" secondAttribute="top" constant="6.3333333333333428" id="OMw-1I-yUg"/>
                                     <constraint firstItem="clz-Yh-ihS" firstAttribute="leading" secondItem="s5E-qH-gtU" secondAttribute="leading" id="Zq2-5t-phA"/>
                                     <constraint firstItem="EZo-Uh-vW6" firstAttribute="centerY" secondItem="BPg-FA-lK0" secondAttribute="centerY" id="bhS-pi-DWE"/>
@@ -177,6 +187,8 @@
                                     <constraint firstItem="s5E-qH-gtU" firstAttribute="leading" secondItem="EZo-Uh-vW6" secondAttribute="trailing" constant="25" id="dZJ-sB-k7q"/>
                                     <constraint firstAttribute="trailing" secondItem="s5E-qH-gtU" secondAttribute="trailing" constant="5" id="h91-TJ-8F5"/>
                                     <constraint firstItem="EZo-Uh-vW6" firstAttribute="leading" secondItem="BPg-FA-lK0" secondAttribute="leading" constant="16" id="ucv-VE-dTz"/>
+                                    <constraint firstItem="WlR-cd-QHt" firstAttribute="top" secondItem="EZo-Uh-vW6" secondAttribute="top" id="x4T-3M-pea"/>
+                                    <constraint firstItem="WlR-cd-QHt" firstAttribute="bottom" secondItem="EZo-Uh-vW6" secondAttribute="bottom" id="zjS-78-Je9"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -198,6 +210,7 @@
                         <outlet property="likeLabel" destination="clz-Yh-ihS" id="VVV-an-jWe"/>
                         <outlet property="nicknameLabel" destination="s5E-qH-gtU" id="boc-Rq-zgD"/>
                         <outlet property="profileImage" destination="EZo-Uh-vW6" id="QGE-MW-tlg"/>
+                        <outlet property="profileSetButton" destination="WlR-cd-QHt" id="Vse-It-EWM"/>
                         <outlet property="settingTable" destination="U2d-Oh-Ay1" id="5Zn-J1-FPT"/>
                     </connections>
                 </viewController>

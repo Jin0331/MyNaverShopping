@@ -184,7 +184,7 @@ extension SettingViewController {
         // top item
         backgroundView.clipsToBounds = true
         backgroundView.layer.cornerRadius = 10
-        backgroundView.backgroundColor = .darkGray
+        backgroundView.backgroundColor = ImageStyle.cellColor
         profileImage.clipsToBounds = true
         profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
         profileImage.layer.borderWidth = 2.5
@@ -195,6 +195,10 @@ extension SettingViewController {
         
         likeLabel.font = ImageStyle.normalFontSize
         likeLabel.textColor = ImageStyle.textColor
+        
+        // button
+        profileSetButton.backgroundColor = .clear
+        profileSetButton.setTitle("", for: .normal)
     }
 }
 
@@ -230,6 +234,8 @@ extension ProfileViewController {
         //navigation
         if UserDefaultManager.shared.userState == UserDefaultManager.UserStateCode.new.state {
             navigationItem.title = "프로필 설정"
+        } else {
+            navigationItem.title = "프로필 수정"
         }
         self.view.backgroundColor = ImageStyle.backgroundColor
         self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor

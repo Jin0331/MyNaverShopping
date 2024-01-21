@@ -17,6 +17,7 @@ class SettingViewController: UIViewController {
     @IBOutlet var nicknameLabel: UILabel!
     @IBOutlet var likeLabel: UILabel!
     @IBOutlet var settingTable: UITableView!
+    @IBOutlet var profileSetButton: UIButton!
     
     let settingList = SettingTable.allCases
     
@@ -29,6 +30,13 @@ class SettingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         configureLabel()
+    }
+    @IBAction func profileSetting(_ sender: UIButton) {
+        // 화면 전환
+        let sb = UIStoryboard(name: ProfileViewController.identifier, bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: ProfileViewController.identifier)
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -58,7 +66,7 @@ extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
         
         let cell = settingTable.dequeueReusableCell(withIdentifier: SettingTableViewCell.identifier, for: indexPath) as! SettingTableViewCell
         
-        cell.backgroundColor = .darkGray
+        cell.backgroundColor = ImageStyle.cellColor
         cell.selectionStyle = .none
         
         cell.configureDesign(item: settingList[indexPath.row])
@@ -98,8 +106,8 @@ extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
 extension SettingViewController {    
     func configureLabel() {
         
-        //TODO: - 닉네임 설정되면 바꿔야됨
-        nicknameLabel.text = "떠나고 싶은 고래밥"
+        //TODO: - 닉네임 설정되면 바꿔야됨 - 완료
+        nicknameLabel.text = UserDefaultManager.shared.nickname
         
         // 좋아요 개수 측정
         let likeDictionary = UserDefaultManager.shared.like
