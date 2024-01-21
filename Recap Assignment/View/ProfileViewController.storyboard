@@ -31,6 +31,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfu-oo-scF">
+                                <rect key="frame" x="40" y="372" width="313" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="kQL-Hf-qcf"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="completeButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oq8-QV-SSm"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ap2-Qo-Ib8" customClass="YoshikoTextField" customModule="TextFieldEffects">
                                 <rect key="frame" x="40" y="233" width="313" height="60"/>
                                 <constraints>
@@ -56,16 +67,14 @@
                                     <action selector="checkNickname:" destination="Y6W-OH-hqX" eventType="editingChanged" id="BGW-EM-xR6"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfu-oo-scF">
-                                <rect key="frame" x="40" y="372" width="313" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKv-DH-9Zq">
+                                <rect key="frame" x="211" y="188" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="kQL-Hf-qcf"/>
+                                    <constraint firstAttribute="height" constant="30" id="4M5-iI-G3j"/>
+                                    <constraint firstAttribute="width" constant="30" id="biQ-fv-c7y"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="completeButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oq8-QV-SSm"/>
-                                </connections>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -80,8 +89,10 @@
                             <constraint firstItem="QfE-9G-fba" firstAttribute="top" secondItem="Ap2-Qo-Ib8" secondAttribute="bottom" constant="4" id="Gkk-Dt-Nwm"/>
                             <constraint firstItem="QfE-9G-fba" firstAttribute="trailing" secondItem="Ap2-Qo-Ib8" secondAttribute="trailing" id="IVx-N1-U2s"/>
                             <constraint firstItem="pfu-oo-scF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="IoK-rn-rQU"/>
+                            <constraint firstItem="DKv-DH-9Zq" firstAttribute="top" secondItem="aaA-LR-uF6" secondAttribute="top" constant="60" id="J02-Ir-58G"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ap2-Qo-Ib8" secondAttribute="trailing" constant="40" id="Mro-k2-xZW"/>
                             <constraint firstItem="Ap2-Qo-Ib8" firstAttribute="top" secondItem="aaA-LR-uF6" secondAttribute="bottom" constant="15" id="iCW-ey-ga4"/>
+                            <constraint firstItem="DKv-DH-9Zq" firstAttribute="leading" secondItem="aaA-LR-uF6" secondAttribute="leading" constant="59.333333333333343" id="k4T-UZ-dQ9"/>
                             <constraint firstItem="pfu-oo-scF" firstAttribute="top" secondItem="QfE-9G-fba" secondAttribute="bottom" constant="38" id="lX6-LX-lrg"/>
                             <constraint firstItem="Ap2-Qo-Ib8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="y2U-bf-Ma8"/>
                             <constraint firstItem="aaA-LR-uF6" firstAttribute="centerX" secondItem="Ap2-Qo-Ib8" secondAttribute="centerX" id="yDF-Zw-9wh"/>

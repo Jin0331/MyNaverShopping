@@ -14,6 +14,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var statusTextfield: UILabel!
     @IBOutlet var completeButton: UIButton!
+    @IBOutlet var profileImageSet: UIButton!
     
     var status : Bool = false
     var nickname : String = ""

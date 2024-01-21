@@ -31,6 +31,10 @@ class SettingViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         configureLabel()
     }
+    
+    @IBAction func profileImageChange(_ sender: UIButton) {
+    }
+    
     @IBAction func profileSetting(_ sender: UIButton) {
         // 화면 전환
         let sb = UIStoryboard(name: ProfileViewController.identifier, bundle: nil)

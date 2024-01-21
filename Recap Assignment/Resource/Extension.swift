@@ -262,13 +262,20 @@ extension ProfileViewController {
         statusTextfield.backgroundColor = .clear
         statusTextfield.font = ImageStyle.normalFontSize
         
-        // button
+        // button - 완료
         completeButton.setTitle("완료", for: .normal)
         completeButton.setTitleColor(ImageStyle.textColor, for: .normal)
         completeButton.titleLabel?.font = ImageStyle.headerFontSize
         completeButton.backgroundColor = ImageStyle.pointColor
         completeButton.clipsToBounds = true
         completeButton.layer.cornerRadius = 11
+        
+        // button - 이미지 수정
+        profileImageSet.setImage(UIImage(named: "camera"), for: .normal)
+        profileImageSet.setTitle("", for: .normal)
+        profileImageSet.backgroundColor = .clear
+        profileImageSet.clipsToBounds = true
+        profileImageSet.layer.cornerRadius = profileImageSet.layer.frame.width / 2
         
     }
 }
