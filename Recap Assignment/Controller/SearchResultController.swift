@@ -46,12 +46,24 @@ class SearchResultController: UIViewController {
         // view가 띄워질 때, API request에서 sim(default)로 반환된다.
         callRequest(text: searchKeyword) { value, start  in
             self.searchResultUpdate(value: value, start: start)
+            
+        }
+        
+        // default
+        for bt in searchResultButtonCollection {
+            bt.backgroundColor = RequestSort.sim.caseValue
+            == bt.layer.name ? ImageStyle.pointColor :.clear
         }
     }
     
     @IBAction func buttonSearchSpecific(_ sender: UIButton) {
+        // 뒷 배경 토글
+        for bt in searchResultButtonCollection {
+            bt.backgroundColor = sender.layer.name == bt.layer.name ? ImageStyle.pointColor :.clear
+        }
+        
+        // sort 방식에 따라 값 호출
         callRequest(text: searchKeyword, sort: sender.layer.name!) { value, start  in
-            print(start)
             self.searchResultUpdate(value: value, start: start)
         }
     }
@@ -97,7 +109,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         
         let sb = UIStoryboard(name: SearchResultDetailViewController.identifier, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: SearchResultDetailViewController.identifier) as! SearchResultDetailViewController
-
+        
         vc.item = searchResult.items[indexPath.item]
         
         navigationController?.pushViewController(vc, animated: true)
@@ -110,7 +122,6 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         
         // 좋아요 토글
         UserDefaultManager.shared.userDefaultButtonUpdate(productID: productID)
-        //        print(UserDefaultManager.shared.like[productID])
         
         searchResultCollectionView.reloadData()
     }

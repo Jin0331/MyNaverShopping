@@ -41,6 +41,7 @@ class UserDefaultManager {
         }
     }
     
+    // 연산 프로퍼티
     var userState : Bool {
         get {
             ud.bool(forKey: UDkey.userState.rawValue) 
