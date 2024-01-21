@@ -12,7 +12,6 @@ class MainTabbarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDesign()
-
     }
     
 }
@@ -20,6 +19,7 @@ class MainTabbarViewController: UITabBarController {
 extension MainTabbarViewController {
     func configureDesign() {
         tabBar.tintColor = ImageStyle.pointColor
+        tabBar.barTintColor = ImageStyle.backgroundColor
         
         tabBar.items?[0].title = "검색"
         tabBar.items?[0].setTitleTextAttributes([.font: ImageStyle.normalFontSize], for: .normal)
