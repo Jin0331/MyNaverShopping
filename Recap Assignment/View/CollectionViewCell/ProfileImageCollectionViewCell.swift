@@ -25,7 +25,7 @@ extension ProfileImageCollectionViewCell {
         profileImage.clipsToBounds = true
         profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
         
-        if asset == UserDefaultManager.shared.profileImage {
+        if asset == UserDefaultManager.shared.tempProfileImage {
             profileImage.layer.borderColor = ImageStyle.pointColor.cgColor
             profileImage.layer.borderWidth = 3.5
         } else {
