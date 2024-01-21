@@ -12,6 +12,7 @@ class MainTableViewCell: UITableViewCell {
     @IBOutlet var mainCellImageView: UIImageView!
     @IBOutlet var mainCellLabel: UILabel!
     @IBOutlet var mainCellButton: UIButton!
+    @IBOutlet var mainCellClickedButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,6 +29,7 @@ extension MainTableViewCell {
         mainCellButton.setTitle("", for: .normal)
         mainCellButton.tintColor = ImageStyle.textColor
         mainCellButton.setImage(ImageStyle.remove, for: .normal)
+        mainCellClickedButton.setTitle("", for: .normal)
         mainCellLabel.textColor = ImageStyle.textColor
         mainCellLabel.font = ImageStyle.normalFontSize
     }

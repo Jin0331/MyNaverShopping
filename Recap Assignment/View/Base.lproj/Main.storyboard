@@ -100,11 +100,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="A0M-sB-Qbb">
-                    <connections>
-                        <action selector="keyboardHide:" destination="BYZ-38-t0r" id="Xz5-3u-72a"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="A0M-sB-Qbb"/>
             </objects>
             <point key="canvasLocation" x="1558.0152671755725" y="-29.577464788732396"/>
         </scene>
@@ -127,21 +123,21 @@
             </objects>
             <point key="canvasLocation" x="627" y="-27"/>
         </scene>
-        <!--Item-->
+        <!--Setting View Controller-->
         <scene sceneID="7g4-Ph-Ppw">
             <objects>
-                <viewController id="Tcd-gT-wVw" sceneMemberID="viewController">
+                <viewController id="Tcd-gT-wVw" customClass="SettingViewController" customModule="Recap_Assignment" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KTV-Py-D6B">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="eg3-Rd-UVq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="b6N-8i-ogd"/>
+                    <navigationItem key="navigationItem" id="oVk-i4-wzP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cyJ-ZB-uP5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="606" y="723"/>
+            <point key="canvasLocation" x="1532.06106870229" y="722.53521126760563"/>
         </scene>
         <!--Main Tabbar View Controller-->
         <scene sceneID="TKG-JZ-6kM">
@@ -155,12 +151,31 @@
                     </tabBar>
                     <connections>
                         <segue destination="vuM-mZ-3ro" kind="relationship" relationship="viewControllers" id="XbU-Us-qXV"/>
-                        <segue destination="Tcd-gT-wVw" kind="relationship" relationship="viewControllers" id="Zf4-dO-N4t"/>
+                        <segue destination="d51-lY-h2r" kind="relationship" relationship="viewControllers" id="Zf4-dO-N4t"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udm-CU-Cbg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-298" y="-27"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="6W8-0P-gfE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d51-lY-h2r" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="b6N-8i-ogd"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="01a-MB-8uu">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Tcd-gT-wVw" kind="relationship" relationship="rootViewController" id="Wmz-U8-bQX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ARd-pN-G4w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605.3435114503817" y="722.53521126760563"/>
         </scene>
     </scenes>
     <resources>

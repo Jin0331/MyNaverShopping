@@ -36,9 +36,7 @@ class MainViewController: UIViewController {
         configureDesign()
         
     }
-    @IBAction func keyboardHide(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
+
     @IBAction func searchKeywordRemove(_ sender: UIButton) {
         searchKeywordList = []
         UserDefaultManager.shared.search = []
@@ -73,11 +71,15 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
         
         cell.backgroundColor = .clear
-        cell.selectionStyle = .none // 선택 삭제
+//        cell.selectionStyle = .none // 선택 삭제
         
         // cell 내부의 Button 실행 -> cell remove!
         cell.mainCellButton.tag = indexPath.row
         cell.mainCellButton.addTarget(self, action: #selector(mainCellButtonTapped), for: .touchUpInside)
+        
+        // 화면전환
+        cell.mainCellClickedButton.tag = indexPath.row
+        cell.mainCellClickedButton.addTarget(self, action: #selector(mainCellButtonTappedTransition), for: .touchUpInside)
         
         // cell의 label 데이터 나타내기
         cell.setCellDate(labelString: searchKeywordList[indexPath.row])
@@ -88,7 +90,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     // cell button action fuction
     //TODO: - 검색 결과 전달되어야 함
     @objc func mainCellButtonTapped(sender : UIButton) {
-        print("\(sender.tag) 버튼이 눌러졌고, 삭제가 될까")
+        print("\(sender.tag) 버튼이 눌러졌고, 삭제")
         searchKeywordList.remove(at: sender.tag)
         
         // UserDefault Update
@@ -96,13 +98,13 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         UserDefaultManager.shared.search = searchKeywordList
     }
     
-    //TODO: - Cell 클릭했을 때, 해당 검색어를 전달받는 검색 결과화면 나타나야 됨.
-    //TODO: - 값전달 매개변수 바꿔야됨
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
-        screenTransition(sendText: "test")
+    @objc func mainCellButtonTappedTransition(sender : UIButton) {
+        print("\(sender.tag) 버튼이 눌러졌고, 화면전환")
+        screenTransition(sendText: searchKeywordList[sender.tag])
     }
     
+    //TODO: - Cell 클릭했을 때, 해당 검색어를 전달받는 검색 결과화면 나타나야 됨.
+    //TODO: - 값전달 매개변수 바꿔야됨 --> 작동이 제대로 되지않아, 투명 버튼 추가함
 }
 
 extension MainViewController : UISearchBarDelegate {
@@ -120,52 +122,6 @@ extension MainViewController : UISearchBarDelegate {
         
         // 화면 전환 -> 검색 결과 화면(Push)
         screenTransition(sendText: addText)
-    }
-}
-
-// 일반 function
-extension MainViewController {
-    func configureDesign() {
-        self.view.backgroundColor = ImageStyle.backgroundColor
-        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
-        mainTableView.backgroundColor = .clear
-        mainSearchbar.searchBarStyle = .minimal
-        mainSearchbar.barStyle = .black
-        mainSearchbar.tintColor = ImageStyle.textColor
-        mainSearchbar.placeholder = "브랜드, 상품, 프로필, 태그 등"
-        mainEmptyImage.image = ImageStyle.emptyImage
-        mainEmptyImage.contentMode = .scaleAspectFit
-        mainEmptyLabel.text = "최근 검색어가 없어요!"
-        mainEmptyLabel.textAlignment = .center
-        mainEmptyLabel.font = ImageStyle.headerFontSize
-        mainEmptyLabel.textColor = ImageStyle.textColor
-        latestLabel.text = "최근 검색"
-        latestLabel.textColor = ImageStyle.textColor
-        latestLabel.font = ImageStyle.normalFontSize
-        removeButton.setTitle("모두 지우기", for: .normal)
-        removeButton.setTitleColor(ImageStyle.pointColor, for: .normal)
-        removeButton.titleLabel?.font = ImageStyle.normalFontSize
-        removeButton.titleLabel?.textAlignment = .right
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-        backBarButtonItem.tintColor = ImageStyle.textColor
-    }
-    
-    func setEmptyUI() {
-        mainTableView.isHidden = searchKeywordList.count == 0 ? true : false
-        mainEmptyImage.isHidden = searchKeywordList.count == 0 ? false : true
-        mainEmptyLabel.isHidden = searchKeywordList.count == 0 ? false : true
-    }
-    
-    // 화면 전환
-    //TODO: - 데이터 전달
-    func screenTransition(sendText : String) {
-        let sb = UIStoryboard(name: SearchResultController.identifier, bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: SearchResultController.identifier) as! SearchResultController
-        
-        vc.searchKeyword = sendText
-        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
