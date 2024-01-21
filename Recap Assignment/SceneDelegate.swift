@@ -74,3 +74,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+//extension SceneDelegate {
+//    func rootVCchange (viewController : UIViewController) {
+//        // seceneDelegate window vc rootview
+//        
+//        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+//        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+//        
+//        let sb = UIStoryboard(name: "OnboardingViewController", bundle: nil)
+//        let vc = sb.instantiateViewController(withIdentifier: viewController.identifier) as! viewController
+//        
+//        sceneDelegate?.window?.rootViewController = vc
+//        sceneDelegate?.window?.makeKeyAndVisible()
+//    }
+//}

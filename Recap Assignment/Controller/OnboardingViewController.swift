@@ -18,21 +18,7 @@ class OnboardingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = ImageStyle.backgroundColor
-        
-        //image
-        titleImage.image = #imageLiteral(resourceName: "sesacShopping")
-        titleImage.contentMode = .scaleAspectFit
-        mainImage.image = #imageLiteral(resourceName: "onboarding")
-        mainImage.contentMode = .scaleAspectFill
-        
-        //button
-        startButton.setTitle("시작하기", for: .normal)
-        startButton.setTitleColor(ImageStyle.textColor, for: .normal)
-        startButton.titleLabel?.font = ImageStyle.headerFontSize
-        startButton.backgroundColor = ImageStyle.pointColor
-        startButton.clipsToBounds = true
-        startButton.layer.cornerRadius = 10
+        configureViewDesign()
         
     }
 
@@ -45,10 +31,10 @@ class OnboardingViewController: UIViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: MainTabbarViewController.identifier) as! MainTabbarViewController
         
-        
         vc.modalPresentationStyle = .fullScreen
         
         present(vc, animated: false)
-        
     }
 }
+
+

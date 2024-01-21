@@ -59,7 +59,7 @@ extension String {
     }
 }
 
-// 일반 function
+//MARK: - main View design
 extension MainViewController {
     func configureDesign() {
         self.view.backgroundColor = ImageStyle.backgroundColor
@@ -103,5 +103,113 @@ extension MainViewController {
         
         vc.searchKeyword = sendText
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+//MARK: - search Result design
+extension SearchResultController {
+    //TODO: - 숫자 콤마 적용해야됨
+    func configureDesgin() {
+        // navgiation
+        self.navigationItem.title = "\(searchKeyword)"
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
+        backBarButtonItem.tintColor = ImageStyle.textColor
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
+        self.view.backgroundColor = ImageStyle.backgroundColor
+        searchResultCollectionView.backgroundColor = .clear
+        
+        searchResultTotalCount.text = "\(searchResult.totalChange) 개의 검색 결과"
+        searchResultTotalCount.textColor = ImageStyle.pointColor
+        searchResultTotalCount.font = ImageStyle.headerFontSize
+        
+        //TODO: - Enum으로 case 정해야할 듯. 만약 안되면, button 별로 IBOutlet 연결해서 따로 진행해야 함 - 완료
+        //TODO: - button의 name에 실행될 기능 추가 - 완료
+        let requestSort = RequestSort.allCases
+        for value in requestSort {
+            searchResultButtonCollection[value.index].setTitle(value.rawValue, for: .normal)
+            searchResultButtonCollection[value.index].layer.name = value.caseValue
+            searchResultButtonCollection[value.index].setTitleColor(ImageStyle.textColor, for: .normal)
+            searchResultButtonCollection[value.index].titleLabel?.font = ImageStyle.normalFontSize
+            searchResultButtonCollection[value.index].layer.borderWidth = 1
+            searchResultButtonCollection[value.index].layer.borderColor = ImageStyle.textColor.cgColor
+            searchResultButtonCollection[value.index].clipsToBounds = true
+            searchResultButtonCollection[value.index].layer.cornerRadius = 10
+            
+        }
+    }
+    
+    func configureCellLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        
+        let rowCount : Double = 2
+        let sectionSpacing : CGFloat = 5
+        let itemSpacing : CGFloat = 8
+        let width : CGFloat = UIScreen.main.bounds.width - (itemSpacing * (rowCount - 1)) - (sectionSpacing * 2)
+        let itemWidth: CGFloat = width / rowCount
+        
+        // 각 item의 크기 설정 (아래 코드는 정사각형을 그린다는 가정)
+        layout.itemSize = CGSize(width: itemWidth - 5 , height: itemWidth + 80)
+        // 스크롤 방향 설정
+        layout.scrollDirection = .vertical
+        // Section간 간격 설정
+        layout.sectionInset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
+        // item간 간격 설정
+        layout.minimumLineSpacing = itemSpacing        // 최소 줄간 간격 (수직 간격)
+        layout.minimumInteritemSpacing = itemSpacing   // 최소 행간 간격 (수평 간격)
+        
+        return layout
+    }
+}
+
+//MARK: - Setting View design
+extension SettingViewController {
+    func configureDesign() {
+        //navigation
+        self.view.backgroundColor = ImageStyle.backgroundColor
+        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
+        self.navigationItem.title = "설정"
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
+        backBarButtonItem.tintColor = ImageStyle.textColor
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
+        // table View 관련
+        settingTable.backgroundColor = .clear
+        
+        // top item
+        backgroundView.clipsToBounds = true
+        backgroundView.layer.cornerRadius = 10
+        backgroundView.backgroundColor = .darkGray
+        profileImage.clipsToBounds = true
+        profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
+        profileImage.layer.borderWidth = 2.5
+        profileImage.layer.borderColor = ImageStyle.pointColor.cgColor
+        
+        nicknameLabel.font = ImageStyle.headerFontSize
+        nicknameLabel.textColor = ImageStyle.textColor
+        
+        likeLabel.font = ImageStyle.normalFontSize
+        likeLabel.textColor = ImageStyle.textColor
+    }
+}
+
+//MARK: - Onboarding view desing
+extension OnboardingViewController {
+    func configureViewDesign(){
+        view.backgroundColor = ImageStyle.backgroundColor
+        //image
+        titleImage.image = #imageLiteral(resourceName: "sesacShopping")
+        titleImage.contentMode = .scaleAspectFit
+        mainImage.image = #imageLiteral(resourceName: "onboarding")
+        mainImage.contentMode = .scaleAspectFill
+        
+        //button
+        startButton.setTitle("시작하기", for: .normal)
+        startButton.setTitleColor(ImageStyle.textColor, for: .normal)
+        startButton.titleLabel?.font = ImageStyle.headerFontSize
+        startButton.backgroundColor = ImageStyle.pointColor
+        startButton.clipsToBounds = true
+        startButton.layer.cornerRadius = 10
     }
 }

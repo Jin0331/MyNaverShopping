@@ -11,7 +11,7 @@ import UIKit
 //TODO: - 시간되면 cell 위로 과도하게 스크롤 되는거 막기
 
 class SettingViewController: UIViewController {
-
+    
     @IBOutlet var backgroundView: UIView!
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var nicknameLabel: UILabel!
@@ -75,6 +75,17 @@ extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
                 for key in UserDefaults.standard.dictionaryRepresentation().keys {
                     UserDefaults.standard.removeObject(forKey: key.description)
                 }
+                
+                //TODO: - 해당부분은 재사용 되는데, 간소화방법이 있을까
+                // seceneDelegate window vc rootview
+                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                
+                let sb = UIStoryboard(name: "OnboardingViewController", bundle: nil)
+                let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
+                
+                sceneDelegate?.window?.rootViewController = vc
+                sceneDelegate?.window?.makeKeyAndVisible()
             })
             alert.addAction(UIAlertAction(title: "취소", style: .cancel))
             self.present(alert, animated: true, completion: nil)
@@ -83,44 +94,15 @@ extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
 }
 
 //MARK: - normal function
-extension SettingViewController {
-    func configureDesign() {
-        //navigation
-        self.view.backgroundColor = ImageStyle.backgroundColor
-        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
-        self.navigationItem.title = "설정"
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-        backBarButtonItem.tintColor = ImageStyle.textColor
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-        
-        // table View 관련
-        settingTable.backgroundColor = .clear
-        
-        // top item
-        backgroundView.clipsToBounds = true
-        backgroundView.layer.cornerRadius = 10
-        backgroundView.backgroundColor = .darkGray
-        profileImage.clipsToBounds = true
-        profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
-        profileImage.layer.borderWidth = 2.5
-        profileImage.layer.borderColor = ImageStyle.pointColor.cgColor
-        
-        nicknameLabel.font = ImageStyle.headerFontSize
-        nicknameLabel.textColor = ImageStyle.textColor
-        
-        likeLabel.font = ImageStyle.normalFontSize
-        likeLabel.textColor = ImageStyle.textColor
-    }
-    
+extension SettingViewController {    
     func configureLabel() {
         
         //TODO: - 닉네임 설정되면 바꿔야됨
         nicknameLabel.text = "떠나고 싶은 고래밥"
-
+        
         // 좋아요 개수 측정
-        var likeDictionary = UserDefaultManager.shared.like
-        var likeCount = likeDictionary.values.filter{$0 == true}.count
+        let likeDictionary = UserDefaultManager.shared.like
+        let likeCount = likeDictionary.values.filter{$0 == true}.count
         likeLabel.text = "\(likeCount)개의 상품을 좋아하고 있어요!"
     }
 }
