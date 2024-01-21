@@ -64,6 +64,11 @@ extension MainViewController {
     func configureDesign() {
         self.view.backgroundColor = ImageStyle.backgroundColor
         self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
+        backBarButtonItem.tintColor = ImageStyle.textColor
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
         mainTableView.backgroundColor = .clear
         mainSearchbar.searchBarStyle = .minimal
         mainSearchbar.barStyle = .black
@@ -82,11 +87,6 @@ extension MainViewController {
         removeButton.setTitleColor(ImageStyle.pointColor, for: .normal)
         removeButton.titleLabel?.font = ImageStyle.normalFontSize
         removeButton.titleLabel?.textAlignment = .right
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-        backBarButtonItem.tintColor = ImageStyle.textColor
-        self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
     func setEmptyUI() {
@@ -198,6 +198,13 @@ extension SettingViewController {
 extension OnboardingViewController {
     func configureViewDesign(){
         view.backgroundColor = ImageStyle.backgroundColor
+        self.view.backgroundColor = ImageStyle.backgroundColor
+        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
+        backBarButtonItem.tintColor = ImageStyle.textColor
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
         //image
         titleImage.image = #imageLiteral(resourceName: "sesacShopping")
         titleImage.contentMode = .scaleAspectFit

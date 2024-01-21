@@ -23,18 +23,9 @@ class OnboardingViewController: UIViewController {
     }
 
     @IBAction func startButtonClicked(_ sender: UIButton) {
-        
-        UserDefaults.standard.set(true, forKey: "UserState")
-        
-        
-        //TODO: - 프로필 설정으로 가도록 해야됨. 현재는 메인
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: MainTabbarViewController.identifier) as! MainTabbarViewController
-        
-        vc.modalPresentationStyle = .fullScreen
-        
-        present(vc, animated: false)
+        //TODO: - 프로필 설정으로 가도록 해야됨. 현재는 메인 - 완료
+        let sb = UIStoryboard(name: ProfileViewController.identifier, bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: ProfileViewController.identifier) as! ProfileViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
-
-

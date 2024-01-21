@@ -15,10 +15,13 @@ class UserDefaultManager {
     private init(){  } // 초기화 구문에 대한 접근을 막음. 따라서 다른 인스턴스가 생성되지 못함.
        
     let ud = UserDefaults.standard
+    let assetList = (1...14).map{return "profile\($0)"}
     
     //TODO: - Userstate, nickname, image 설정
     enum UDkey : String {
         case userState
+        case profileImage
+        case nickname
         case search
         case like
     }
@@ -45,6 +48,16 @@ class UserDefaultManager {
             ud.setValue(UserStateCode.old.state, forKey: UDkey.userState.rawValue)
         }
     }
+    
+    var profileImage : String {
+        get {
+            ud.string(forKey: UDkey.profileImage.rawValue) ?? assetList.randomElement()!
+        }
+        set {
+            ud.setValue(newValue, forKey: UDkey.profileImage.rawValue)
+        }
+    }
+    
     
     var search : [String] {
         get {

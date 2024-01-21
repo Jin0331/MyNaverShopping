@@ -83,3 +83,18 @@ enum SettingTable : String, CaseIterable {
         }
     }
 }
+
+//MARK: - Text 조건 검사
+enum TextfieldCheck : String, CaseIterable {
+    case numberCount = "2글자 이상 10글자 미만으로 설정해주세요"
+    case specialChr = "닉네임에 @,#,$,%는 포함할 수 없어요"
+    case containNum = "닉네임에 숫자는 포함할 수 없어요"
+    case vaild = "사용할 수 있는 닉네임이에요"
+    
+    var caseValue : String {
+        switch self {
+        default:
+            return String(describing: self)
+        }
+    }
+}

@@ -36,6 +36,9 @@
 		DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */; };
 		DBC322C52B5CF0900064956A /* OnboardingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */; };
 		DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */; };
+		DBC322C92B5D05DC0064956A /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C82B5D05DC0064956A /* ProfileViewController.storyboard */; };
+		DBC322CB2B5D05EB0064956A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */; };
+		DBC322CE2B5D072C0064956A /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = DBC322CD2B5D072C0064956A /* TextFieldEffects */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +71,8 @@
 		DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingViewController.storyboard; sourceTree = "<group>"; };
 		DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		DBC322C82B5D05DC0064956A /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
+		DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC322CE2B5D072C0064956A /* TextFieldEffects in Frameworks */,
 				DB1CA51A2B5A57EC000EB832 /* Kingfisher in Frameworks */,
 				DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */,
 			);
@@ -133,6 +139,7 @@
 				DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */,
 				DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */,
 				DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */,
+				DBC322C82B5D05DC0064956A /* ProfileViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -157,6 +164,7 @@
 				DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */,
 				DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */,
 				DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */,
+				DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -201,6 +209,7 @@
 			packageProductDependencies = (
 				DB1CA5142B5A4941000EB832 /* Alamofire */,
 				DB1CA5192B5A57EC000EB832 /* Kingfisher */,
+				DBC322CD2B5D072C0064956A /* TextFieldEffects */,
 			);
 			productName = "Recap Assignment";
 			productReference = DB9070D22B590563006EF2EE /* Recap Assignment.app */;
@@ -233,6 +242,7 @@
 			packageReferences = (
 				DB1CA5132B5A4941000EB832 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 			);
 			productRefGroup = DB9070D32B590563006EF2EE /* Products */;
 			projectDirPath = "";
@@ -249,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBA43A442B597FCB00DED8CD /* SearchResultController.storyboard in Resources */,
+				DBC322C92B5D05DC0064956A /* ProfileViewController.storyboard in Resources */,
 				DBC322C52B5CF0900064956A /* OnboardingViewController.storyboard in Resources */,
 				DBA43A4B2B59805D00DED8CD /* SearchResultCollectionViewCell.xib in Resources */,
 				DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */,
@@ -274,6 +285,7 @@
 				DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */,
 				DBC322BD2B5BB7BA0064956A /* MainTabbarViewController.swift in Sources */,
 				DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */,
+				DBC322CB2B5D05EB0064956A /* ProfileViewController.swift in Sources */,
 				DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */,
 				DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */,
 				DB9070DA2B590563006EF2EE /* MainController.swift in Sources */,
@@ -533,6 +545,14 @@
 				minimumVersion = 7.10.2;
 			};
 		};
+		DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -545,6 +565,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		DBC322CD2B5D072C0064956A /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
