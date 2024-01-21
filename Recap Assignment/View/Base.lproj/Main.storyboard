@@ -86,7 +86,7 @@
                             <constraint firstItem="7Go-CP-vJd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="z7l-kB-JVu"/>
                         </constraints>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="A0M-sB-Qbb" appends="YES" id="eeV-Pe-G0V"/>
+                            <outletCollection property="gestureRecognizers" destination="uLT-6l-g4j" appends="YES" id="lnm-7o-Jj6"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Navigation Title입니다" id="J9B-rK-XF4"/>
@@ -100,7 +100,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="A0M-sB-Qbb"/>
+                <tapGestureRecognizer id="uLT-6l-g4j">
+                    <connections>
+                        <action selector="keyboardHide:" destination="BYZ-38-t0r" id="uOn-Bn-qIM"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1558.0152671755725" y="-29.577464788732396"/>
         </scene>

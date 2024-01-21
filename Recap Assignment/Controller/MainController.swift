@@ -19,7 +19,7 @@ class MainViewController: UIViewController {
     var searchKeywordList : [String] = UserDefaultManager.shared.search {
         didSet {
             print(#function)
-//            print(searchKeywordList)
+            //            print(searchKeywordList)
             setEmptyUI() // emptyUI
             mainTableView.reloadData()
         }
@@ -36,11 +36,14 @@ class MainViewController: UIViewController {
         configureDesign()
         
     }
-
+    
     @IBAction func searchKeywordRemove(_ sender: UIButton) {
         searchKeywordList = []
         UserDefaultManager.shared.search = []
         mainTableView.reloadData()
+    }
+    @IBAction func keyboardHide(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }
 
@@ -71,7 +74,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
         
         cell.backgroundColor = .clear
-//        cell.selectionStyle = .none // 선택 삭제
+        //        cell.selectionStyle = .none // 선택 삭제
         
         // cell 내부의 Button 실행 -> cell remove!
         cell.mainCellButton.tag = indexPath.row
@@ -114,9 +117,13 @@ extension MainViewController : UISearchBarDelegate {
     
     //TODO: - Whitespace, lowercase, 중복제거
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let addText = searchBar.text else { return}
-        searchKeywordList.insert(addText, at: 0) // 새로운 값은 무조건 앞으로
+        guard let addText = searchBar.text else { return }
         
+        // 기존 검색이 있었는지 판단하고, 과거의 값을 지우고 추가
+        if searchKeywordList.contains(addText){
+            searchKeywordList.remove(at: searchKeywordList.firstIndex(of: addText)!)
+        }
+        searchKeywordList.insert(addText, at: 0) // 새로운 값은 무조건 앞으로
         // UserDefault Update
         UserDefaultManager.shared.search = searchKeywordList
         
