@@ -75,6 +75,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <connections>
+                                    <action selector="profileChange:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="h2e-6q-bK7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -106,6 +109,7 @@
                         <outlet property="completeButton" destination="pfu-oo-scF" id="ZwO-eh-qqe"/>
                         <outlet property="nicknameTextfield" destination="Ap2-Qo-Ib8" id="KUq-jh-Uwt"/>
                         <outlet property="profileImage" destination="aaA-LR-uF6" id="cLi-SP-UB8"/>
+                        <outlet property="profileImageSet" destination="DKv-DH-9Zq" id="HXB-Q0-rar"/>
                         <outlet property="statusTextfield" destination="QfE-9G-fba" id="hhh-NZ-tin"/>
                     </connections>
                 </viewController>
@@ -137,6 +141,11 @@
             <point key="canvasLocation" x="1028.2442748091603" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="Ap2-Qo-Ib8">
+            <size key="intrinsicContentSize" width="32" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

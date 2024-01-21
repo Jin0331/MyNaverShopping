@@ -24,6 +24,15 @@ class ProfileViewController: UIViewController {
         
         configureViewDesign()
         
+        // 처음 화면 설정에서는 랜덤으로 먼저 이미지를 뿌리고, 해당 이미지를 저장한다. 이게 되네 ㅎ 앞에는 get으로 set
+        UserDefaultManager.shared.profileImage = UserDefaultManager.shared.profileImage
+    }
+    
+    // 만약, status가 false상태에서 뒤로 돌아갈 경우, 다시 초기화 한다
+    override func viewWillDisappear(_ animated: Bool) {
+        if !UserDefaultManager.shared.userState {
+            UserDefaultManager.shared.profileImage = UserDefaultManager.shared.assetList.randomElement()!
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +83,13 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    @IBAction func profileChange(_ sender: UIButton) {
+        // 화면 전환
+        let sb = UIStoryboard(name: ProfileImageViewController.identifier, bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: ProfileImageViewController.identifier)
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     @IBAction func keyboardHide(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)

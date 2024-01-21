@@ -17,16 +17,18 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile2" translatesAutoresizingMaskIntoConstraints="NO" id="kor-ir-EbT">
-                        <rect key="frame" x="0.0" y="0.0" width="104" height="99"/>
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="FdD-Nj-B7s"/>
+                            <constraint firstAttribute="height" constant="80" id="tLx-oz-MV3"/>
+                        </constraints>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="kor-ir-EbT" secondAttribute="trailing" id="Fg1-6h-hfG"/>
-                <constraint firstItem="kor-ir-EbT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="GXT-bV-9sQ"/>
-                <constraint firstItem="kor-ir-EbT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="WOP-Nz-QnL"/>
-                <constraint firstAttribute="bottom" secondItem="kor-ir-EbT" secondAttribute="bottom" id="cYt-mF-EX2"/>
+                <constraint firstItem="kor-ir-EbT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="JDk-ss-1gW"/>
+                <constraint firstItem="kor-ir-EbT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fg5-JO-ghC"/>
             </constraints>
             <size key="customSize" width="104" height="99"/>
             <connections>
