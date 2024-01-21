@@ -32,6 +32,8 @@
 		DBA43A4B2B59805D00DED8CD /* SearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */; };
 		DBC322BD2B5BB7BA0064956A /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BC2B5BB7BA0064956A /* MainTabbarViewController.swift */; };
 		DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */; };
+		DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */; };
+		DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		DBC322BC2B5BB7BA0064956A /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
 		DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,8 @@
 			children = (
 				DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */,
 				DB9070F72B594A33006EF2EE /* MainTableViewCell.xib */,
+				DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */,
+				DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 				DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */,
 				DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */,
 				DB1CA5202B5B79F6000EB832 /* SearchResultDetailViewController.storyboard in Resources */,
+				DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */,
 				DB1CA51E2B5A5C53000EB832 /* Empty.xib in Resources */,
 				DB9070F92B594A33006EF2EE /* MainTableViewCell.xib in Resources */,
 				DB9070DD2B590563006EF2EE /* Main.storyboard in Resources */,
@@ -260,6 +267,7 @@
 				DBC322BD2B5BB7BA0064956A /* MainTabbarViewController.swift in Sources */,
 				DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */,
 				DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */,
+				DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */,
 				DB9070DA2B590563006EF2EE /* MainController.swift in Sources */,
 				DBA43A472B59802700DED8CD /* SearchResultController.swift in Sources */,
 				DB1CA5222B5B7A1D000EB832 /* SearchResultDetailViewController.swift in Sources */,

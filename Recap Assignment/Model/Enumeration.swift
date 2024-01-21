@@ -48,3 +48,34 @@ enum RequestSort : String, CaseIterable {
         }
     }
 }
+
+//MARK: - Setting Table 관련
+enum SettingTable : String, CaseIterable {
+    case noti = "공짖사항"
+    case question = "자주 묻는 질문"
+    case dm = "1:1 문의"
+    case notiSetting = "알림설정"
+    case reset = "처음부터 시작하기"
+    
+    var index : Int {
+        switch self {
+        case .noti :
+            return 0
+        case .question :
+            return 1
+        case .dm :
+            return 2
+        case .notiSetting :
+            return 3
+        case .reset :
+            return 4
+        }
+    }
+    
+    var caseValue : String {
+        switch self {
+        default:
+            return String(describing: self)
+        }
+    }
+}
