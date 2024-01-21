@@ -28,6 +28,12 @@ class SettingViewController: UIViewController {
         configureTableProtocol()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        configureDesign()
+        configureLabel()
+    }
+    
+    
     @IBAction func profileSetting(_ sender: UIButton) {
         // 화면 전환
         let sb = UIStoryboard(name: ProfileViewController.identifier, bundle: nil)

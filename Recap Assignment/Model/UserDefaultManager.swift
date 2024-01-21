@@ -21,6 +21,7 @@ class UserDefaultManager {
     enum UDkey : String {
         case userState
         case profileImage
+        case tempProfileImage
         case nickname
         case search
         case like
@@ -55,6 +56,15 @@ class UserDefaultManager {
         }
         set {
             ud.setValue(newValue, forKey: UDkey.profileImage.rawValue)
+        }
+    }
+    
+    var tempProfileImage : String {
+        get {
+            ud.string(forKey: UDkey.tempProfileImage.rawValue) ?? assetList.randomElement()!
+        }
+        set {
+            ud.setValue(newValue, forKey: UDkey.tempProfileImage.rawValue)
         }
     }
     
