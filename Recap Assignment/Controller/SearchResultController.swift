@@ -11,8 +11,8 @@ import Alamofire
 //TODO: - 좋아요 버튼 눌렀을 때, button이미지의 변화와 Userdefault에 업데이트 필요함 - 완료
 //TODO: - pagination - 완료
 //TODO: - button 별 sort request - 완료
-//TODO: - cell 선택했을 때 상세화면
-//TODO: - 디자인
+//TODO: - cell 선택했을 때 상세화면 - 완료
+//TODO: - 디자인 - 완료
 
 class SearchResultController: UIViewController {
     @IBOutlet var searchResultTotalCount: UILabel!

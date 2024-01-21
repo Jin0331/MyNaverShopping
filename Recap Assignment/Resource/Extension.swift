@@ -78,15 +78,19 @@ extension MainViewController {
         mainSearchbar.barStyle = .black
         mainSearchbar.tintColor = ImageStyle.textColor
         mainSearchbar.placeholder = "브랜드, 상품, 프로필, 태그 등"
+        
         mainEmptyImage.image = ImageStyle.emptyImage
         mainEmptyImage.contentMode = .scaleAspectFit
+        
         mainEmptyLabel.text = "최근 검색어가 없어요!"
         mainEmptyLabel.textAlignment = .center
         mainEmptyLabel.font = ImageStyle.headerFontSize
         mainEmptyLabel.textColor = ImageStyle.textColor
+        
         latestLabel.text = "최근 검색"
         latestLabel.textColor = ImageStyle.textColor
         latestLabel.font = ImageStyle.normalFontSize
+        
         removeButton.setTitle("모두 지우기", for: .normal)
         removeButton.setTitleColor(ImageStyle.pointColor, for: .normal)
         removeButton.titleLabel?.font = ImageStyle.normalFontSize
@@ -100,7 +104,7 @@ extension MainViewController {
     }
     
     // 화면 전환
-    //TODO: - 데이터 전달
+    //TODO: - 데이터 전달 - 완료
     func screenTransition(sendText : String) {
         let sb = UIStoryboard(name: SearchResultController.identifier, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: SearchResultController.identifier) as! SearchResultController
@@ -112,7 +116,7 @@ extension MainViewController {
 
 //MARK: - search Result design
 extension SearchResultController {
-    //TODO: - 숫자 콤마 적용해야됨
+    //TODO: - 숫자 콤마 적용해야됨 - 완료
     func configureDesgin() {
         // navgiation
         self.navigationItem.title = "\(searchKeyword)"
