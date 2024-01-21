@@ -16,11 +16,35 @@ class UserDefaultManager {
        
     let ud = UserDefaults.standard
     
+    //TODO: - Userstate, nickname, image 설정
     enum UDkey : String {
+        case userState
         case search
         case like
     }
     
+    enum UserStateCode {
+        case new
+        case old
+        
+        var state : Bool {
+            switch self {
+            case .new :
+                return true
+            case .old :
+                return false
+            }
+        }
+    }
+    
+    var userState : Bool {
+        get {
+            ud.bool(forKey: UDkey.userState.rawValue) ?? UserStateCode.new.state
+        }
+        set {
+            ud.setValue(UserStateCode.old.state, forKey: UDkey.userState.rawValue)
+        }
+    }
     
     var search : [String] {
         get {

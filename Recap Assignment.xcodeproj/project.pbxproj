@@ -34,6 +34,8 @@
 		DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */; };
 		DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */; };
 		DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */; };
+		DBC322C52B5CF0900064956A /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C42B5CF0900064956A /* Onboarding.storyboard */; };
+		DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
+		DBC322C42B5CF0900064956A /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +132,7 @@
 				DB9070DB2B590563006EF2EE /* Main.storyboard */,
 				DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */,
 				DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */,
+				DBC322C42B5CF0900064956A /* Onboarding.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				DBA43A462B59802700DED8CD /* SearchResultController.swift */,
 				DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */,
 				DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */,
+				DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -243,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBA43A442B597FCB00DED8CD /* SearchResultController.storyboard in Resources */,
+				DBC322C52B5CF0900064956A /* Onboarding.storyboard in Resources */,
 				DBA43A4B2B59805D00DED8CD /* SearchResultCollectionViewCell.xib in Resources */,
 				DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */,
 				DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */,
@@ -264,6 +271,7 @@
 				DB1CA5102B5A4724000EB832 /* API.swift in Sources */,
 				DB9070F22B5907BE006EF2EE /* UserDefaultManager.swift in Sources */,
 				DB1CA5122B5A4928000EB832 /* NaverShopping.swift in Sources */,
+				DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */,
 				DBC322BD2B5BB7BA0064956A /* MainTabbarViewController.swift in Sources */,
 				DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */,
 				DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */,
