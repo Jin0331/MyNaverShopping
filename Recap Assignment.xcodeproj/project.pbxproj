@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1CA5102B5A4724000EB832 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA50F2B5A4724000EB832 /* API.swift */; };
+		DB1CA5122B5A4928000EB832 /* NaverShopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA5112B5A4928000EB832 /* NaverShopping.swift */; };
+		DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DB1CA5142B5A4941000EB832 /* Alamofire */; };
+		DB1CA51A2B5A57EC000EB832 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DB1CA5192B5A57EC000EB832 /* Kingfisher */; };
+		DB1CA5202B5B79F6000EB832 /* SearchResultDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */; };
+		DB1CA5222B5B7A1D000EB832 /* SearchResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */; };
+		DB2E569D2B5D4BE300AE8FFF /* ProfileImageViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB2E569C2B5D4BE300AE8FFF /* ProfileImageViewController.storyboard */; };
+		DB2E569F2B5D4BFA00AE8FFF /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */; };
+		DB2E56A22B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E56A02B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift */; };
+		DB2E56A32B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB2E56A12B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib */; };
 		DB81C4342B594EA00068CEB7 /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81C4332B594EA00068CEB7 /* Enumeration.swift */; };
 		DB9070D62B590563006EF2EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D52B590563006EF2EE /* AppDelegate.swift */; };
 		DB9070D82B590563006EF2EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D72B590563006EF2EE /* SceneDelegate.swift */; };
@@ -19,9 +29,30 @@
 		DB9070F22B5907BE006EF2EE /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */; };
 		DB9070F82B594A33006EF2EE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */; };
 		DB9070F92B594A33006EF2EE /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB9070F72B594A33006EF2EE /* MainTableViewCell.xib */; };
+		DBA43A442B597FCB00DED8CD /* SearchResultController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */; };
+		DBA43A472B59802700DED8CD /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA43A462B59802700DED8CD /* SearchResultController.swift */; };
+		DBA43A4A2B59805D00DED8CD /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */; };
+		DBA43A4B2B59805D00DED8CD /* SearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */; };
+		DBC322BD2B5BB7BA0064956A /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BC2B5BB7BA0064956A /* MainTabbarViewController.swift */; };
+		DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */; };
+		DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */; };
+		DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */; };
+		DBC322C52B5CF0900064956A /* OnboardingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */; };
+		DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */; };
+		DBC322C92B5D05DC0064956A /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C82B5D05DC0064956A /* ProfileViewController.storyboard */; };
+		DBC322CB2B5D05EB0064956A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */; };
+		DBC322CE2B5D072C0064956A /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = DBC322CD2B5D072C0064956A /* TextFieldEffects */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB1CA50F2B5A4724000EB832 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		DB1CA5112B5A4928000EB832 /* NaverShopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShopping.swift; sourceTree = "<group>"; };
+		DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultDetailViewController.storyboard; sourceTree = "<group>"; };
+		DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDetailViewController.swift; sourceTree = "<group>"; };
+		DB2E569C2B5D4BE300AE8FFF /* ProfileImageViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileImageViewController.storyboard; sourceTree = "<group>"; };
+		DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
+		DB2E56A02B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		DB2E56A12B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB81C4332B594EA00068CEB7 /* Enumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
 		DB9070D22B590563006EF2EE /* Recap Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recap Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9070D52B590563006EF2EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +67,18 @@
 		DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		DB9070F72B594A33006EF2EE /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultController.storyboard; sourceTree = "<group>"; };
+		DBA43A462B59802700DED8CD /* SearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
+		DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
+		DBC322BC2B5BB7BA0064956A /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
+		DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
+		DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingViewController.storyboard; sourceTree = "<group>"; };
+		DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		DBC322C82B5D05DC0064956A /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
+		DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +86,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBC322CE2B5D072C0064956A /* TextFieldEffects in Frameworks */,
+				DB1CA51A2B5A57EC000EB832 /* Kingfisher in Frameworks */,
+				DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,8 +132,6 @@
 			children = (
 				DB9070ED2B590790006EF2EE /* Protocol.swift */,
 				DB9070EF2B5907A8006EF2EE /* Extension.swift */,
-				DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */,
-				DB81C4332B594EA00068CEB7 /* Enumeration.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -95,8 +139,14 @@
 		DB9070EA2B590714006EF2EE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DBA43A452B597FE500DED8CD /* CollectionViewCell */,
 				DB9070F52B5944DE006EF2EE /* TableViewCell */,
 				DB9070DB2B590563006EF2EE /* Main.storyboard */,
+				DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */,
+				DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */,
+				DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */,
+				DBC322C82B5D05DC0064956A /* ProfileViewController.storyboard */,
+				DB2E569C2B5D4BE300AE8FFF /* ProfileImageViewController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -104,6 +154,10 @@
 		DB9070EB2B590719006EF2EE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DB1CA5112B5A4928000EB832 /* NaverShopping.swift */,
+				DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */,
+				DB81C4332B594EA00068CEB7 /* Enumeration.swift */,
+				DB1CA50F2B5A4724000EB832 /* API.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -111,7 +165,14 @@
 		DB9070EC2B59071D006EF2EE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DBC322BC2B5BB7BA0064956A /* MainTabbarViewController.swift */,
 				DB9070D92B590563006EF2EE /* MainController.swift */,
+				DBA43A462B59802700DED8CD /* SearchResultController.swift */,
+				DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */,
+				DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */,
+				DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */,
+				DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */,
+				DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -121,8 +182,21 @@
 			children = (
 				DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */,
 				DB9070F72B594A33006EF2EE /* MainTableViewCell.xib */,
+				DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */,
+				DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */,
 			);
 			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		DBA43A452B597FE500DED8CD /* CollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */,
+				DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */,
+				DB2E56A02B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift */,
+				DB2E56A12B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib */,
+			);
+			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +215,11 @@
 			dependencies = (
 			);
 			name = "Recap Assignment";
+			packageProductDependencies = (
+				DB1CA5142B5A4941000EB832 /* Alamofire */,
+				DB1CA5192B5A57EC000EB832 /* Kingfisher */,
+				DBC322CD2B5D072C0064956A /* TextFieldEffects */,
+			);
 			productName = "Recap Assignment";
 			productReference = DB9070D22B590563006EF2EE /* Recap Assignment.app */;
 			productType = "com.apple.product-type.application";
@@ -169,6 +248,11 @@
 				Base,
 			);
 			mainGroup = DB9070C92B590563006EF2EE;
+			packageReferences = (
+				DB1CA5132B5A4941000EB832 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
+			);
 			productRefGroup = DB9070D32B590563006EF2EE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -183,9 +267,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBA43A442B597FCB00DED8CD /* SearchResultController.storyboard in Resources */,
+				DBC322C92B5D05DC0064956A /* ProfileViewController.storyboard in Resources */,
+				DBC322C52B5CF0900064956A /* OnboardingViewController.storyboard in Resources */,
+				DBA43A4B2B59805D00DED8CD /* SearchResultCollectionViewCell.xib in Resources */,
 				DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */,
 				DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */,
+				DB1CA5202B5B79F6000EB832 /* SearchResultDetailViewController.storyboard in Resources */,
+				DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */,
 				DB9070F92B594A33006EF2EE /* MainTableViewCell.xib in Resources */,
+				DB2E569D2B5D4BE300AE8FFF /* ProfileImageViewController.storyboard in Resources */,
+				DB2E56A32B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib in Resources */,
 				DB9070DD2B590563006EF2EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,14 +289,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB1CA5102B5A4724000EB832 /* API.swift in Sources */,
 				DB9070F22B5907BE006EF2EE /* UserDefaultManager.swift in Sources */,
+				DB2E56A22B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift in Sources */,
+				DB1CA5122B5A4928000EB832 /* NaverShopping.swift in Sources */,
+				DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */,
+				DBC322BD2B5BB7BA0064956A /* MainTabbarViewController.swift in Sources */,
 				DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */,
+				DBC322CB2B5D05EB0064956A /* ProfileViewController.swift in Sources */,
+				DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */,
+				DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */,
 				DB9070DA2B590563006EF2EE /* MainController.swift in Sources */,
+				DBA43A472B59802700DED8CD /* SearchResultController.swift in Sources */,
+				DB1CA5222B5B7A1D000EB832 /* SearchResultDetailViewController.swift in Sources */,
 				DB81C4342B594EA00068CEB7 /* Enumeration.swift in Sources */,
 				DB9070F82B594A33006EF2EE /* MainTableViewCell.swift in Sources */,
 				DB9070D62B590563006EF2EE /* AppDelegate.swift in Sources */,
 				DB9070D82B590563006EF2EE /* SceneDelegate.swift in Sources */,
 				DB9070EE2B590790006EF2EE /* Protocol.swift in Sources */,
+				DB2E569F2B5D4BFA00AE8FFF /* ProfileImageViewController.swift in Sources */,
+				DBA43A4A2B59805D00DED8CD /* SearchResultCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +386,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -339,7 +443,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -435,6 +539,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB1CA5132B5A4941000EB832 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+		DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.2;
+			};
+		};
+		DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB1CA5142B5A4941000EB832 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB1CA5132B5A4941000EB832 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		DB1CA5192B5A57EC000EB832 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		DBC322CD2B5D072C0064956A /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DB9070CA2B590563006EF2EE /* Project object */;
 }

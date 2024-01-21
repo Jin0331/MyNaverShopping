@@ -13,11 +13,13 @@ class MainViewController: UIViewController {
     @IBOutlet var mainTableView: UITableView!
     @IBOutlet var mainEmptyImage: UIImageView!
     @IBOutlet var mainEmptyLabel: UILabel!
+    @IBOutlet var latestLabel: UILabel!
+    @IBOutlet var removeButton: UIButton!
     
     var searchKeywordList : [String] = UserDefaultManager.shared.search {
         didSet {
             print(#function)
-            print(searchKeywordList)
+            //            print(searchKeywordList)
             setEmptyUI() // emptyUI
             mainTableView.reloadData()
         }
@@ -33,6 +35,12 @@ class MainViewController: UIViewController {
         configureTableViewDesign()
         configureDesign()
         
+    }
+    
+    @IBAction func searchKeywordRemove(_ sender: UIButton) {
+        searchKeywordList = []
+        UserDefaultManager.shared.search = []
+        mainTableView.reloadData()
     }
     @IBAction func keyboardHide(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -65,25 +73,37 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
         
-        cell.selectionStyle = .none // 선택 삭제
+        cell.backgroundColor = .clear
+        //        cell.selectionStyle = .none // 선택 삭제
         
         // cell 내부의 Button 실행 -> cell remove!
         cell.mainCellButton.tag = indexPath.row
         cell.mainCellButton.addTarget(self, action: #selector(mainCellButtonTapped), for: .touchUpInside)
         
+        // 화면전환
+        cell.mainCellClickedButton.tag = indexPath.row
+        cell.mainCellClickedButton.addTarget(self, action: #selector(mainCellButtonTappedTransition), for: .touchUpInside)
+        
         // cell의 label 데이터 나타내기
         cell.setCellDate(labelString: searchKeywordList[indexPath.row])
-        
         
         return cell
     }
     
     // cell button action fuction
+    //TODO: - 검색 결과 전달되어야 함 - 완료
     @objc func mainCellButtonTapped(sender : UIButton) {
-        print("\(sender.tag) 버튼이 눌러졌고, 삭제가 될까")
+        print("\(sender.tag) 버튼이 눌러졌고, 삭제")
         searchKeywordList.remove(at: sender.tag)
         
-        UserDefaultManager.shared.search = searchKeywordList // UserDefault Update
+        // UserDefault Update
+        //TODO: - 동일한 값이 들어왔을 떄 중복제거 필요함
+        UserDefaultManager.shared.search = searchKeywordList
+    }
+    
+    @objc func mainCellButtonTappedTransition(sender : UIButton) {
+        print("\(sender.tag) 버튼이 눌러졌고, 화면전환")
+        screenTransition(sendText: searchKeywordList[sender.tag])
     }
     
 }
@@ -93,33 +113,20 @@ extension MainViewController : UISearchBarDelegate {
         mainSearchbar.delegate = self
     }
     
-    //TODO: - Whitespace, lowercase, 중복제거
+    //TODO: - Whitespace, lowercase, 중복제거 - 완료
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let addText = searchBar.text else { return}
+        guard let addText = searchBar.text else { return }
+        
+        // 기존 검색이 있었는지 판단하고, 과거의 값을 지우고 추가
+        if searchKeywordList.contains(addText){
+            searchKeywordList.remove(at: searchKeywordList.firstIndex(of: addText)!)
+        }
         searchKeywordList.insert(addText, at: 0) // 새로운 값은 무조건 앞으로
+        // UserDefault Update
+        UserDefaultManager.shared.search = searchKeywordList
         
-        UserDefaultManager.shared.search = searchKeywordList // UserDefault Update
-    }
-}
-
-// 일반 function
-extension MainViewController {
-    func configureDesign() {
-        mainSearchbar.searchBarStyle = .minimal
-        mainSearchbar.placeholder = "브랜드, 상품, 프로필, 태그 등"
-        mainEmptyImage.image = ImageStyle.emptyImage
-        mainEmptyImage.contentMode = .scaleAspectFit
-        mainEmptyLabel.text = "최근 검색어가 없어요!"
-        mainEmptyLabel.textAlignment = .center
-        mainEmptyLabel.font = ImageStyle.headerFontSize
-        mainEmptyLabel.textColor = ImageStyle.textColor
-    }
-    
-    func setEmptyUI() {
-        mainTableView.isHidden = searchKeywordList.count == 0 ? true : false
-        mainEmptyImage.isHidden = searchKeywordList.count == 0 ? false : true
-        mainEmptyLabel.isHidden = searchKeywordList.count == 0 ? false : true
-        
+        // 화면 전환 -> 검색 결과 화면(Push)
+        screenTransition(sendText: addText)
     }
 }
 
