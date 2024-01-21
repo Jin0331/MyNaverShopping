@@ -7,6 +7,9 @@
 
 import UIKit
 
+//TODO: - alert 및 초기화 - 완료
+//TODO: - 시간되면 cell 위로 과도하게 스크롤 되는거 막기
+
 class SettingViewController: UIViewController {
 
     @IBOutlet var backgroundView: UIView!
@@ -61,6 +64,21 @@ extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
         cell.configureDesign(item: settingList[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(#function, "\(indexPath.row)- 셀 선택")
+        
+        if indexPath.row == SettingTable.reset.index {
+            let alert = UIAlertController(title: "처음부터 시작하기", message: "데이터를 모두 초기화하시겠습니까?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default) { action in
+                for key in UserDefaults.standard.dictionaryRepresentation().keys {
+                    UserDefaults.standard.removeObject(forKey: key.description)
+                }
+            })
+            alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
