@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationDesign()
         configureTableViewProtocol()
         configureSearchBarProtocol()
         
@@ -97,7 +98,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         searchKeywordList.remove(at: sender.tag)
         
         // UserDefault Update
-        //TODO: - 동일한 값이 들어왔을 떄 중복제거 필요함
+        //TODO: - 동일한 값이 들어왔을 떄 중복제거 필요함 - 완료
         UserDefaultManager.shared.search = searchKeywordList
     }
     

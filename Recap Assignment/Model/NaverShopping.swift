@@ -70,13 +70,13 @@ struct NaverShoppingItem: Codable {
     let productType, brand, maker, category1: String
     let category2, category3, category4: String
     
-    var lpriceChange : String {
+    var lpriceChange : String? {
         get {
             
             let numberFormatter: NumberFormatter = NumberFormatter()
             numberFormatter.numberStyle = .decimal
 
-            let result: String = numberFormatter.string(for: lprice)!
+            let result: String? = numberFormatter.string(for: Int(lprice))
             
             return result
         }

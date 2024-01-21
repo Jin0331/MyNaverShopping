@@ -15,6 +15,7 @@ class ProfileImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationDesign() 
         configureCollectionViewDeisgn()
         profileCollectionView.collectionViewLayout = configureCellLayout()
         configureCollectionViewProtocol()

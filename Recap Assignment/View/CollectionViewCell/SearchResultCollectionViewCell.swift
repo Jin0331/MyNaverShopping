@@ -51,7 +51,8 @@ extension SearchResultCollectionViewCell {
                                                                  with: "",
                                                                  options: .regularExpression,
                                                                  range: nil)
-        searchResultPrice.text = item.lprice
+        guard let lp = item.lpriceChange else {return}
+        searchResultPrice.text = lp
         
         
     }
