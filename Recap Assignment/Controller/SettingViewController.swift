@@ -81,10 +81,11 @@ extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
                 let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
                 let sceneDelegate = windowScene?.delegate as? SceneDelegate
                 
-                let sb = UIStoryboard(name: "OnboardingViewController", bundle: nil)
+                let sb = UIStoryboard(name: OnboardingViewController.identifier, bundle: nil)
                 let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
+                let nav = UINavigationController(rootViewController: vc)
                 
-                sceneDelegate?.window?.rootViewController = vc
+                sceneDelegate?.window?.rootViewController = nav
                 sceneDelegate?.window?.makeKeyAndVisible()
             })
             alert.addAction(UIAlertAction(title: "취소", style: .cancel))

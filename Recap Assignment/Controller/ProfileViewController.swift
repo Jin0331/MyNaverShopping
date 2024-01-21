@@ -16,8 +16,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet var completeButton: UIButton!
     
     var status : Bool = false
-    let specialCharacters = "@#$%"
-    let numbers = "0123456789"
+    var nickname : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,10 +24,17 @@ class ProfileViewController: UIViewController {
         configureViewDesign()
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        configureViewDesign()
+    }
+    
     @IBAction func checkNickname(_ sender: UITextField) {
         
-        let nickname = sender.text!
+        let specialCharacters = "@#$%"
+        let numbers = "0123456789"
         let statusMessage: String
+        nickname = sender.text!
         
         switch nickname {
         case _ where nickname.count < 2 || nickname.count >= 10:
@@ -47,41 +53,28 @@ class ProfileViewController: UIViewController {
         
         print(status)
     }
+    @IBAction func completeButton(_ sender: UIButton) {
+        if status {
+            UserDefaultManager.shared.nickname = nickname
+            UserDefaultManager.shared.userState = UserDefaultManager.UserStateCode.old.state
+            
+            //TODO: - 해당부분은 재사용 되는데, 간소화방법이 있을까
+            // seceneDelegate window vc rootview
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            let sceneDelegate = windowScene?.delegate as? SceneDelegate
+            
+            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: MainTabbarViewController.identifier) as! MainTabbarViewController
+            
+            sceneDelegate?.window?.rootViewController = vc
+            sceneDelegate?.window?.makeKeyAndVisible()
+        } else {
+            print("아무일도 발생하지 않는다...!")
+        }
+    }
+    
+    
     @IBAction func keyboardHide(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
-    }
-}
-
-extension ProfileViewController {
-    func configureViewDesign() {
-        //navigation
-        if UserDefaultManager.shared.userState == UserDefaultManager.UserStateCode.new.state {
-            navigationItem.title = "프로필 설정"
-        }
-        self.view.backgroundColor = ImageStyle.backgroundColor
-        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
-        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
-        backBarButtonItem.tintColor = ImageStyle.textColor
-        self.navigationItem.backBarButtonItem = backBarButtonItem
-        
-        //image
-        profileImage.contentMode = .scaleAspectFill
-        profileImage.image = UIImage(named: UserDefaultManager.shared.profileImage)
-        profileImage.clipsToBounds = true
-        profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
-        profileImage.layer.borderWidth = 4
-        profileImage.layer.borderColor = ImageStyle.pointColor.cgColor
-        
-        // textfield
-        nicknameTextfield.placeholder = "닉네임을 입력해주세요 :)"
-        nicknameTextfield.textAlignment = .center
-        nicknameTextfield.backgroundColor = .clear
-        nicknameTextfield.textColor = ImageStyle.textColor
-        
-        // status label
-        statusTextfield.backgroundColor = .clear
-        statusTextfield.font = ImageStyle.normalFontSize
-
     }
 }

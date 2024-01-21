@@ -57,12 +57,15 @@
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfu-oo-scF">
-                                <rect key="frame" x="10" y="372" width="373" height="50"/>
+                                <rect key="frame" x="40" y="372" width="313" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kQL-Hf-qcf"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="completeButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oq8-QV-SSm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -70,13 +73,13 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="aaA-LR-uF6" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="25" id="3Jp-qw-H7G"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pfu-oo-scF" secondAttribute="trailing" constant="10" id="3aA-Do-hpG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pfu-oo-scF" secondAttribute="trailing" constant="40" id="3aA-Do-hpG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ap2-Qo-Ib8" secondAttribute="trailing" constant="40" id="9LD-vF-7S4"/>
                             <constraint firstItem="aaA-LR-uF6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="151.66666666666666" id="A0k-cB-G7h"/>
                             <constraint firstItem="QfE-9G-fba" firstAttribute="leading" secondItem="Ap2-Qo-Ib8" secondAttribute="leading" constant="20" id="GLd-mm-fh3"/>
                             <constraint firstItem="QfE-9G-fba" firstAttribute="top" secondItem="Ap2-Qo-Ib8" secondAttribute="bottom" constant="4" id="Gkk-Dt-Nwm"/>
                             <constraint firstItem="QfE-9G-fba" firstAttribute="trailing" secondItem="Ap2-Qo-Ib8" secondAttribute="trailing" id="IVx-N1-U2s"/>
-                            <constraint firstItem="pfu-oo-scF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="10" id="IoK-rn-rQU"/>
+                            <constraint firstItem="pfu-oo-scF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="IoK-rn-rQU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ap2-Qo-Ib8" secondAttribute="trailing" constant="40" id="Mro-k2-xZW"/>
                             <constraint firstItem="Ap2-Qo-Ib8" firstAttribute="top" secondItem="aaA-LR-uF6" secondAttribute="bottom" constant="15" id="iCW-ey-ga4"/>
                             <constraint firstItem="pfu-oo-scF" firstAttribute="top" secondItem="QfE-9G-fba" secondAttribute="bottom" constant="38" id="lX6-LX-lrg"/>

@@ -63,6 +63,11 @@ extension String {
 extension MainViewController {
     func configureDesign() {
         self.view.backgroundColor = ImageStyle.backgroundColor
+        
+        
+        print(UserDefaultManager.shared.nickname)
+        
+        self.navigationItem.title = "\(UserDefaultManager.shared.nickname)님의 새싹쇼핑"
         self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
@@ -135,7 +140,6 @@ extension SearchResultController {
             searchResultButtonCollection[value.index].layer.borderColor = ImageStyle.textColor.cgColor
             searchResultButtonCollection[value.index].clipsToBounds = true
             searchResultButtonCollection[value.index].layer.cornerRadius = 10
-            
         }
     }
     
@@ -218,5 +222,47 @@ extension OnboardingViewController {
         startButton.backgroundColor = ImageStyle.pointColor
         startButton.clipsToBounds = true
         startButton.layer.cornerRadius = 10
+    }
+}
+
+extension ProfileViewController {
+    func configureViewDesign() {
+        //navigation
+        if UserDefaultManager.shared.userState == UserDefaultManager.UserStateCode.new.state {
+            navigationItem.title = "프로필 설정"
+        }
+        self.view.backgroundColor = ImageStyle.backgroundColor
+        self.navigationController?.navigationBar.barTintColor = ImageStyle.backgroundColor
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: ImageStyle.textColor]
+        let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil) // title 부분 수정
+        backBarButtonItem.tintColor = ImageStyle.textColor
+        self.navigationItem.backBarButtonItem = backBarButtonItem
+        
+        //image
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.image = UIImage(named: UserDefaultManager.shared.profileImage)
+        profileImage.clipsToBounds = true
+        profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
+        profileImage.layer.borderWidth = 4
+        profileImage.layer.borderColor = ImageStyle.pointColor.cgColor
+        
+        // textfield
+        nicknameTextfield.placeholder = "닉네임을 입력해주세요 :)"
+        nicknameTextfield.textAlignment = .center
+        nicknameTextfield.backgroundColor = .clear
+        nicknameTextfield.textColor = ImageStyle.textColor
+        
+        // status label
+        statusTextfield.backgroundColor = .clear
+        statusTextfield.font = ImageStyle.normalFontSize
+        
+        // button
+        completeButton.setTitle("완료", for: .normal)
+        completeButton.setTitleColor(ImageStyle.textColor, for: .normal)
+        completeButton.titleLabel?.font = ImageStyle.headerFontSize
+        completeButton.backgroundColor = ImageStyle.pointColor
+        completeButton.clipsToBounds = true
+        completeButton.layer.cornerRadius = 11
+        
     }
 }

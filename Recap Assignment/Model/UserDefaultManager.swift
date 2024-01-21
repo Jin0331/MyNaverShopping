@@ -58,6 +58,15 @@ class UserDefaultManager {
         }
     }
     
+    var nickname : String {
+        get {
+            ud.string(forKey: UDkey.nickname.rawValue) ?? ""
+        }
+        set {
+            ud.setValue(newValue, forKey: UDkey.nickname.rawValue)
+        }
+    }
+    
     
     var search : [String] {
         get {

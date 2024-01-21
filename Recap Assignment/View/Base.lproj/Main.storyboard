@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Title입니다-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="Recap_Assignment" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,7 +89,7 @@
                             <outletCollection property="gestureRecognizers" destination="uLT-6l-g4j" appends="YES" id="lnm-7o-Jj6"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Navigation Title입니다" id="J9B-rK-XF4"/>
+                    <navigationItem key="navigationItem" id="J9B-rK-XF4"/>
                     <connections>
                         <outlet property="latestLabel" destination="1Sj-QV-swa" id="RST-Kz-Wqk"/>
                         <outlet property="mainEmptyImage" destination="G0W-YD-ooP" id="Aqz-k4-APD"/>

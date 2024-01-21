@@ -91,7 +91,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     // cell button action fuction
-    //TODO: - 검색 결과 전달되어야 함
+    //TODO: - 검색 결과 전달되어야 함 - 완료
     @objc func mainCellButtonTapped(sender : UIButton) {
         print("\(sender.tag) 버튼이 눌러졌고, 삭제")
         searchKeywordList.remove(at: sender.tag)
@@ -106,8 +106,6 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         screenTransition(sendText: searchKeywordList[sender.tag])
     }
     
-    //TODO: - Cell 클릭했을 때, 해당 검색어를 전달받는 검색 결과화면 나타나야 됨.
-    //TODO: - 값전달 매개변수 바꿔야됨 --> 작동이 제대로 되지않아, 투명 버튼 추가함
 }
 
 extension MainViewController : UISearchBarDelegate {
@@ -115,7 +113,7 @@ extension MainViewController : UISearchBarDelegate {
         mainSearchbar.delegate = self
     }
     
-    //TODO: - Whitespace, lowercase, 중복제거
+    //TODO: - Whitespace, lowercase, 중복제거 - 완료
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let addText = searchBar.text else { return }
         
