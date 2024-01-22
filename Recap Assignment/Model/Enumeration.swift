@@ -16,8 +16,8 @@ enum ImageStyle {
     
     static let titleFontSize = UIFont.boldSystemFont(ofSize: 40)
 
-    static let headerFontSize = UIFont.systemFont(ofSize: 17)
-    static let normalFontSize = UIFont.systemFont(ofSize: 13)
+    static let headerFontSize = UIFont.boldSystemFont(ofSize: 17)
+    static let normalFontSize = UIFont.boldSystemFont(ofSize: 15)
     static let search = UIImage(systemName: "magnifyingglass")
     static let menu = UIImage(systemName: "list.dash")
     static let remove = UIImage(systemName: "multiply")

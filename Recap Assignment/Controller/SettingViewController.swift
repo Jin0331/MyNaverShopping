@@ -114,8 +114,19 @@ extension SettingViewController {
         nicknameLabel.text = UserDefaultManager.shared.nickname
         
         // 좋아요 개수 측정
+        //TODO: - 특정문자 색 변경
         let likeDictionary = UserDefaultManager.shared.like
         let likeCount = likeDictionary.values.filter{$0 == true}.count
-        likeLabel.text = "\(likeCount)개의 상품을 좋아하고 있어요!"
+        let searchText = "\(likeCount)개의 상품을 좋아하고 있어요!"
+        
+        // 특정문자 색 변경
+        let attrStr = NSMutableAttributedString(string: searchText)
+        let range = (searchText as NSString).range(of: "[0-9]+개의 상품", options: .regularExpression)
+        attrStr.addAttribute(.foregroundColor, value: ImageStyle.pointColor, range: range)
+        
+        likeLabel.attributedText = attrStr
+        
+        
+//        likeLabel.text = "\(likeCount)개의 상품을 좋아하고 있어요!"
     }
 }
