@@ -463,6 +463,7 @@
 				DEVELOPMENT_TEAM = SUZFV58S8B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Recap Assignment/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "이진우";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -495,6 +496,7 @@
 				DEVELOPMENT_TEAM = SUZFV58S8B;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Recap Assignment/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "이진우";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
