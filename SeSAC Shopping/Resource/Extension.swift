@@ -47,7 +47,6 @@ extension UIViewController : ResuableProtocol {
         let notificationContent = UNMutableNotificationContent()
         let likeDictionary = UserDefaultManager.shared.like
         let likeCount = likeDictionary.values.filter{$0 == true}.count
-        let searchText = "\(likeCount)개의 상품을 좋아하고 있어요!"
         
         notificationContent.title = "\(UserDefaultManager.shared.nickname)님의 좋아요 개수는??"
         notificationContent.body = "벌써 \(likeCount)개의 상품을 좋아하고 계시는군요!"

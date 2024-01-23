@@ -28,10 +28,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //TODO: - 좋아요 개수의 노티 - 완료
-        callNotification(seconds: 60, repeat_: true)
-        
         navigationDesign()
         configureTableViewProtocol()
         configureSearchBarProtocol()
@@ -40,7 +36,14 @@ class MainViewController: UIViewController {
         configureTableViewDesign()
         configureDesign()
         
+        //TODO: - 좋아요 개수의 노티 - 완료
+        callNotification(seconds: 600, repeat_: true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
     
     @IBAction func searchKeywordRemove(_ sender: UIButton) {
         searchKeywordList = []
