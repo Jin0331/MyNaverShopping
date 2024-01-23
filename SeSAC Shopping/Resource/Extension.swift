@@ -11,11 +11,10 @@ extension UIViewController : ResuableProtocol {
     static var identifier: String {
         return String(describing: self)
     }
-    
-    var identifer_ : String {
-        return String(describing: self)
+    var identifier_: String {
+        return String(describing: type(of: self))
     }
-    
+        
     func navigationDesign() {
         view.backgroundColor = ImageStyle.backgroundColor
         self.view.backgroundColor = ImageStyle.backgroundColor
@@ -25,17 +24,38 @@ extension UIViewController : ResuableProtocol {
         backBarButtonItem.tintColor = ImageStyle.textColor
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }
+    
+    func rootViewChange<T: UIViewController>(rootView : T, storyBoardName : String = "Main") {
+        // seceneDelegate window vc rootview
+        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+        let sceneDelegate = windowScene?.delegate as? SceneDelegate
+        
+        print(rootView.identifier_)
+        
+        let sb = UIStoryboard(name: storyBoardName, bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: rootView.identifier_) as! T
+        let nav = UINavigationController(rootViewController: vc)
+        
+        sceneDelegate?.window?.rootViewController = nav
+        sceneDelegate?.window?.makeKeyAndVisible()
+    }
 }
 
 extension UITableViewCell : ResuableProtocol {
     static var identifier: String {
         return String(describing: self)
     }
+    var identifier_: String {
+        return String(describing: type(of: self))
+    }
 }
 
 extension UICollectionViewCell : ResuableProtocol {
     static var identifier: String {
         return String(describing: self)
+    }
+    var identifier_: String {
+        return String(describing: type(of: self))
     }
 }
 

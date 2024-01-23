@@ -75,15 +75,7 @@ class ProfileViewController: UIViewController {
             
             
             //TODO: - 해당부분은 재사용 되는데, 간소화방법이 있을까
-            // seceneDelegate window vc rootview
-            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-            let sceneDelegate = windowScene?.delegate as? SceneDelegate
-            
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: MainTabbarViewController.identifier) as! MainTabbarViewController
-            
-            sceneDelegate?.window?.rootViewController = vc
-            sceneDelegate?.window?.makeKeyAndVisible()
+            rootViewChange(rootView: MainTabbarViewController())
         } else {
             print("아무일도 발생하지 않는다...!")
         }

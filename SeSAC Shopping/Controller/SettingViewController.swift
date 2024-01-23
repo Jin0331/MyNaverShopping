@@ -89,39 +89,13 @@ extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
                 for key in UserDefaults.standard.dictionaryRepresentation().keys {
                     UserDefaults.standard.removeObject(forKey: key.description)
                 }
-                
-                //TODO: - 해당부분은 재사용 되는데, 간소화방법이 있을까
-//                // seceneDelegate window vc rootview
-                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-                let sceneDelegate = windowScene?.delegate as? SceneDelegate
-                
-                let sb = UIStoryboard(name: OnboardingViewController.identifier, bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
-                let nav = UINavigationController(rootViewController: vc)
-                
-                sceneDelegate?.window?.rootViewController = nav
-                sceneDelegate?.window?.makeKeyAndVisible()
-                
-//                self.rootViewChange(rootView: OnboardingViewController())
-                
+                //TODO: - 해당부분은 재사용 되는데, 간소화방법이 있을까 - 완료
+                self.rootViewChange(rootView: OnboardingViewController(), storyBoardName: OnboardingViewController().identifier_)
             })
             alert.addAction(UIAlertAction(title: "취소", style: .cancel))
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
-//    func rootViewChange<T: UIViewController>(rootView : T) {
-//        // seceneDelegate window vc rootview
-//        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-//        let sceneDelegate = windowScene?.delegate as? SceneDelegate
-//        
-//        let sb = UIStoryboard(name: rootView.identifer_, bundle: nil)
-//        let vc = sb.instantiateViewController(withIdentifier: rootView.identifer_) as! T
-//        let nav = UINavigationController(rootViewController: vc)
-//        
-//        sceneDelegate?.window?.rootViewController = nav
-//        sceneDelegate?.window?.makeKeyAndVisible()
-//    }
 }
 
 //MARK: - normal function
