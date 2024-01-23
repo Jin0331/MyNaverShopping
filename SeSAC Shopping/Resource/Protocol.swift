@@ -9,5 +9,6 @@ import Foundation
 
 protocol ResuableProtocol {
     static var identifier : String { get }
+    var identifier_ : String{ get }
 }
 

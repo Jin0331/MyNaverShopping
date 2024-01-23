@@ -81,24 +81,16 @@ extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(#function, "\(indexPath.row)- 셀 선택")
         
+        
+        //TODO: - Alert --> 클로저로 변경 -> 이미 변경되어 있음 ;
         if indexPath.row == SettingTable.reset.index {
             let alert = UIAlertController(title: "처음부터 시작하기", message: "데이터를 모두 초기화하시겠습니까?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default) { action in
                 for key in UserDefaults.standard.dictionaryRepresentation().keys {
                     UserDefaults.standard.removeObject(forKey: key.description)
                 }
-                
-                //TODO: - 해당부분은 재사용 되는데, 간소화방법이 있을까
-                // seceneDelegate window vc rootview
-                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-                let sceneDelegate = windowScene?.delegate as? SceneDelegate
-                
-                let sb = UIStoryboard(name: OnboardingViewController.identifier, bundle: nil)
-                let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
-                let nav = UINavigationController(rootViewController: vc)
-                
-                sceneDelegate?.window?.rootViewController = nav
-                sceneDelegate?.window?.makeKeyAndVisible()
+                //TODO: - 해당부분은 재사용 되는데, 간소화방법이 있을까 - 완료
+                self.rootViewChange(rootView: OnboardingViewController(), storyBoardName: OnboardingViewController().identifier_)
             })
             alert.addAction(UIAlertAction(title: "취소", style: .cancel))
             self.present(alert, animated: true, completion: nil)
@@ -125,8 +117,5 @@ extension SettingViewController {
         attrStr.addAttribute(.foregroundColor, value: ImageStyle.pointColor, range: range)
         
         likeLabel.attributedText = attrStr
-        
-        
-//        likeLabel.text = "\(likeCount)개의 상품을 좋아하고 있어요!"
     }
 }

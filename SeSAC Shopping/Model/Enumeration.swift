@@ -26,34 +26,6 @@ enum ImageStyle {
 
 }
 
-//MARK: - API request sort 관련
-enum RequestSort : String, CaseIterable {
-    case sim = "정확도"
-    case date = "날짜순"
-    case dsc = "가격높은순"
-    case asc = "가격낮은순"
-    
-    var index : Int {
-        switch self {
-        case .sim :
-            return 0
-        case .date :
-            return 1
-        case .asc :
-            return 2
-        case .dsc :
-            return 3
-        }
-    }
-    
-    var caseValue : String {
-        switch self {
-        default:
-            return String(describing: self)
-        }
-    }
-}
-
 //MARK: - Setting Table 관련
 enum SettingTable : String, CaseIterable {
     case noti = "공지사항"
