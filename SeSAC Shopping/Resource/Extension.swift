@@ -12,6 +12,10 @@ extension UIViewController : ResuableProtocol {
         return String(describing: self)
     }
     
+    var identifer_ : String {
+        return String(describing: self)
+    }
+    
     func navigationDesign() {
         view.backgroundColor = ImageStyle.backgroundColor
         self.view.backgroundColor = ImageStyle.backgroundColor
