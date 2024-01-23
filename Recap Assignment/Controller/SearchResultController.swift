@@ -45,15 +45,15 @@ class SearchResultController: UIViewController {
         searchResultCollectionView.collectionViewLayout = configureCellLayout()
         
         // view가 띄워질 때, API request에서 sim(default)로 반환된다.
-        callRequest(text: searchKeyword) { value, start  in
-            self.searchResultUpdate(value: value, start: start)
-            
-        }
+        NaverShoppingAPIManager.shared
+            .callRequest(text: self.searchKeyword, start: self.start, display: self.display) { value, start in
+                self.searchResultUpdate(value: value, start: start)
+                
+            }
         
         // default
         for bt in searchResultButtonCollection {
-            bt.backgroundColor = RequestSort.sim.caseValue
-            == bt.layer.name ? ImageStyle.pointColor :.clear
+            bt.backgroundColor = NaverShoppingAPIManager.RequestSort.sim.caseValue == bt.layer.name ? ImageStyle.pointColor :.clear
         }
     }
     
@@ -64,10 +64,14 @@ class SearchResultController: UIViewController {
         }
         
         // sort 방식에 따라 값 호출
-        callRequest(text: searchKeyword, sort: sender.layer.name!) { value, start  in
-            self.searchResultUpdate(value: value, start: start)
-        }
-    }
+        NaverShoppingAPIManager.shared
+            .callRequest(text: self.searchKeyword, start: self.start, display: self.display,
+                         sort: sender.layer.name!) { value, start in
+                self.searchResultUpdate(value: value, start: start)
+                self.start = 1
+            }
+        print("button start index = ", start)
+    } // button 누를때, API sort별로 Start 초기화
     
 }
 
@@ -139,11 +143,13 @@ extension SearchResultController : UICollectionViewDataSourcePrefetching {
             if searchResult.items.count - 8 == item.item  && searchResult.items.count < searchResult.total {
                 print(#function, "- collection View pagination")
                 
-                start += display
-                callRequest(text: searchKeyword) { value, start in
-                    self.searchResultUpdate(value: value, start: start)
-                }
+                self.start += self.display
+                NaverShoppingAPIManager.shared
+                    .callRequest(text: searchKeyword, start: self.start, display: self.display) { value, start in
+                        self.searchResultUpdate(value: value, start: start)
+                    }
             }
+            print("pagination start index = ", start)
         }
     }
     
@@ -155,31 +161,6 @@ extension SearchResultController : UICollectionViewDataSourcePrefetching {
 
 //MARK: - API request
 extension SearchResultController {
-    //completaionHandler : @escaping (NaverShopping) -> ()
-    func callRequest(text : String, sort : String = RequestSort.sim.caseValue, completaionHandler : @escaping (NaverShopping, Int) -> ()) {
-        
-        let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=\(self.display)&sort=\(sort)&start=\(self.start)"
-        
-        let header : HTTPHeaders = [
-            "X-Naver-Client-Id" : API.naverClientId,
-            "X-Naver-Client-Secret": API.naverClientSecret]
-        
-        AF.request(url, method: .get, headers: header)
-            .responseDecodable(of: NaverShopping.self) { response in
-                switch response.result {
-                case .success(let success) :
-                    print("조회 성공")
-                    
-                    completaionHandler(success, self.start)
-                    
-                case .failure(let failure) :
-                    print(#function)
-                    dump(failure)
-                }
-            }
-    }
-    
     // completion 내부에서 실행되는 함수
     func searchResultUpdate(value: NaverShopping, start : Int){
         if start == 1 {

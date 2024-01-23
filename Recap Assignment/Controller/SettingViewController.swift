@@ -81,6 +81,8 @@ extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(#function, "\(indexPath.row)- 셀 선택")
         
+        
+        //TODO: - Alert --> 클로저로 변경
         if indexPath.row == SettingTable.reset.index {
             let alert = UIAlertController(title: "처음부터 시작하기", message: "데이터를 모두 초기화하시겠습니까?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: .default) { action in

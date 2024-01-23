@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB17A6052B5F9C8800B6ACD2 /* NaverShoppingAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB17A6042B5F9C8800B6ACD2 /* NaverShoppingAPIManager.swift */; };
 		DB1CA5102B5A4724000EB832 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA50F2B5A4724000EB832 /* API.swift */; };
 		DB1CA5122B5A4928000EB832 /* NaverShopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA5112B5A4928000EB832 /* NaverShopping.swift */; };
 		DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DB1CA5142B5A4941000EB832 /* Alamofire */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB17A6042B5F9C8800B6ACD2 /* NaverShoppingAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingAPIManager.swift; sourceTree = "<group>"; };
 		DB1CA50F2B5A4724000EB832 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		DB1CA5112B5A4928000EB832 /* NaverShopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShopping.swift; sourceTree = "<group>"; };
 		DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultDetailViewController.storyboard; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				DB1CA5112B5A4928000EB832 /* NaverShopping.swift */,
+				DB17A6042B5F9C8800B6ACD2 /* NaverShoppingAPIManager.swift */,
 				DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */,
 				DB81C4332B594EA00068CEB7 /* Enumeration.swift */,
 				DB1CA50F2B5A4724000EB832 /* API.swift */,
@@ -295,6 +298,7 @@
 				DB1CA5122B5A4928000EB832 /* NaverShopping.swift in Sources */,
 				DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */,
 				DBC322BD2B5BB7BA0064956A /* MainTabbarViewController.swift in Sources */,
+				DB17A6052B5F9C8800B6ACD2 /* NaverShoppingAPIManager.swift in Sources */,
 				DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */,
 				DBC322CB2B5D05EB0064956A /* ProfileViewController.swift in Sources */,
 				DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */,

@@ -127,7 +127,7 @@ extension SearchResultController {
         
         //TODO: - Enum으로 case 정해야할 듯. 만약 안되면, button 별로 IBOutlet 연결해서 따로 진행해야 함 - 완료
         //TODO: - button의 name에 실행될 기능 추가 - 완료
-        let requestSort = RequestSort.allCases
+        let requestSort = NaverShoppingAPIManager.RequestSort.allCases
         for value in requestSort {
             searchResultButtonCollection[value.index].setTitle(value.rawValue, for: .normal)
             searchResultButtonCollection[value.index].layer.name = value.caseValue

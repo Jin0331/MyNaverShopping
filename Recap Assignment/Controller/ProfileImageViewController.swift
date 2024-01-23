@@ -46,9 +46,6 @@ extension ProfileImageViewController : UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let cell = profileCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileImageCollectionViewCell.identifier, for: indexPath) as! ProfileImageCollectionViewCell
-        
         // 선택된 값으로 교체
         UserDefaultManager.shared.tempProfileImage = UserDefaultManager.shared.assetList[indexPath.item]
         print(UserDefaultManager.shared.tempProfileImage)
