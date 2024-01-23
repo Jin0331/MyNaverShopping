@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MainViewController: UIViewController {
     
@@ -27,6 +28,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //TODO: - 좋아요 개수의 노티 - 완료
+        callNotification(seconds: 60, repeat_: true)
         
         navigationDesign()
         configureTableViewProtocol()

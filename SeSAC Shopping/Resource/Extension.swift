@@ -14,7 +14,9 @@ extension UIViewController : ResuableProtocol {
     var identifier_: String {
         return String(describing: type(of: self))
     }
-        
+    
+    static let userNotificationCenter = UNUserNotificationCenter.current() // notficiation
+    
     func navigationDesign() {
         view.backgroundColor = ImageStyle.backgroundColor
         self.view.backgroundColor = ImageStyle.backgroundColor
@@ -38,6 +40,29 @@ extension UIViewController : ResuableProtocol {
         
         sceneDelegate?.window?.rootViewController = nav
         sceneDelegate?.window?.makeKeyAndVisible()
+    }
+    
+    // notification
+    func callNotification(seconds: Double, repeat_ : Bool = false) {
+        let notificationContent = UNMutableNotificationContent()
+        let likeDictionary = UserDefaultManager.shared.like
+        let likeCount = likeDictionary.values.filter{$0 == true}.count
+        let searchText = "\(likeCount)개의 상품을 좋아하고 있어요!"
+        
+        notificationContent.title = "\(UserDefaultManager.shared.nickname)님의 좋아요 개수는??"
+        notificationContent.body = "벌써 \(likeCount)개의 상품을 좋아하고 계시는군요!"
+        notificationContent.badge = NSNumber(value: UIApplication.shared.applicationIconBadgeNumber + 1) // noti가 쌓이면 숫자도 늘어남
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: repeat_)
+        let request = UNNotificationRequest(identifier: "Notification",
+                                            content: notificationContent,
+                                            trigger: trigger)
+        
+        UIViewController.userNotificationCenter.add(request) { error in
+            if let error = error {
+                print("Error: ", error)
+            }
+        }
     }
 }
 
@@ -291,7 +316,7 @@ extension ProfileImageViewController {
         } else {
             navigationItem.title = "프로필 수정"
         }
-
+        
         
         // collectionView
         profileCollectionView.backgroundColor = ImageStyle.backgroundColor
@@ -301,7 +326,7 @@ extension ProfileImageViewController {
         profileImge.layer.cornerRadius = profileImge.layer.frame.width / 2
         profileImge.layer.borderColor = ImageStyle.pointColor.cgColor
         profileImge.layer.borderWidth = 2.5
-    
+        
     }
     
     func configureCellLayout() -> UICollectionViewFlowLayout {
