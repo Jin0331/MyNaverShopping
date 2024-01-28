@@ -9,109 +9,6 @@ import UIKit
 import SnapKit
 import UserNotifications
 
-/*
- class MainViewController: UIViewController {
-     
-     override func viewDidLoad() {
-         super.viewDidLoad()
-         navigationDesign()
-         configureTableViewProtocol()
-         configureSearchBarProtocol()
-         
-         setEmptyUI() // emptyUI
-         configureTableViewDesign()
-         configureDesign()
-         
-         //TODO: - 좋아요 개수의 노티 - 완료
-         callNotification(seconds: 600, repeat_: true)
-     }
-     
-     override func viewWillAppear(_ animated: Bool) {
-         super.viewWillAppear(true)
-     }
-     
-     
-     @IBAction func searchKeywordRemove(_ sender: UIButton) {
-         searchKeywordList = []
-         UserDefaultManager.shared.search = []
-         mainTableView.reloadData()
-     }
-     @IBAction func keyboardHide(_ sender: UITapGestureRecognizer) {
-         view.endEditing(true)
-     }
- }
-
- //MARK: - Extension
- extension MainViewController : UITableViewDelegate, UITableViewDataSource {
-     func configureTableViewProtocol() {
-         mainTableView.delegate = self
-         mainTableView.dataSource = self
-         
-         let xib = UINib(nibName: MainTableViewCell.identifier, bundle: nil)
-         mainTableView.register(xib, forCellReuseIdentifier: MainTableViewCell.identifier)
-     }
-     
-     func configureTableViewDesign() {
-         mainTableView.separatorStyle = .none
-         
-     }
-     
-     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-         return 50
-     }
-     
-     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return searchKeywordList.count
-     }
-     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
-         
-         cell.backgroundColor = .clear
-         //        cell.selectionStyle = .none // 선택 삭제
-         
-         // cell 내부의 Button 실행 -> cell remove!
-         cell.mainCellButton.tag = indexPath.row
-         cell.mainCellButton.addTarget(self, action: #selector(mainCellButtonTapped), for: .touchUpInside)
-         
-         // 화면전환
-         cell.mainCellClickedButton.tag = indexPath.row
-         cell.mainCellClickedButton.addTarget(self, action: #selector(mainCellButtonTappedTransition), for: .touchUpInside)
-         
-         // cell의 label 데이터 나타내기
-         cell.setCellDate(labelString: searchKeywordList[indexPath.row])
-         
-         return cell
-     }
-     
- }
-
- extension MainViewController : UISearchBarDelegate {
-     func configureSearchBarProtocol() {
-         mainSearchbar.delegate = self
-     }
-     
-     //TODO: - Whitespace, lowercase, 중복제거 - 완료
-     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-         guard let addText = searchBar.text else { return }
-         
-         // 기존 검색이 있었는지 판단하고, 과거의 값을 지우고 추가
-         if searchKeywordList.contains(addText){
-             searchKeywordList.remove(at: searchKeywordList.firstIndex(of: addText)!)
-         }
-         searchKeywordList.insert(addText, at: 0) // 새로운 값은 무조건 앞으로
-         // UserDefault Update
-         UserDefaultManager.shared.search = searchKeywordList
-         
-         // 화면 전환 -> 검색 결과 화면(Push)
-         screenTransition(sendText: addText)
-     }
- }
-
-
-
-*/
-
 class MainViewController: UIViewController {
     
     var searchKeywordList : [String] = UserDefaultManager.shared.search {
@@ -185,6 +82,7 @@ class MainViewController: UIViewController {
         
         setEmptyUI() // emptyUI
         configureTableViewDesign()
+        hideKeyboardWhenTappedAround()
         
         //TODO: - 좋아요 개수의 노티 - 완료
         callNotification(seconds: 600, repeat_: true)
@@ -198,6 +96,8 @@ extension MainViewController {
     func configureView() {
         view.backgroundColor = ImageStyle.backgroundColor
         navigationItem.title = "\(UserDefaultManager.shared.nickname)님의 새싹쇼핑"
+        
+        removeButton.addTarget(self, action: #selector(searchKeywordRemove), for: .touchUpInside)
         
         print(#function)
         configureHierachy()
@@ -254,9 +154,16 @@ extension MainViewController {
     func screenTransition(sendText : String) {
         let sb = UIStoryboard(name: SearchResultController.identifier, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: SearchResultController.identifier) as! SearchResultController
-
+        
         vc.searchKeyword = sendText
+        view.endEditing(true)
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func searchKeywordRemove(sender : UIButton) {
+        searchKeywordList = []
+        UserDefaultManager.shared.search = []
+        mainTableView.reloadData()
     }
 
 }
@@ -285,7 +192,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
         
         cell.backgroundColor = .clear
-        
+        cell.selectionStyle = .none
         
         // cell 내부의 Button 실행 -> cell remove!
         cell.mainCellButton.tag = indexPath.row

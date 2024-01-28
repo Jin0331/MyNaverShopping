@@ -54,10 +54,9 @@ class MainTableViewCell: UITableViewCell, ViewSetup{
     }
     
     func configureHierachy() {
-        [mainCellLabel, mainCellImageView, mainCellButton].map { item in
+        [mainCellLabel, mainCellImageView, mainCellButton, mainCellClickedButton].map { item in
             return contentView.addSubview(item)
         }
-        mainCellLabel.addSubview(mainCellClickedButton)
     }
     
     func setupConstraints() {
