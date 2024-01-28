@@ -32,10 +32,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         } else { // onbaord 아님
             let mainVC = UINavigationController(rootViewController: MainViewController())
+            let settingVC = UINavigationController(rootViewController: SettingViewController())
+            
             
             // Tabbar controller
             let tabbarController = UITabBarController()
-            tabbarController.setViewControllers([mainVC], animated: true)
+            tabbarController.setViewControllers([mainVC, settingVC], animated: true)
             tabbarController.configureItemDesing(tabBar: tabbarController.tabBar)
             
             window?.rootViewController = tabbarController

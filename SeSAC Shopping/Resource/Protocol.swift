@@ -13,7 +13,7 @@ protocol ResuableProtocol {
 }
 
 protocol ViewSetup {
+    func configureView()
     func configureHierachy()
     func setupConstraints()
-    func configureView()
 }

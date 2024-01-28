@@ -91,7 +91,7 @@ class MainViewController: UIViewController {
 }
 
 //MARK: - codabse UI
-extension MainViewController {
+extension MainViewController : ViewSetup {
     //MARK: - function
     func configureView() {
         view.backgroundColor = ImageStyle.backgroundColor

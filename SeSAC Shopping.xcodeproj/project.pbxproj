@@ -22,7 +22,6 @@
 		DB9070D62B590563006EF2EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D52B590563006EF2EE /* AppDelegate.swift */; };
 		DB9070D82B590563006EF2EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D72B590563006EF2EE /* SceneDelegate.swift */; };
 		DB9070DA2B590563006EF2EE /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D92B590563006EF2EE /* MainController.swift */; };
-		DB9070DD2B590563006EF2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9070DB2B590563006EF2EE /* Main.storyboard */; };
 		DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB9070DE2B590565006EF2EE /* Assets.xcassets */; };
 		DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9070E02B590565006EF2EE /* LaunchScreen.storyboard */; };
 		DB9070EE2B590790006EF2EE /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070ED2B590790006EF2EE /* Protocol.swift */; };
@@ -35,7 +34,6 @@
 		DBA43A4B2B59805D00DED8CD /* SearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */; };
 		DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */; };
 		DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */; };
-		DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */; };
 		DBC322C52B5CF0900064956A /* OnboardingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */; };
 		DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */; };
 		DBC322C92B5D05DC0064956A /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C82B5D05DC0064956A /* ProfileViewController.storyboard */; };
@@ -63,7 +61,6 @@
 		DB9070D52B590563006EF2EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB9070D72B590563006EF2EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB9070D92B590563006EF2EE /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
-		DB9070DC2B590563006EF2EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB9070DE2B590565006EF2EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB9070E12B590565006EF2EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB9070E32B590565006EF2EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -77,7 +74,6 @@
 		DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
-		DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingViewController.storyboard; sourceTree = "<group>"; };
 		DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		DBC322C82B5D05DC0064956A /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
@@ -151,7 +147,6 @@
 			children = (
 				DBA43A452B597FE500DED8CD /* CollectionViewCell */,
 				DB9070F52B5944DE006EF2EE /* TableViewCell */,
-				DB9070DB2B590563006EF2EE /* Main.storyboard */,
 				DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */,
 				DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */,
 				DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */,
@@ -193,7 +188,6 @@
 			children = (
 				DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */,
 				DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */,
-				DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -287,10 +281,8 @@
 				DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */,
 				DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */,
 				DB1CA5202B5B79F6000EB832 /* SearchResultDetailViewController.storyboard in Resources */,
-				DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */,
 				DB2E569D2B5D4BE300AE8FFF /* ProfileImageViewController.storyboard in Resources */,
 				DB2E56A32B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib in Resources */,
-				DB9070DD2B590563006EF2EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,14 +322,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DB9070DB2B590563006EF2EE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DB9070DC2B590563006EF2EE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DB9070E02B590565006EF2EE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -13,9 +13,9 @@ extension UITabBarController {
             item[0].setTitleTextAttributes([.font: ImageStyle.normalFontSize], for: .normal)
             item[0].image = UIImage(systemName: "magnifyingglass")
             
-//            item[1].title = "설정"
-//            item[1].setTitleTextAttributes([.font: ImageStyle.normalFontSize], for: .normal)
-//            item[1].image = UIImage(systemName: "person")
+            item[1].title = "설정"
+            item[1].setTitleTextAttributes([.font: ImageStyle.normalFontSize], for: .normal)
+            item[1].image = UIImage(systemName: "person")
             
         }
     }

@@ -12,47 +12,152 @@ import UIKit
 
 class SettingViewController: UIViewController {
     
-    @IBOutlet var backgroundView: UIView!
-    @IBOutlet var profileImage: UIImageView!
-    @IBOutlet var nicknameLabel: UILabel!
-    @IBOutlet var likeLabel: UILabel!
-    @IBOutlet var settingTable: UITableView!
-    @IBOutlet var profileSetButton: UIButton!
+    let backgroundView : UIView = {
+        let backgroundView = UIView()
+        backgroundView.clipsToBounds = true
+        backgroundView.layer.cornerRadius = 10
+        backgroundView.backgroundColor = ImageStyle.cellColor
+        
+        return backgroundView
+    }()
+    
+    let profileImage : UIImageView = {
+        let profileImage = UIImageView()
+        profileImage.contentMode = .scaleAspectFill
+        profileImage.image = UIImage(named: UserDefaultManager.shared.profileImage)
+        profileImage.layer.borderWidth = 2.5
+        profileImage.clipsToBounds = true
+        profileImage.layer.borderColor = ImageStyle.pointColor.cgColor
+        
+        
+       return profileImage
+    }()
+    
+    let nicknameLabel : UILabel = {
+        let nicknameLabel = UILabel()
+        nicknameLabel.font = ImageStyle.headerFontSize
+        nicknameLabel.textColor = ImageStyle.textColor
+        
+        return nicknameLabel
+    }()
+    
+    let likeLabel : UILabel = {
+        let likeLabel = UILabel()
+        likeLabel.font = ImageStyle.normalFontSize
+        likeLabel.textColor = ImageStyle.textColor
+        
+        return likeLabel
+    }()
+    
+    let settingTable : UITableView = {
+        let settingTable = UITableView(frame: CGRect(), style: .insetGrouped)
+        settingTable.backgroundColor = .clear
+        
+        settingTable.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
+        
+        return settingTable
+    }()
+    
+    let profileSetButton : UIButton = {
+        let profileSetButton = UIButton()
+        profileSetButton.backgroundColor = .clear
+        profileSetButton.setTitle("", for: .normal)
+        
+        return profileSetButton
+    }()
     
     let settingList = SettingTable.allCases
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationDesign()
-        configureDesign()
-        configureLabel()
         configureTableProtocol()
+        configureView()
+        configureLabel()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        configureDesign()
+        configureView()
         configureLabel()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
+    }
     
-    @IBAction func profileSetting(_ sender: UIButton) {
+}
+
+extension SettingViewController : ViewSetup {
+    func configureView() {
+        view.backgroundColor = ImageStyle.backgroundColor
+        self.navigationItem.title = "설정"
+        
+        //TODO: - profilesetting 화면 전환 button - 완료
+        profileSetButton.addTarget(self, action: #selector(profileSetting), for: .touchUpInside)
+        
+        configureHierachy()
+        setupConstraints()
+    }
+
+    func configureHierachy() {
+        [backgroundView, profileImage, nicknameLabel, likeLabel, settingTable, profileSetButton].map { item in
+            return view.addSubview(item)
+        }
+    }
+    
+    func setupConstraints() {
+        backgroundView.snp.makeConstraints { make in
+            make.top.trailing.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.height.equalTo(100)
+        }
+        profileImage.snp.makeConstraints { make in
+            make.height.width.equalTo(60)
+            make.centerY.equalTo(backgroundView)
+            make.leading.equalTo(backgroundView).inset(16)
+        }
+        
+        nicknameLabel.snp.makeConstraints { make in
+            make.leading.equalTo(profileImage.snp.trailing).offset(15)
+            make.trailing.equalTo(backgroundView.snp.trailing).inset(5)
+            make.top.equalTo(profileImage.snp.top).inset(6)
+        }
+        
+        likeLabel.snp.makeConstraints { make in
+            make.leading.trailing.equalTo(nicknameLabel)
+            make.top.equalTo(nicknameLabel.snp.bottom).offset(10)
+        }
+        
+        settingTable.snp.makeConstraints { make in
+            make.top.equalTo(backgroundView.snp.bottom)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(380)
+        }
+        
+        profileSetButton.snp.makeConstraints { make in
+            make.height.width.equalTo(60)
+            make.centerY.equalTo(backgroundView)
+            make.leading.equalTo(backgroundView).inset(16)
+        }
+    }
+    
+    @objc func profileSetting(sender: UIButton) {
         // 화면 전환
         let sb = UIStoryboard(name: ProfileViewController.identifier, bundle: nil)
         let vc = sb.instantiateViewController(withIdentifier: ProfileViewController.identifier)
         
         navigationController?.pushViewController(vc, animated: true)
     }
+    
 }
+
+
+
 
 //MARK: - Table View 관련
 extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
     
     func configureTableProtocol() {
-        
-        print(SettingTableViewCell.identifier)
-        
-        let xib = UINib(nibName: SettingTableViewCell.identifier, bundle: nil)
-        settingTable.register(xib, forCellReuseIdentifier: SettingTableViewCell.identifier)
         
         settingTable.delegate = self
         settingTable.dataSource = self
@@ -73,7 +178,7 @@ extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = ImageStyle.cellColor
         cell.selectionStyle = .none
         
-        cell.configureDesign(item: settingList[indexPath.row])
+        cell.configureCell(item: settingList[indexPath.row])
         
         return cell
     }
