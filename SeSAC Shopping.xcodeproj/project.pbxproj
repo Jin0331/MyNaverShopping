@@ -29,12 +29,10 @@
 		DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070EF2B5907A8006EF2EE /* Extension.swift */; };
 		DB9070F22B5907BE006EF2EE /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */; };
 		DB9070F82B594A33006EF2EE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */; };
-		DB9070F92B594A33006EF2EE /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB9070F72B594A33006EF2EE /* MainTableViewCell.xib */; };
 		DBA43A442B597FCB00DED8CD /* SearchResultController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */; };
 		DBA43A472B59802700DED8CD /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA43A462B59802700DED8CD /* SearchResultController.swift */; };
 		DBA43A4A2B59805D00DED8CD /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */; };
 		DBA43A4B2B59805D00DED8CD /* SearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */; };
-		DBC322BD2B5BB7BA0064956A /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BC2B5BB7BA0064956A /* MainTabbarViewController.swift */; };
 		DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */; };
 		DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */; };
 		DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */; };
@@ -73,12 +71,10 @@
 		DB9070EF2B5907A8006EF2EE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		DB9070F72B594A33006EF2EE /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultController.storyboard; sourceTree = "<group>"; };
 		DBA43A462B59802700DED8CD /* SearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
 		DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
-		DBC322BC2B5BB7BA0064956A /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
 		DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
@@ -181,7 +177,6 @@
 		DB9070EC2B59071D006EF2EE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DBC322BC2B5BB7BA0064956A /* MainTabbarViewController.swift */,
 				DB9070D92B590563006EF2EE /* MainController.swift */,
 				DBA43A462B59802700DED8CD /* SearchResultController.swift */,
 				DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */,
@@ -197,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */,
-				DB9070F72B594A33006EF2EE /* MainTableViewCell.xib */,
 				DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */,
 				DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */,
 			);
@@ -294,7 +288,6 @@
 				DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */,
 				DB1CA5202B5B79F6000EB832 /* SearchResultDetailViewController.storyboard in Resources */,
 				DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */,
-				DB9070F92B594A33006EF2EE /* MainTableViewCell.xib in Resources */,
 				DB2E569D2B5D4BE300AE8FFF /* ProfileImageViewController.storyboard in Resources */,
 				DB2E56A32B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib in Resources */,
 				DB9070DD2B590563006EF2EE /* Main.storyboard in Resources */,
@@ -314,7 +307,6 @@
 				DB2E56A22B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift in Sources */,
 				DB1CA5122B5A4928000EB832 /* NaverShopping.swift in Sources */,
 				DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */,
-				DBC322BD2B5BB7BA0064956A /* MainTabbarViewController.swift in Sources */,
 				DB17A6052B5F9C8800B6ACD2 /* NaverShoppingAPIManager.swift in Sources */,
 				DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */,
 				DBC322CB2B5D05EB0064956A /* ProfileViewController.swift in Sources */,

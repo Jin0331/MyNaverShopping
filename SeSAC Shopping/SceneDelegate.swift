@@ -17,42 +17,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // 코드를 통해 앱 시작 화면 설정
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        // User state
-        /// User default는 bool을 Optional이 아님
-//        let userState = UserDefaultManager.shared.userState
-//        print(userState)
-        
-        // VC별로 Navgiation 달아주기
-        let mainVC = UINavigationController(rootViewController: MainViewController())
-        
-        // Tabbar controller
-        let tabbarController = UITabBarController()
-        tabbarController.setViewControllers([mainVC], animated: true)
-        tabbarController.configureItemDesing(tabBar: tabbarController.tabBar)
-        
-        print(#function)
-        
-        window?.rootViewController = tabbarController
-        window?.makeKeyAndVisible()
-        
-//        if userState == UserDefaultManager.UserStateCode.new.state {
-//            window = UIWindow(windowScene: scene)
-//            
-//            let sb = UIStoryboard(name: OnboardingViewController.identifier, bundle: nil)
-//            let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
-//            let nav = UINavigationController(rootViewController: vc)
-//            
-//            window?.rootViewController = nav
-//            window?.makeKeyAndVisible() /// 해당 과정은 inpo.plist에서 바꾼것을 해당 과정으로 바꾼거임
-//
-//        } else { // onbaord 아님
-//            let sb = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = sb.instantiateViewController(withIdentifier: MainTabbarViewController.identifier) as! MainTabbarViewController
-////            let nav = UINavigationController(rootViewController: vc)
-//            
-//            window?.rootViewController = vc
-//            window?.makeKeyAndVisible()
-//        }
+        let userState = UserDefaultManager.shared.userState
+        print(userState)
+                
+        if userState == UserDefaultManager.UserStateCode.new.state {
+            window = UIWindow(windowScene: scene)
+            
+            let sb = UIStoryboard(name: OnboardingViewController.identifier, bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
+            let nav = UINavigationController(rootViewController: vc)
+            
+            window?.rootViewController = nav
+            window?.makeKeyAndVisible() /// 해당 과정은 inpo.plist에서 바꾼것을 해당 과정으로 바꾼거임
+
+        } else { // onbaord 아님
+            let mainVC = UINavigationController(rootViewController: MainViewController())
+            
+            // Tabbar controller
+            let tabbarController = UITabBarController()
+            tabbarController.setViewControllers([mainVC], animated: true)
+            tabbarController.configureItemDesing(tabBar: tabbarController.tabBar)
+            
+            window?.rootViewController = tabbarController
+            window?.makeKeyAndVisible()
+        }
         
     }
 
