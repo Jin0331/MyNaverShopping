@@ -16,12 +16,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 코드를 통해 앱 시작 화면 설정
         guard let scene = (scene as? UIWindowScene) else { return }
-        
-        // User state
-        /// User default는 bool을 Optional이 아님
+        window = UIWindow(windowScene: scene)
         let userState = UserDefaultManager.shared.userState
         print(userState)
-        
+                
         if userState == UserDefaultManager.UserStateCode.new.state {
             window = UIWindow(windowScene: scene)
             
@@ -33,11 +31,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.makeKeyAndVisible() /// 해당 과정은 inpo.plist에서 바꾼것을 해당 과정으로 바꾼거임
 
         } else { // onbaord 아님
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: MainTabbarViewController.identifier) as! MainTabbarViewController
-//            let nav = UINavigationController(rootViewController: vc)
+            let mainVC = UINavigationController(rootViewController: MainViewController())
+            let settingVC = UINavigationController(rootViewController: SettingViewController())
             
-            window?.rootViewController = vc
+            
+            // Tabbar controller
+            let tabbarController = UITabBarController()
+            tabbarController.setViewControllers([mainVC, settingVC], animated: true)
+            tabbarController.configureItemDesing(tabBar: tabbarController.tabBar)
+            
+            window?.rootViewController = tabbarController
             window?.makeKeyAndVisible()
         }
         
@@ -54,16 +57,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         
-        // 뱃지 제거
-        UIApplication.shared.applicationIconBadgeNumber = 0
-        
-        //사용자에게 이미 전달되어 있는 노티들을 제거(ex. 카톡)
-        UNUserNotificationCenter.current()
-            .removeAllDeliveredNotifications()
-        
-        // 사용자에게 전달이 될 예정인 노디들을 제거
-        UNUserNotificationCenter.current()
-            .removeAllPendingNotificationRequests()
+//        // 뱃지 제거
+//        UIApplication.shared.applicationIconBadgeNumber = 0
+//        
+//        //사용자에게 이미 전달되어 있는 노티들을 제거(ex. 카톡)
+//        UNUserNotificationCenter.current()
+//            .removeAllDeliveredNotifications()
+//        
+//        // 사용자에게 전달이 될 예정인 노디들을 제거
+//        UNUserNotificationCenter.current()
+//            .removeAllPendingNotificationRequests()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

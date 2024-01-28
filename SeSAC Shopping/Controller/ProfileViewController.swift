@@ -74,8 +74,7 @@ class ProfileViewController: UIViewController {
             UserDefaultManager.shared.userState = UserDefaultManager.UserStateCode.old.state
             
             
-            //TODO: - 해당부분은 재사용 되는데, 간소화방법이 있을까
-            rootViewChange(rootView: MainTabbarViewController())
+            MainViewChangeCodebase() // main View로 전환
         } else {
             print("아무일도 발생하지 않는다...!")
         }

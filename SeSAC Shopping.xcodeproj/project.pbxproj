@@ -22,27 +22,28 @@
 		DB9070D62B590563006EF2EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D52B590563006EF2EE /* AppDelegate.swift */; };
 		DB9070D82B590563006EF2EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D72B590563006EF2EE /* SceneDelegate.swift */; };
 		DB9070DA2B590563006EF2EE /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D92B590563006EF2EE /* MainController.swift */; };
-		DB9070DD2B590563006EF2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9070DB2B590563006EF2EE /* Main.storyboard */; };
 		DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB9070DE2B590565006EF2EE /* Assets.xcassets */; };
 		DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9070E02B590565006EF2EE /* LaunchScreen.storyboard */; };
 		DB9070EE2B590790006EF2EE /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070ED2B590790006EF2EE /* Protocol.swift */; };
 		DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070EF2B5907A8006EF2EE /* Extension.swift */; };
 		DB9070F22B5907BE006EF2EE /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */; };
 		DB9070F82B594A33006EF2EE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */; };
-		DB9070F92B594A33006EF2EE /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB9070F72B594A33006EF2EE /* MainTableViewCell.xib */; };
 		DBA43A442B597FCB00DED8CD /* SearchResultController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */; };
 		DBA43A472B59802700DED8CD /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA43A462B59802700DED8CD /* SearchResultController.swift */; };
 		DBA43A4A2B59805D00DED8CD /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */; };
 		DBA43A4B2B59805D00DED8CD /* SearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */; };
-		DBC322BD2B5BB7BA0064956A /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BC2B5BB7BA0064956A /* MainTabbarViewController.swift */; };
 		DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */; };
 		DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */; };
-		DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */; };
 		DBC322C52B5CF0900064956A /* OnboardingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */; };
 		DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */; };
 		DBC322C92B5D05DC0064956A /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBC322C82B5D05DC0064956A /* ProfileViewController.storyboard */; };
 		DBC322CB2B5D05EB0064956A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */; };
 		DBC322CE2B5D072C0064956A /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = DBC322CD2B5D072C0064956A /* TextFieldEffects */; };
+		DBE87C702B653F2600EA2AF2 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE87C6F2B653F2600EA2AF2 /* Main.swift */; };
+		DBE87C732B65405F00EA2AF2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DBE87C722B65405F00EA2AF2 /* SnapKit */; };
+		DBE87C752B65405F00EA2AF2 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = DBE87C742B65405F00EA2AF2 /* SnapKit-Dynamic */; };
+		DBE87C772B665AA400EA2AF2 /* UITabBarController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE87C762B665AA400EA2AF2 /* UITabBarController + Extension.swift */; };
+		DBE87C792B6680D600EA2AF2 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE87C782B6680D600EA2AF2 /* UIViewController + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,7 +61,6 @@
 		DB9070D52B590563006EF2EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB9070D72B590563006EF2EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB9070D92B590563006EF2EE /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
-		DB9070DC2B590563006EF2EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB9070DE2B590565006EF2EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB9070E12B590565006EF2EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB9070E32B590565006EF2EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,19 +68,19 @@
 		DB9070EF2B5907A8006EF2EE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		DB9070F72B594A33006EF2EE /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultController.storyboard; sourceTree = "<group>"; };
 		DBA43A462B59802700DED8CD /* SearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
 		DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
-		DBC322BC2B5BB7BA0064956A /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
 		DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
-		DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingTableViewCell.xib; sourceTree = "<group>"; };
 		DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingViewController.storyboard; sourceTree = "<group>"; };
 		DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		DBC322C82B5D05DC0064956A /* ProfileViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileViewController.storyboard; sourceTree = "<group>"; };
 		DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DBE87C6F2B653F2600EA2AF2 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		DBE87C762B665AA400EA2AF2 /* UITabBarController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController + Extension.swift"; sourceTree = "<group>"; };
+		DBE87C782B6680D600EA2AF2 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBE87C752B65405F00EA2AF2 /* SnapKit-Dynamic in Frameworks */,
 				DBC322CE2B5D072C0064956A /* TextFieldEffects in Frameworks */,
+				DBE87C732B65405F00EA2AF2 /* SnapKit in Frameworks */,
 				DB1CA51A2B5A57EC000EB832 /* Kingfisher in Frameworks */,
 				DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */,
 			);
@@ -134,6 +136,8 @@
 			children = (
 				DB9070ED2B590790006EF2EE /* Protocol.swift */,
 				DB9070EF2B5907A8006EF2EE /* Extension.swift */,
+				DBE87C762B665AA400EA2AF2 /* UITabBarController + Extension.swift */,
+				DBE87C782B6680D600EA2AF2 /* UIViewController + Extension.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -143,12 +147,12 @@
 			children = (
 				DBA43A452B597FE500DED8CD /* CollectionViewCell */,
 				DB9070F52B5944DE006EF2EE /* TableViewCell */,
-				DB9070DB2B590563006EF2EE /* Main.storyboard */,
 				DBA43A432B597FCB00DED8CD /* SearchResultController.storyboard */,
 				DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */,
 				DBC322C42B5CF0900064956A /* OnboardingViewController.storyboard */,
 				DBC322C82B5D05DC0064956A /* ProfileViewController.storyboard */,
 				DB2E569C2B5D4BE300AE8FFF /* ProfileImageViewController.storyboard */,
+				DBE87C6F2B653F2600EA2AF2 /* Main.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,7 +172,6 @@
 		DB9070EC2B59071D006EF2EE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DBC322BC2B5BB7BA0064956A /* MainTabbarViewController.swift */,
 				DB9070D92B590563006EF2EE /* MainController.swift */,
 				DBA43A462B59802700DED8CD /* SearchResultController.swift */,
 				DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */,
@@ -184,9 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */,
-				DB9070F72B594A33006EF2EE /* MainTableViewCell.xib */,
 				DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */,
-				DBC322C12B5CD26D0064956A /* SettingTableViewCell.xib */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -222,6 +223,8 @@
 				DB1CA5142B5A4941000EB832 /* Alamofire */,
 				DB1CA5192B5A57EC000EB832 /* Kingfisher */,
 				DBC322CD2B5D072C0064956A /* TextFieldEffects */,
+				DBE87C722B65405F00EA2AF2 /* SnapKit */,
+				DBE87C742B65405F00EA2AF2 /* SnapKit-Dynamic */,
 			);
 			productName = "Recap Assignment";
 			productReference = DB9070D22B590563006EF2EE /* SeSAC Shopping.app */;
@@ -255,6 +258,7 @@
 				DB1CA5132B5A4941000EB832 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
+				DBE87C712B65405F00EA2AF2 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = DB9070D32B590563006EF2EE /* Products */;
 			projectDirPath = "";
@@ -277,11 +281,8 @@
 				DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */,
 				DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */,
 				DB1CA5202B5B79F6000EB832 /* SearchResultDetailViewController.storyboard in Resources */,
-				DBC322C32B5CD26D0064956A /* SettingTableViewCell.xib in Resources */,
-				DB9070F92B594A33006EF2EE /* MainTableViewCell.xib in Resources */,
 				DB2E569D2B5D4BE300AE8FFF /* ProfileImageViewController.storyboard in Resources */,
 				DB2E56A32B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib in Resources */,
-				DB9070DD2B590563006EF2EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,18 +295,20 @@
 			files = (
 				DB1CA5102B5A4724000EB832 /* API.swift in Sources */,
 				DB9070F22B5907BE006EF2EE /* UserDefaultManager.swift in Sources */,
+				DBE87C702B653F2600EA2AF2 /* Main.swift in Sources */,
 				DB2E56A22B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift in Sources */,
 				DB1CA5122B5A4928000EB832 /* NaverShopping.swift in Sources */,
 				DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */,
-				DBC322BD2B5BB7BA0064956A /* MainTabbarViewController.swift in Sources */,
 				DB17A6052B5F9C8800B6ACD2 /* NaverShoppingAPIManager.swift in Sources */,
 				DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */,
 				DBC322CB2B5D05EB0064956A /* ProfileViewController.swift in Sources */,
+				DBE87C792B6680D600EA2AF2 /* UIViewController + Extension.swift in Sources */,
 				DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */,
 				DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */,
 				DB9070DA2B590563006EF2EE /* MainController.swift in Sources */,
 				DBA43A472B59802700DED8CD /* SearchResultController.swift in Sources */,
 				DB1CA5222B5B7A1D000EB832 /* SearchResultDetailViewController.swift in Sources */,
+				DBE87C772B665AA400EA2AF2 /* UITabBarController + Extension.swift in Sources */,
 				DB81C4342B594EA00068CEB7 /* Enumeration.swift in Sources */,
 				DB9070F82B594A33006EF2EE /* MainTableViewCell.swift in Sources */,
 				DB9070D62B590563006EF2EE /* AppDelegate.swift in Sources */,
@@ -319,14 +322,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DB9070DB2B590563006EF2EE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DB9070DC2B590563006EF2EE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DB9070E02B590565006EF2EE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -470,7 +465,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "이진우";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -503,7 +498,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "이진우";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -571,6 +566,14 @@
 				minimumVersion = 1.7.0;
 			};
 		};
+		DBE87C712B65405F00EA2AF2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -588,6 +591,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
 			productName = TextFieldEffects;
+		};
+		DBE87C722B65405F00EA2AF2 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBE87C712B65405F00EA2AF2 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		DBE87C742B65405F00EA2AF2 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBE87C712B65405F00EA2AF2 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
