@@ -12,3 +12,8 @@ protocol ResuableProtocol {
     var identifier_ : String{ get }
 }
 
+protocol ViewSetup {
+    func configureHierachy()
+    func setupConstraints()
+    func configureView()
+}
