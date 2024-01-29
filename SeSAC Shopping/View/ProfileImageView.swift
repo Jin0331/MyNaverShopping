@@ -8,13 +8,7 @@
 import UIKit
 
 class ProfileImageView: UIImageView {
-
-    let profileImage : UIImageView = {
-       let profileImage = UIImageView()
-    
-        return profileImage
-    }()
-    
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureImage()
@@ -29,7 +23,10 @@ class ProfileImageView: UIImageView {
         contentMode = .scaleAspectFill
         layer.borderColor = ImageStyle.pointColor.cgColor
         clipsToBounds = true
-        layer.cornerRadius = profileImage.layer.frame.width / 2
+    }
+    
+    func configureCornerRadius() {
+        layer.cornerRadius = layer.frame.width / 2
     }
     
     func configureImageSpecific(borderWidth : CGFloat, userDefaultImageName : String){
@@ -40,10 +37,10 @@ class ProfileImageView: UIImageView {
     
     func configureSelectedBorder(asset : String) {
         if asset == UserDefaultManager.shared.tempProfileImage {
-            profileImage.layer.borderColor = ImageStyle.pointColor.cgColor
-            profileImage.layer.borderWidth = 3.5
+            layer.borderColor = ImageStyle.pointColor.cgColor
+            layer.borderWidth = 3.5
         } else {
-            profileImage.layer.borderWidth = 0
+            layer.borderWidth = 0
         }
     }
 }

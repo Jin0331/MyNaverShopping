@@ -27,14 +27,9 @@ class OnboardingViewController: UIViewController, ViewSetup{
         return mainImage
     }()
     
-    let startButton : UIButton = {
-        let startButton = UIButton()
-        startButton.setTitle("시작하기", for: .normal)
-        startButton.setTitleColor(ImageStyle.textColor, for: .normal)
-        startButton.titleLabel?.font = ImageStyle.headerFontSize
-        startButton.backgroundColor = ImageStyle.pointColor
-        startButton.clipsToBounds = true
-        startButton.layer.cornerRadius = 10
+    let startButton : CommonButton = {
+        let startButton = CommonButton()
+        startButton.configureOnboardingButton()
         
         return startButton
     }()

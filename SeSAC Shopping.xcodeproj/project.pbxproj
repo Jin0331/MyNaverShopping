@@ -33,6 +33,8 @@
 		DBA43A4A2B59805D00DED8CD /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */; };
 		DBA43A4B2B59805D00DED8CD /* SearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */; };
 		DBB376B32B67583200DA1C8F /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB376B22B67583200DA1C8F /* ProfileImageView.swift */; };
+		DBB376B52B67C8C700DA1C8F /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB376B42B67C8C700DA1C8F /* CommonButton.swift */; };
+		DBB376B72B67CBCF00DA1C8F /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB376B62B67CBCF00DA1C8F /* CommonTextField.swift */; };
 		DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */; };
 		DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */; };
 		DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */; };
@@ -72,6 +74,8 @@
 		DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
 		DBB376B22B67583200DA1C8F /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		DBB376B42B67C8C700DA1C8F /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
+		DBB376B62B67CBCF00DA1C8F /* CommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextField.swift; sourceTree = "<group>"; };
 		DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +140,6 @@
 				DB9070EF2B5907A8006EF2EE /* Extension.swift */,
 				DBE87C762B665AA400EA2AF2 /* UITabBarController + Extension.swift */,
 				DBE87C782B6680D600EA2AF2 /* UIViewController + Extension.swift */,
-				DBB376B22B67583200DA1C8F /* ProfileImageView.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -150,6 +153,9 @@
 				DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */,
 				DB2E569C2B5D4BE300AE8FFF /* ProfileImageViewController.storyboard */,
 				DBE87C6F2B653F2600EA2AF2 /* Main.swift */,
+				DBB376B22B67583200DA1C8F /* ProfileImageView.swift */,
+				DBB376B42B67C8C700DA1C8F /* CommonButton.swift */,
+				DBB376B62B67CBCF00DA1C8F /* CommonTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,7 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBB376B72B67CBCF00DA1C8F /* CommonTextField.swift in Sources */,
 				DBB376B32B67583200DA1C8F /* ProfileImageView.swift in Sources */,
+				DBB376B52B67C8C700DA1C8F /* CommonButton.swift in Sources */,
 				DB1CA5102B5A4724000EB832 /* API.swift in Sources */,
 				DB9070F22B5907BE006EF2EE /* UserDefaultManager.swift in Sources */,
 				DBE87C702B653F2600EA2AF2 /* Main.swift in Sources */,

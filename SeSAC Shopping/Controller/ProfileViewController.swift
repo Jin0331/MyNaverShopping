@@ -6,19 +6,12 @@
 //
 
 import UIKit
-import TextFieldEffects
 
 class ProfileViewController: UIViewController, ViewSetup {
     
-    let nicknameTextfield : YoshikoTextField = {
-        let nicknameTextfield = YoshikoTextField()
-        nicknameTextfield.placeholder = "닉네임을 입력해주세요 :)"
-        nicknameTextfield.placeholderFontScale = 1
-        nicknameTextfield.placeholderColor = .systemGray2
-        nicknameTextfield.borderSize = 1.5
-        nicknameTextfield.textAlignment = .center
-        nicknameTextfield.backgroundColor = .clear
-        nicknameTextfield.textColor = ImageStyle.textColor
+    let nicknameTextfield : CommonTextField = {
+        let nicknameTextfield = CommonTextField()
+        nicknameTextfield.profileTextField()
         
         return nicknameTextfield
     }()
@@ -38,31 +31,21 @@ class ProfileViewController: UIViewController, ViewSetup {
         return statusTextfield
     }()
     
-    let completeButton : UIButton = {
-        let completeButton = UIButton()
-        completeButton.setTitle("완료", for: .normal)
-        completeButton.setTitleColor(ImageStyle.textColor, for: .normal)
-        completeButton.titleLabel?.font = ImageStyle.headerFontSize
-        completeButton.backgroundColor = ImageStyle.pointColor
-        completeButton.clipsToBounds = true
-        completeButton.layer.cornerRadius = 11
+    let completeButton : CommonButton = {
+        let completeButton = CommonButton()
+        completeButton.configureCompleteButton()
         
         return completeButton
     }()
     
-    let profileImageSet : UIButton = {
-        let profileImageSet = UIButton()
-        profileImageSet.setImage(UIImage(named: "camera"), for: .normal)
-        profileImageSet.setTitle("", for: .normal)
-        profileImageSet.backgroundColor = .clear
-        profileImageSet.clipsToBounds = true
-        profileImageSet.layer.cornerRadius = profileImageSet.layer.frame.width / 2
+    let profileImageSet : CommonButton = {
+        let profileImageSet = CommonButton()
+        profileImageSet.configureProfileSetButton()
         
         return profileImageSet
     }()
     
     var status : Bool = false
-    
     var nickname : String = ""
     
     override func viewDidLoad() {
@@ -84,13 +67,18 @@ class ProfileViewController: UIViewController, ViewSetup {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        configureView()
+        super.viewWillAppear(animated)
+        print(#function)
+        profileImage.configureImageSpecific(borderWidth: 4, userDefaultImageName: UserDefaultManager.shared.tempProfileImage)
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-//        profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print(#function)
+        profileImage.configureCornerRadius()
     }
+        
     
     func configureView() {
         
@@ -101,16 +89,12 @@ class ProfileViewController: UIViewController, ViewSetup {
         }
         
         nicknameTextfield.addTarget(self, action: #selector(checkNickname), for: .editingChanged)
-        
         completeButton.addTarget(self, action: #selector(completeButtonClicked), for: .touchUpInside)
-        
         profileImageSet.addTarget(self, action: #selector(profileChange), for: .touchUpInside)
-        
         hideKeyboardWhenTappedAround()
         
         configureHierachy()
         setupConstraints()
-        configureView()
     }
     
     func configureHierachy() {
@@ -150,10 +134,6 @@ class ProfileViewController: UIViewController, ViewSetup {
         }
     }
     
-//    func configureView() {
-//        
-//    }
-    
     @objc func checkNickname(sender: UITextField) {
 
         let specialCharacters = "@#$%"
@@ -185,7 +165,6 @@ class ProfileViewController: UIViewController, ViewSetup {
             UserDefaultManager.shared.profileImage = UserDefaultManager.shared.tempProfileImage
             UserDefaultManager.shared.tempProfileImage = UserDefaultManager.shared.profileImage
             UserDefaultManager.shared.userState = UserDefaultManager.UserStateCode.old.state
-            
             
             viewChangeToMain() // main View로 전환
         } else {
