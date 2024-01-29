@@ -8,20 +8,33 @@
 import UIKit
 import WebKit
 
-class SearchResultDetailViewController: UIViewController {
+class SearchResultDetailViewController: UIViewController, ViewSetup {
     
-    @IBOutlet var searchDetailWebView: WKWebView!
-    
-    //    var detailURL : URL?
-    //    var productTitle : String?
+    let searchDetailWebView = WKWebView()
     var item : NaverShoppingItem?
     var defaultUrl : String = "https://msearch.shopping.naver.com/product/"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureView()
         configureDesign()
         
+    }
+    
+    func configureView() {
+        configureHierachy()
+        setupConstraints()
+    }
+    
+    func configureHierachy() {
+        view.addSubview(searchDetailWebView)
+    }
+    
+    func setupConstraints() {
+        searchDetailWebView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
 }

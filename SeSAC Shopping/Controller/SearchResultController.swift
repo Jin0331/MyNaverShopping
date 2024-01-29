@@ -182,10 +182,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let sb = UIStoryboard(name: SearchResultDetailViewController.identifier, bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: SearchResultDetailViewController.identifier) as! SearchResultDetailViewController
-        
+        let vc = SearchResultDetailViewController()
         vc.item = searchResult.items[indexPath.item]
         
         navigationController?.pushViewController(vc, animated: true)
