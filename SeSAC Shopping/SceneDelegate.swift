@@ -23,11 +23,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if userState == UserDefaultManager.UserStateCode.new.state {
             window = UIWindow(windowScene: scene)
             
-            let sb = UIStoryboard(name: OnboardingViewController.identifier, bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
-            let nav = UINavigationController(rootViewController: vc)
+            let onboardingVC = UINavigationController(rootViewController: OnboardingViewController())
             
-            window?.rootViewController = nav
+            window?.rootViewController = onboardingVC
             window?.makeKeyAndVisible() /// 해당 과정은 inpo.plist에서 바꾼것을 해당 과정으로 바꾼거임
 
         } else { // onbaord 아님

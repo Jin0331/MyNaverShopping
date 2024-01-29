@@ -6,27 +6,83 @@
 //
 
 import UIKit
+import SnapKit
 
-//TODO: - 글씨폰트???
-
-class OnboardingViewController: UIViewController {
+class OnboardingViewController: UIViewController, ViewSetup{
     
-    @IBOutlet var titleImage: UIImageView!
-    @IBOutlet var mainImage: UIImageView!
-    @IBOutlet var startButton: UIButton!
+    //MARK: - UI
+    let titleImage : UIImageView = {
+        let titleImage = UIImageView()
+        titleImage.image = #imageLiteral(resourceName: "sesacShopping")
+        titleImage.contentMode = .scaleAspectFit
+        
+        return titleImage
+    }()
+    
+    let mainImage : UIImageView = {
+        let mainImage = UIImageView()
+        mainImage.image = #imageLiteral(resourceName: "onboarding")
+        mainImage.contentMode = .scaleAspectFill
+        
+        return mainImage
+    }()
+    
+    let startButton : CommonButton = {
+        let startButton = CommonButton()
+        startButton.configureOnboardingButton()
+        
+        return startButton
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationDesign() 
-        configureViewDesign()
+        configureView()
+    }
+    
+    func configureView() {
+        view.backgroundColor = ImageStyle.backgroundColor
+        
+        startButton.addTarget(self, action: #selector(startButonClicked), for: .touchUpInside)
+        
+        configureHierachy()
+        setupConstraints()
+    }
+    
+    func configureHierachy() {
+        [titleImage, mainImage, startButton].map { item in
+            return view.addSubview(item)
+        }
         
     }
-
-    @IBAction func startButtonClicked(_ sender: UIButton) {
+    
+    func setupConstraints() {
+        titleImage.snp.makeConstraints { make in
+            make.centerX.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.height.equalTo(150)
+            make.width.equalTo(250)
+        }
+        
+        mainImage.snp.makeConstraints { make in
+            make.center.equalTo(view.safeAreaLayoutGuide)
+            make.width.height.equalTo(300)
+        }
+        
+        startButton.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(24)
+            make.top.equalTo(mainImage.snp.bottom).offset(50)
+            make.height.equalTo(50)
+        }
+        
+    }
+    
+    @objc func startButonClicked(_ sender: UIButton) {
         //TODO: - 프로필 설정으로 가도록 해야됨. 현재는 메인 - 완료
-        let sb = UIStoryboard(name: ProfileViewController.identifier, bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: ProfileViewController.identifier) as! ProfileViewController
+        let vc = ProfileViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+
 }
