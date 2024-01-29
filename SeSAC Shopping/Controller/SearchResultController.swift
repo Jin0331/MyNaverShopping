@@ -37,8 +37,9 @@ class SearchResultController: UIViewController, ViewSetup {
     lazy var searchResultCollectionView : UICollectionView = {
         let searchResultCollectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCellLayout())
         searchResultCollectionView.backgroundColor = .clear
-        
         //TODO: - cell file codebase로 수정하면, register 추가
+        searchResultCollectionView.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: SearchResultCollectionViewCell.identifier)
+        
         return searchResultCollectionView
     }()
     
@@ -153,10 +154,6 @@ class SearchResultController: UIViewController, ViewSetup {
 extension SearchResultController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func configureCollectionViewProtocol () {
-        
-        let xib = UINib(nibName: SearchResultCollectionViewCell.identifier, bundle: nil)
-        searchResultCollectionView.register(xib, forCellWithReuseIdentifier: SearchResultCollectionViewCell.identifier)
-        
         searchResultCollectionView.delegate = self
         searchResultCollectionView.dataSource = self
         searchResultCollectionView.prefetchDataSource = self
