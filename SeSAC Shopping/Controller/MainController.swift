@@ -151,8 +151,7 @@ extension MainViewController : ViewSetup {
     }
     
     func screenTransition(sendText : String) {
-        let sb = UIStoryboard(name: SearchResultController.identifier, bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: SearchResultController.identifier) as! SearchResultController
+        let vc = SearchResultController()
         
         vc.searchKeyword = sendText
         view.endEditing(true)

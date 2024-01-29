@@ -14,17 +14,52 @@ import Alamofire
 //TODO: - cell 선택했을 때 상세화면 - 완료
 //TODO: - 디자인 - 완료
 
-class SearchResultController: UIViewController {
-    @IBOutlet var searchResultTotalCount: UILabel!
-    @IBOutlet var searchResultButtonCollection: [UIButton]!
-    @IBOutlet var searchResultCollectionView: UICollectionView!
+class SearchResultController: UIViewController, ViewSetup {
+    
+    lazy var searchResultTotalCount : UILabel = {
+        let searchResultTotalCount = UILabel()
+        searchResultTotalCount.textColor = ImageStyle.pointColor
+        searchResultTotalCount.font = ImageStyle.headerFontSize
+        
+        return searchResultTotalCount
+    }()
+    
+    let searchResultButtonCollection : [CommonButton] = {
+        let searchResultButtonCollection = [CommonButton(),CommonButton(),CommonButton(),CommonButton()]
+        let requestSort = NaverShoppingAPIManager.RequestSort.allCases
+        for value in requestSort {
+            searchResultButtonCollection[value.index].configureSearchResultButton(title: value.rawValue, layerName: value.caseValue)
+        }
+        
+        return searchResultButtonCollection
+    }()
+    
+    lazy var searchResultCollectionView : UICollectionView = {
+        let searchResultCollectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCellLayout())
+        searchResultCollectionView.backgroundColor = .clear
+        //TODO: - cell file codebase로 수정하면, register 추가
+        searchResultCollectionView.register(SearchResultCollectionViewCell.self, forCellWithReuseIdentifier: SearchResultCollectionViewCell.identifier)
+        
+        return searchResultCollectionView
+    }()
+    
+    let buttonStackView : UIStackView = {
+        let buttonStackView = UIStackView()
+        buttonStackView.axis = .horizontal
+        buttonStackView.alignment = .fill
+        buttonStackView.distribution = .fillEqually
+        buttonStackView.spacing = 6
+        
+        return buttonStackView
+    }()
+    
     
     var searchKeyword : String = ""
     var searchResult : NaverShopping = NaverShopping(lastBuildDate: "", total: 0, start: 0, display: 0, items: []) {
         didSet {
             print(#function, "searchResult 수정됨")
             searchResultCollectionView.reloadData()
-            configureDesgin()
+            searchResultTotalCount.text = "\(self.searchResult.totalChange) 개의 검색 결과"
         }
     }
     
@@ -33,6 +68,7 @@ class SearchResultController: UIViewController {
     var display = 30
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         searchResultCollectionView.reloadData()
     }
     
@@ -40,15 +76,13 @@ class SearchResultController: UIViewController {
         super.viewDidLoad()
         
         navigationDesign()
-        configureDesgin()
         configureCollectionViewProtocol()
-        searchResultCollectionView.collectionViewLayout = configureCellLayout()
+        configureView()
         
         // view가 띄워질 때, API request에서 sim(default)로 반환된다.
         NaverShoppingAPIManager.shared
             .callRequest(text: self.searchKeyword, start: self.start, display: self.display) { value, start in
                 self.searchResultUpdate(value: value, start: start)
-                
             }
         
         // default
@@ -57,7 +91,48 @@ class SearchResultController: UIViewController {
         }
     }
     
-    @IBAction func buttonSearchSpecific(_ sender: UIButton) {
+    func configureView() {
+        navigationItem.title = "\(searchKeyword)"
+        searchResultButtonCollection.map { bt in
+            bt.addTarget(self, action: #selector(buttonSearchSpecific), for: .touchUpInside)
+            return
+        }
+        
+        configureHierachy()
+        setupConstraints()
+    }
+    
+    func configureHierachy() {
+        [searchResultTotalCount, searchResultCollectionView, buttonStackView].map { item in
+            return view.addSubview(item)
+        }
+        searchResultButtonCollection.map { item in
+            return buttonStackView.addArrangedSubview(item)
+        }
+        
+    }
+    
+    func setupConstraints() {
+        searchResultTotalCount.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
+            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(10)
+            make.height.equalTo(25)
+        }
+        
+        buttonStackView.snp.makeConstraints { make in
+            make.top.equalTo(searchResultTotalCount.snp.bottom).offset(20)
+            make.leading.equalTo(view.safeAreaLayoutGuide)
+            make.trailing.equalTo(searchResultTotalCount.snp.trailing).inset(40)
+        }
+        
+        searchResultCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(buttonStackView.snp.bottom).offset(17)
+            make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+    }
+    
+    @objc func buttonSearchSpecific(sender: UIButton) {
         // 뒷 배경 토글
         for bt in searchResultButtonCollection {
             bt.backgroundColor = sender.layer.name == bt.layer.name ? ImageStyle.pointColor :.clear
@@ -79,10 +154,6 @@ class SearchResultController: UIViewController {
 extension SearchResultController : UICollectionViewDelegate, UICollectionViewDataSource {
     
     func configureCollectionViewProtocol () {
-        
-        let xib = UINib(nibName: SearchResultCollectionViewCell.identifier, bundle: nil)
-        searchResultCollectionView.register(xib, forCellWithReuseIdentifier: SearchResultCollectionViewCell.identifier)
-        
         searchResultCollectionView.delegate = self
         searchResultCollectionView.dataSource = self
         searchResultCollectionView.prefetchDataSource = self
@@ -111,15 +182,33 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let sb = UIStoryboard(name: SearchResultDetailViewController.identifier, bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: SearchResultDetailViewController.identifier) as! SearchResultDetailViewController
-        
+        let vc = SearchResultDetailViewController()
         vc.item = searchResult.items[indexPath.item]
         
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    func configureCellLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        
+        let rowCount : Double = 2
+        let sectionSpacing : CGFloat = 5
+        let itemSpacing : CGFloat = 8
+        let width : CGFloat = UIScreen.main.bounds.width - (itemSpacing * (rowCount - 1)) - (sectionSpacing * 2)
+        let itemWidth: CGFloat = width / rowCount
+        
+        // 각 item의 크기 설정 (아래 코드는 정사각형을 그린다는 가정)
+        layout.itemSize = CGSize(width: itemWidth - 5 , height: itemWidth + 80)
+        // 스크롤 방향 설정
+        layout.scrollDirection = .vertical
+        // Section간 간격 설정
+        layout.sectionInset = UIEdgeInsets(top: sectionSpacing, left: sectionSpacing, bottom: sectionSpacing, right: sectionSpacing)
+        // item간 간격 설정
+        layout.minimumLineSpacing = itemSpacing        // 최소 줄간 간격 (수직 간격)
+        layout.minimumInteritemSpacing = itemSpacing   // 최소 행간 간격 (수평 간격)
+        
+        return layout
+    }
     
     //TODO: - 눌렀을 때, UserDefault의 Key값을 기준으로 값 변경, 토글 떄리면 될 듯! - 완료
     @objc func searchResultButtonTapped(sender : UIButton) {
@@ -130,6 +219,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         
         searchResultCollectionView.reloadData()
     }
+    
     
 }
 
