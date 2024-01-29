@@ -43,5 +43,10 @@ class CommonButton : UIButton {
         layer.cornerRadius = layer.frame.width / 2
     }
     
+    func configureEmptyButton() {
+        backgroundColor = .clear
+        setTitle("", for: .normal)
+    }
+    
 }
 

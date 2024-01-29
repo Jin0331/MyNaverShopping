@@ -21,15 +21,10 @@ class SettingViewController: UIViewController {
         return backgroundView
     }()
     
-    let profileImage : UIImageView = {
-        let profileImage = UIImageView()
-        profileImage.contentMode = .scaleAspectFill
-        profileImage.image = UIImage(named: UserDefaultManager.shared.profileImage)
-        profileImage.layer.borderWidth = 2.5
-        profileImage.clipsToBounds = true
-        profileImage.layer.borderColor = ImageStyle.pointColor.cgColor
-        
-        
+    let profileImage : ProfileImageView = {
+        let profileImage = ProfileImageView(frame: .zero)
+        profileImage.configureImageSpecific(borderWidth: 2.5, userDefaultImageName: UserDefaultManager.shared.profileImage)
+                
        return profileImage
     }()
     
@@ -50,18 +45,16 @@ class SettingViewController: UIViewController {
     }()
     
     let settingTable : UITableView = {
-        let settingTable = UITableView(frame: CGRect(), style: .insetGrouped)
+        let settingTable = UITableView(frame: .zero, style: .insetGrouped)
         settingTable.backgroundColor = .clear
-        
         settingTable.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
         
         return settingTable
     }()
     
-    let profileSetButton : UIButton = {
-        let profileSetButton = UIButton()
-        profileSetButton.backgroundColor = .clear
-        profileSetButton.setTitle("", for: .normal)
+    let profileSetButton : CommonButton = {
+        let profileSetButton = CommonButton()
+        profileSetButton.configureEmptyButton()
         
         return profileSetButton
     }()
@@ -78,12 +71,14 @@ class SettingViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         configureView()
         configureLabel()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        profileImage.configureCornerRadius()
     }
     
 }
@@ -143,10 +138,7 @@ extension SettingViewController : ViewSetup {
     
     @objc func profileSetting(sender: UIButton) {
         // 화면 전환
-        let sb = UIStoryboard(name: ProfileViewController.identifier, bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: ProfileViewController.identifier)
-        
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
 }

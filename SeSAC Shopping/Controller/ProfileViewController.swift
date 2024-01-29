@@ -68,14 +68,11 @@ class ProfileViewController: UIViewController, ViewSetup {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print(#function)
         profileImage.configureImageSpecific(borderWidth: 4, userDefaultImageName: UserDefaultManager.shared.tempProfileImage)
-        
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        print(#function)
         profileImage.configureCornerRadius()
     }
         
@@ -174,9 +171,6 @@ class ProfileViewController: UIViewController, ViewSetup {
     
     @objc func profileChange(sender: UIButton) {
         // 화면 전환
-        let sb = UIStoryboard(name: ProfileImageViewController.identifier, bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: ProfileImageViewController.identifier)
-        
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(ProfileImageViewController(), animated: true)
     }
 }
