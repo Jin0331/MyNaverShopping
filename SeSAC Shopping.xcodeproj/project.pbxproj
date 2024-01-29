@@ -12,7 +12,6 @@
 		DB1CA5122B5A4928000EB832 /* NaverShopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA5112B5A4928000EB832 /* NaverShopping.swift */; };
 		DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DB1CA5142B5A4941000EB832 /* Alamofire */; };
 		DB1CA51A2B5A57EC000EB832 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DB1CA5192B5A57EC000EB832 /* Kingfisher */; };
-		DB1CA5202B5B79F6000EB832 /* SearchResultDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */; };
 		DB1CA5222B5B7A1D000EB832 /* SearchResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */; };
 		DB2E569F2B5D4BFA00AE8FFF /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */; };
 		DB2E56A22B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E56A02B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift */; };
@@ -47,7 +46,6 @@
 		DB17A6042B5F9C8800B6ACD2 /* NaverShoppingAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShoppingAPIManager.swift; sourceTree = "<group>"; };
 		DB1CA50F2B5A4724000EB832 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		DB1CA5112B5A4928000EB832 /* NaverShopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverShopping.swift; sourceTree = "<group>"; };
-		DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchResultDetailViewController.storyboard; sourceTree = "<group>"; };
 		DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDetailViewController.swift; sourceTree = "<group>"; };
 		DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
 		DB2E56A02B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 			children = (
 				DBA43A452B597FE500DED8CD /* CollectionViewCell */,
 				DB9070F52B5944DE006EF2EE /* TableViewCell */,
-				DB1CA51F2B5B79F6000EB832 /* SearchResultDetailViewController.storyboard */,
 				DBE87C6F2B653F2600EA2AF2 /* Main.swift */,
 				DBB376B22B67583200DA1C8F /* ProfileImageView.swift */,
 				DBB376B42B67C8C700DA1C8F /* CommonButton.swift */,
@@ -267,7 +264,6 @@
 			files = (
 				DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */,
 				DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */,
-				DB1CA5202B5B79F6000EB832 /* SearchResultDetailViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
