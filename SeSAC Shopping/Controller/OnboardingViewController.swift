@@ -86,8 +86,7 @@ class OnboardingViewController: UIViewController, ViewSetup{
     
     @objc func startButonClicked(_ sender: UIButton) {
         //TODO: - 프로필 설정으로 가도록 해야됨. 현재는 메인 - 완료
-        let sb = UIStoryboard(name: ProfileViewController.identifier, bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: ProfileViewController.identifier) as! ProfileViewController
+        let vc = ProfileViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

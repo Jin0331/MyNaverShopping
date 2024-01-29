@@ -17,19 +17,28 @@ class ProfileImageView: UIImageView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        configureImage()
+        configureImage()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureProfileImage(asset : String) {
-        profileImage.image = UIImage(named: asset)
-//        profileImage.layer.name = asset
-        profileImage.clipsToBounds = true
-        profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
+    
+    func configureImage() {
+        contentMode = .scaleAspectFill
+        layer.borderColor = ImageStyle.pointColor.cgColor
+        clipsToBounds = true
+        layer.cornerRadius = profileImage.layer.frame.width / 2
+    }
+    
+    func configureImageSpecific(borderWidth : CGFloat, userDefaultImageName : String){
         
+        layer.borderWidth = borderWidth
+        image = UIImage(named: userDefaultImageName)
+    }
+    
+    func configureSelectedBorder(asset : String) {
         if asset == UserDefaultManager.shared.tempProfileImage {
             profileImage.layer.borderColor = ImageStyle.pointColor.cgColor
             profileImage.layer.borderWidth = 3.5
@@ -38,4 +47,3 @@ class ProfileImageView: UIImageView {
         }
     }
 }
-

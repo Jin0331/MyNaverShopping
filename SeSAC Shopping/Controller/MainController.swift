@@ -99,7 +99,6 @@ extension MainViewController : ViewSetup {
         
         removeButton.addTarget(self, action: #selector(searchKeywordRemove), for: .touchUpInside)
         
-        print(#function)
         configureHierachy()
         setupConstraints()
     }
