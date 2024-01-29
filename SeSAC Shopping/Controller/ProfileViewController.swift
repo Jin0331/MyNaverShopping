@@ -74,7 +74,7 @@ class ProfileViewController: UIViewController {
             UserDefaultManager.shared.userState = UserDefaultManager.UserStateCode.old.state
             
             
-            MainViewChangeCodebase() // main View로 전환
+            viewChangeToMain() // main View로 전환
         } else {
             print("아무일도 발생하지 않는다...!")
         }

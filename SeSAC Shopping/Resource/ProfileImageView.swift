@@ -1,24 +1,29 @@
 //
-//  ProfileImageCollectionViewCell.swift
-//  Recap Assignment
+//  ProfileImageView.swift
+//  SeSAC Shopping
 //
-//  Created by JinwooLee on 1/21/24.
+//  Created by JinwooLee on 1/29/24.
 //
 
 import UIKit
 
-class ProfileImageCollectionViewCell: UICollectionViewCell {
+class ProfileImageView: UIImageView {
 
-    @IBOutlet var profileImage: UIImageView!
+    let profileImage : UIImageView = {
+       let profileImage = UIImageView()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
+        return profileImage
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+//        configureImage()
     }
-
-}
-
-extension ProfileImageCollectionViewCell {
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func configureProfileImage(asset : String) {
         profileImage.image = UIImage(named: asset)
 //        profileImage.layer.name = asset
@@ -33,3 +38,4 @@ extension ProfileImageCollectionViewCell {
         }
     }
 }
+

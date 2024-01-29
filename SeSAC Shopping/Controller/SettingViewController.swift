@@ -194,8 +194,7 @@ extension SettingViewController : UITableViewDelegate, UITableViewDataSource {
                 for key in UserDefaults.standard.dictionaryRepresentation().keys {
                     UserDefaults.standard.removeObject(forKey: key.description)
                 }
-                //TODO: - 해당부분은 재사용 되는데, 간소화방법이 있을까 - 완료
-                self.rootViewChange(rootView: OnboardingViewController(), storyBoardName: OnboardingViewController().identifier_)
+                self.viewChangeToOnboarding()
             })
             alert.addAction(UIAlertAction(title: "취소", style: .cancel))
             self.present(alert, animated: true, completion: nil)

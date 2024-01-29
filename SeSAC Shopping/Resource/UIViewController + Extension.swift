@@ -39,22 +39,18 @@ extension UIViewController : ResuableProtocol {
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
-    func rootViewChange<T: UIViewController>(rootView : T, storyBoardName : String = "Main") {
+    func viewChangeToOnboarding() { // 임시 function
         // seceneDelegate window vc rootview
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
         
-        print(rootView.identifier_)
+        let onboardingVC = UINavigationController(rootViewController: OnboardingViewController())
         
-        let sb = UIStoryboard(name: storyBoardName, bundle: nil)
-        let vc = sb.instantiateViewController(withIdentifier: rootView.identifier_) as! T
-        let nav = UINavigationController(rootViewController: vc)
-        
-        sceneDelegate?.window?.rootViewController = nav
+        sceneDelegate?.window?.rootViewController = onboardingVC
         sceneDelegate?.window?.makeKeyAndVisible()
     }
     
-    func MainViewChangeCodebase() { // 임시 function
+    func viewChangeToMain() { // 임시 function
         // seceneDelegate window vc rootview
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDelegate = windowScene?.delegate as? SceneDelegate
