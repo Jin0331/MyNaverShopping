@@ -76,7 +76,8 @@ class MainTableViewCell: UITableViewCell, ViewSetup{
             make.width.height.equalTo(20)
         }
         mainCellClickedButton.snp.makeConstraints { make in
-            make.edges.equalTo(mainCellLabel)
+            make.top.bottom.leading.equalTo(mainCellLabel)
+            make.trailing.equalTo(mainCellLabel.snp.trailing).inset(10)
         }
     }
     
