@@ -16,7 +16,6 @@
 		DB1CA5222B5B7A1D000EB832 /* SearchResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */; };
 		DB2E569F2B5D4BFA00AE8FFF /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */; };
 		DB2E56A22B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E56A02B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift */; };
-		DB2E56A32B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB2E56A12B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib */; };
 		DB81C4342B594EA00068CEB7 /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81C4332B594EA00068CEB7 /* Enumeration.swift */; };
 		DB9070D62B590563006EF2EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D52B590563006EF2EE /* AppDelegate.swift */; };
 		DB9070D82B590563006EF2EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D72B590563006EF2EE /* SceneDelegate.swift */; };
@@ -54,7 +53,6 @@
 		DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultDetailViewController.swift; sourceTree = "<group>"; };
 		DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
 		DB2E56A02B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		DB2E56A12B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		DB81C4332B594EA00068CEB7 /* Enumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
 		DB9070D22B590563006EF2EE /* SeSAC Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeSAC Shopping.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9070D52B590563006EF2EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 				DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */,
 				DBA43A492B59805D00DED8CD /* SearchResultCollectionViewCell.xib */,
 				DB2E56A02B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift */,
-				DB2E56A12B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -279,7 +276,6 @@
 				DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */,
 				DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */,
 				DB1CA5202B5B79F6000EB832 /* SearchResultDetailViewController.storyboard in Resources */,
-				DB2E56A32B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

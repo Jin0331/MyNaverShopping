@@ -30,12 +30,18 @@ class ProfileImageView: UIImageView {
     }
     
     func configureImageSpecific(borderWidth : CGFloat, userDefaultImageName : String){
-        
-        layer.borderWidth = borderWidth
         image = UIImage(named: userDefaultImageName)
+        layer.borderWidth = borderWidth
     }
     
+    func setImage(name : String) {
+        image = UIImage(named: name)
+    }
+    
+    
     func configureSelectedBorder(asset : String) {
+        image = UIImage(named: asset)
+        
         if asset == UserDefaultManager.shared.tempProfileImage {
             layer.borderColor = ImageStyle.pointColor.cgColor
             layer.borderWidth = 3.5

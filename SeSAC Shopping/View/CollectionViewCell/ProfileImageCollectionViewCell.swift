@@ -7,29 +7,45 @@
 
 import UIKit
 
-class ProfileImageCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet var profileImage: UIImageView!
+class ProfileImageCollectionViewCell: UICollectionViewCell, ViewSetup{
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    let profileImage : ProfileImageView = {
+        let profileImage = ProfileImageView(frame: .zero)
+        
+        return profileImage
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configureView()
+        print(profileImage.frame.width)
         
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        profileImage.layer.cornerRadius = frame.width / 2
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
-}
-
-extension ProfileImageCollectionViewCell {
-    func configureProfileImage(asset : String) {
-        profileImage.image = UIImage(named: asset)
-//        profileImage.layer.name = asset
-        profileImage.clipsToBounds = true
-        profileImage.layer.cornerRadius = profileImage.layer.frame.width / 2
-        
-        if asset == UserDefaultManager.shared.tempProfileImage {
-            profileImage.layer.borderColor = ImageStyle.pointColor.cgColor
-            profileImage.layer.borderWidth = 3.5
-        } else {
-            profileImage.layer.borderWidth = 0
+    
+    func configureView() {
+        configureHierachy()
+        setupConstraints()
+    }
+    
+    func configureHierachy() {
+        contentView.addSubview(profileImage)
+    }
+    
+    func setupConstraints() {
+        profileImage.snp.makeConstraints { make in
+            make.width.height.equalTo(80)
+            make.centerX.centerY.equalTo(contentView.safeAreaLayoutGuide)
         }
     }
+    
 }

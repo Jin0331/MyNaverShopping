@@ -19,6 +19,7 @@ class ProfileImageViewController: UIViewController, ViewSetup {
     lazy var profileCollectionView : UICollectionView = {
         let profileCollectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCellLayout())
         profileCollectionView.backgroundColor = ImageStyle.backgroundColor
+        profileCollectionView.register(ProfileImageCollectionViewCell.self, forCellWithReuseIdentifier: ProfileImageCollectionViewCell.identifier)
         
         return profileCollectionView
     }()
@@ -72,9 +73,6 @@ extension ProfileImageViewController : UICollectionViewDelegate, UICollectionVie
     func configureCollectionViewProtocol () {
         profileCollectionView.delegate = self
         profileCollectionView.dataSource = self
-        
-        let xib = UINib(nibName: ProfileImageCollectionViewCell.identifier, bundle: nil)
-        profileCollectionView.register(xib, forCellWithReuseIdentifier: ProfileImageCollectionViewCell.identifier)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -85,7 +83,8 @@ extension ProfileImageViewController : UICollectionViewDelegate, UICollectionVie
         
         let cell = profileCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileImageCollectionViewCell.identifier, for: indexPath) as! ProfileImageCollectionViewCell
         
-        cell.configureProfileImage(asset: UserDefaultManager.shared.assetList[indexPath.item])
+//        cell.profileImage.configureCornerRadius()
+        cell.profileImage.configureSelectedBorder(asset: UserDefaultManager.shared.assetList[indexPath.item])
         
         return cell
     }
@@ -94,7 +93,7 @@ extension ProfileImageViewController : UICollectionViewDelegate, UICollectionVie
         // 선택된 값으로 교체
         UserDefaultManager.shared.tempProfileImage = UserDefaultManager.shared.assetList[indexPath.item]
         print(UserDefaultManager.shared.tempProfileImage)
-        profileImage.image = UIImage(named: UserDefaultManager.shared.tempProfileImage)
+        profileImage.setImage(name: UserDefaultManager.shared.tempProfileImage)
         
         profileCollectionView.reloadData()
     }
