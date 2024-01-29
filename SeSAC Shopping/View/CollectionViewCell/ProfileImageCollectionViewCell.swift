@@ -17,9 +17,7 @@ class ProfileImageCollectionViewCell: UICollectionViewCell, ViewSetup{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureView()
-        print(profileImage.frame.width)
-        
+        configureView()        
     }
     
     override func layoutSubviews() {

@@ -48,5 +48,16 @@ class CommonButton : UIButton {
         setTitle("", for: .normal)
     }
     
+    func configureSearchResultButton(title : String, layerName : String) {
+        setTitle(title, for: .normal)
+        layer.name = layerName
+        setTitleColor(ImageStyle.textColor, for: .normal)
+        titleLabel?.font = ImageStyle.normalFontSize
+        layer.borderWidth = 1
+        layer.borderColor = ImageStyle.textColor.cgColor
+        clipsToBounds = true
+        layer.cornerRadius = 10
+    }
+    
 }
 

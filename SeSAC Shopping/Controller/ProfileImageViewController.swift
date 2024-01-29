@@ -83,7 +83,6 @@ extension ProfileImageViewController : UICollectionViewDelegate, UICollectionVie
         
         let cell = profileCollectionView.dequeueReusableCell(withReuseIdentifier: ProfileImageCollectionViewCell.identifier, for: indexPath) as! ProfileImageCollectionViewCell
         
-//        cell.profileImage.configureCornerRadius()
         cell.profileImage.configureSelectedBorder(asset: UserDefaultManager.shared.assetList[indexPath.item])
         
         return cell
