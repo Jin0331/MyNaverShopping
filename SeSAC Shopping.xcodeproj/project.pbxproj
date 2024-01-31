@@ -22,7 +22,7 @@
 		DB9070DF2B590565006EF2EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB9070DE2B590565006EF2EE /* Assets.xcassets */; };
 		DB9070E22B590565006EF2EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9070E02B590565006EF2EE /* LaunchScreen.storyboard */; };
 		DB9070EE2B590790006EF2EE /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070ED2B590790006EF2EE /* Protocol.swift */; };
-		DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070EF2B5907A8006EF2EE /* Extension.swift */; };
+		DB9070F02B5907A8006EF2EE /* UIVew + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070EF2B5907A8006EF2EE /* UIVew + Extension.swift */; };
 		DB9070F22B5907BE006EF2EE /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */; };
 		DB9070F82B594A33006EF2EE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */; };
 		DBA43A472B59802700DED8CD /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA43A462B59802700DED8CD /* SearchResultController.swift */; };
@@ -58,7 +58,7 @@
 		DB9070E12B590565006EF2EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB9070E32B590565006EF2EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB9070ED2B590790006EF2EE /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
-		DB9070EF2B5907A8006EF2EE /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		DB9070EF2B5907A8006EF2EE /* UIVew + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVew + Extension.swift"; sourceTree = "<group>"; };
 		DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		DBA43A462B59802700DED8CD /* SearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				DB9070ED2B590790006EF2EE /* Protocol.swift */,
-				DB9070EF2B5907A8006EF2EE /* Extension.swift */,
+				DB9070EF2B5907A8006EF2EE /* UIVew + Extension.swift */,
 				DBE87C762B665AA400EA2AF2 /* UITabBarController + Extension.swift */,
 				DBE87C782B6680D600EA2AF2 /* UIViewController + Extension.swift */,
 			);
@@ -284,7 +284,7 @@
 				DB1CA5122B5A4928000EB832 /* NaverShopping.swift in Sources */,
 				DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */,
 				DB17A6052B5F9C8800B6ACD2 /* NaverShoppingAPIManager.swift in Sources */,
-				DB9070F02B5907A8006EF2EE /* Extension.swift in Sources */,
+				DB9070F02B5907A8006EF2EE /* UIVew + Extension.swift in Sources */,
 				DBC322CB2B5D05EB0064956A /* ProfileViewController.swift in Sources */,
 				DBE87C792B6680D600EA2AF2 /* UIViewController + Extension.swift in Sources */,
 				DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */,
