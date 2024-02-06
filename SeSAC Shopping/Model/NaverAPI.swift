@@ -67,7 +67,7 @@ enum NaverAPI {
     
     enum Shop : CaseIterable {
         static var allCases: [NaverAPI.Shop] {
-            return [.shop(query: "", display: "", sort: "", start: "")]
+            return [.shop(query: "", display: "", sort:"", start: "")]
         }
 
         case shop(query:String, display:String, sort:String, start:String)
@@ -78,6 +78,13 @@ enum NaverAPI {
                 default :
                     return URL(string: NaverAPI.baseURL + "shop.json")!
                 }
+            }
+        }
+        
+        var start : String {
+            switch self {
+            case .shop(let query, let display, let sort, let start):
+                return start
             }
         }
         

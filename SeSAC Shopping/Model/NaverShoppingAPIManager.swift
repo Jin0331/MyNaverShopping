@@ -68,7 +68,7 @@ let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=
             }
     }
     
-    func callRequestURLSession<T: Decodable>(api : NaverAPI.Shop, completionHandler : @escaping (T?, NaverAPI.APIError?) -> Void) {
+    func callRequestURLSession<T: Decodable>(api : NaverAPI.Shop, completionHandler : @escaping (T?, Int?, NaverAPI.APIError?) -> Void) {
         
         print(api.parameter)
         
@@ -93,12 +93,12 @@ let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=
             DispatchQueue.main.async {
                 
                 guard error == nil else {
-                    completionHandler(nil, .failedRequeset)
+                    completionHandler(nil, nil, .failedRequeset)
                     return
                 }
                 
                 guard let data = data else {
-                    completionHandler(nil, .noData)
+                    completionHandler(nil, nil,.noData)
                     return
                 }
                 
@@ -106,20 +106,20 @@ let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=
 //                    return
                 
                 guard let response = response as? HTTPURLResponse else {
-                    completionHandler(nil, .invalidResponse)
+                    completionHandler(nil, nil, .invalidResponse)
                     return
                 }
                 
                 guard response.statusCode == 200 else {
-                    completionHandler(nil, .invalidData)
+                    completionHandler(nil, nil, .invalidData)
                     return
                 }
                 
                 do {
                     let result = try JSONDecoder().decode(T.self, from: data)
-                    completionHandler(result, nil)
+                    completionHandler(result, Int(api.start), nil)
                 } catch {
-                    completionHandler(nil, .invalidDecodable)
+                    completionHandler(nil, nil, .invalidDecodable)
                 }
             }
         }.resume()
