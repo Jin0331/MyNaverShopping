@@ -49,7 +49,7 @@ class ProfileImageViewController: UIViewController, ViewSetup {
     }
     
     func configureHierachy() {
-        [profileImage, profileCollectionView].map { item in
+        [profileImage, profileCollectionView].forEach { item in
             return view.addSubview(item)
         }
     }

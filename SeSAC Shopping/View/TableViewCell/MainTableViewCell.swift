@@ -50,11 +50,10 @@ class MainTableViewCell: UITableViewCell, ViewSetup{
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        configureView()
     }
     
     func configureHierachy() {
-        [mainCellLabel, mainCellImageView, mainCellButton, mainCellClickedButton].map { item in
+        [mainCellLabel, mainCellImageView, mainCellButton, mainCellClickedButton].forEach { item in
             return contentView.addSubview(item)
         }
     }

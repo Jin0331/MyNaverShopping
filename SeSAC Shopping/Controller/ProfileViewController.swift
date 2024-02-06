@@ -95,7 +95,7 @@ class ProfileViewController: UIViewController, ViewSetup {
     }
     
     func configureHierachy() {
-        [nicknameTextfield, profileImage, statusTextfield, completeButton, profileImageSet].map { item in
+        [nicknameTextfield, profileImage, statusTextfield, completeButton, profileImageSet].forEach { item in
             return view.addSubview(item)
         }
     }

@@ -55,7 +55,7 @@ class SearchResultController: UIViewController, ViewSetup {
     
     
     var searchKeyword : String = ""
-    var searchResult : NaverShopping = NaverShopping(lastBuildDate: "", total: 0, start: 0, display: 0, items: []) {
+    var searchResult : NaverShoppingModel = NaverShoppingModel(lastBuildDate: "", total: 0, start: 0, display: 0, items: []) {
         didSet {
             print(#function, "searchResult 수정됨")
             searchResultCollectionView.reloadData()
@@ -81,7 +81,7 @@ class SearchResultController: UIViewController, ViewSetup {
         
         // view가 띄워질 때, API request에서 sim(default)로 반환된다.
         NaverShoppingAPIManager.shared
-            .callRequest(text: self.searchKeyword, start: self.start, display: self.display) { value, start in
+            .callRequestAF(text: self.searchKeyword, start: self.start, display: self.display) { value, start in
                 self.searchResultUpdate(value: value, start: start)
             }
         
@@ -93,7 +93,7 @@ class SearchResultController: UIViewController, ViewSetup {
     
     func configureView() {
         navigationItem.title = "\(searchKeyword)"
-        searchResultButtonCollection.map { bt in
+        searchResultButtonCollection.forEach { bt in
             bt.addTarget(self, action: #selector(buttonSearchSpecific), for: .touchUpInside)
             return
         }
@@ -103,10 +103,10 @@ class SearchResultController: UIViewController, ViewSetup {
     }
     
     func configureHierachy() {
-        [searchResultTotalCount, searchResultCollectionView, buttonStackView].map { item in
+        [searchResultTotalCount, searchResultCollectionView, buttonStackView].forEach { item in
             return view.addSubview(item)
         }
-        searchResultButtonCollection.map { item in
+        searchResultButtonCollection.forEach { item in
             return buttonStackView.addArrangedSubview(item)
         }
         
@@ -140,7 +140,7 @@ class SearchResultController: UIViewController, ViewSetup {
         
         // sort 방식에 따라 값 호출
         NaverShoppingAPIManager.shared
-            .callRequest(text: self.searchKeyword, start: self.start, display: self.display,
+            .callRequestAF(text: self.searchKeyword, start: self.start, display: self.display,
                          sort: sender.layer.name!) { value, start in
                 self.searchResultUpdate(value: value, start: start)
                 self.start = 1
@@ -235,7 +235,7 @@ extension SearchResultController : UICollectionViewDataSourcePrefetching {
                 
                 self.start += self.display
                 NaverShoppingAPIManager.shared
-                    .callRequest(text: searchKeyword, start: self.start, display: self.display) { value, start in
+                    .callRequestAF(text: searchKeyword, start: self.start, display: self.display) { value, start in
                         self.searchResultUpdate(value: value, start: start)
                     }
             }
@@ -252,7 +252,7 @@ extension SearchResultController : UICollectionViewDataSourcePrefetching {
 //MARK: - API request
 extension SearchResultController {
     // completion 내부에서 실행되는 함수
-    func searchResultUpdate(value: NaverShopping, start : Int){
+    func searchResultUpdate(value: NaverShoppingModel, start : Int){
         if start == 1 {
             self.searchResult = value
         } else {

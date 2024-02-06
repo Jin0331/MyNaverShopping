@@ -43,18 +43,18 @@ class NaverShoppingAPIManager {
         }
     }
     
-    
-    func callRequest(text : String, start : Int, display : Int, sort : String = RequestSort.sim.caseValue, completaionHandler : @escaping (NaverShopping, Int) -> ()) {
+    // 🔥Alamofire🔥
+    func callRequestAF(text : String, start : Int, display : Int, sort : String = RequestSort.sim.caseValue, completaionHandler : @escaping (NaverShoppingModel, Int) -> ()) {
         
         let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=\(display)&sort=\(sort)&start=\(start)"
+let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=\(display)&sort=\(sort)&start=\(start)"
         
         let header : HTTPHeaders = [
             "X-Naver-Client-Id" : API.naverClientId,
             "X-Naver-Client-Secret": API.naverClientSecret]
         
         AF.request(url, method: .get, headers: header)
-            .responseDecodable(of: NaverShopping.self) { response in
+            .responseDecodable(of: NaverShoppingModel.self) { response in
                 switch response.result {
                 case .success(let success) :
                     print("조회 성공")
@@ -66,6 +66,63 @@ class NaverShoppingAPIManager {
                     dump(failure)
                 }
             }
+    }
+    
+    func callRequestURLSession<T: Decodable>(api : NaverAPI.Shop, completionHandler : @escaping (T?, NaverAPI.APIError?) -> Void) {
+        
+        print(api.parameter)
+        
+        // ✅ query 추가 !!! 이모지!?
+        var urlComponents = URLComponents(string: api.endPoint.absoluteString)
+        let queryItems = api.parameter.map { (key: String, value: Any) in
+            
+            if let value = value as? String {
+                return URLQueryItem(name: key, value: value)
+            } else {
+                return URLQueryItem(name: key, value: "")
+            }
+        }
+        urlComponents?.queryItems = queryItems
+        
+        var url = URLRequest(url: (urlComponents?.url)!)
+        url.httpMethod = "GET"
+        url.addValue(API.naverClientId, forHTTPHeaderField: "X-Naver-Client-Id")
+        url.addValue(API.naverClientSecret, forHTTPHeaderField: "X-Naver-Client-Secret")
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            DispatchQueue.main.async {
+                
+                guard error == nil else {
+                    completionHandler(nil, .failedRequeset)
+                    return
+                }
+                
+                guard let data = data else {
+                    completionHandler(nil, .noData)
+                    return
+                }
+                
+//                guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
+//                    return
+                
+                guard let response = response as? HTTPURLResponse else {
+                    completionHandler(nil, .invalidResponse)
+                    return
+                }
+                
+                guard response.statusCode == 200 else {
+                    completionHandler(nil, .invalidData)
+                    return
+                }
+                
+                do {
+                    let result = try JSONDecoder().decode(T.self, from: data)
+                    completionHandler(result, nil)
+                } catch {
+                    completionHandler(nil, .invalidDecodable)
+                }
+            }
+        }.resume()
     }
     
 }

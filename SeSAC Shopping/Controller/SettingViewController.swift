@@ -96,7 +96,7 @@ extension SettingViewController : ViewSetup {
     }
 
     func configureHierachy() {
-        [backgroundView, profileImage, nicknameLabel, likeLabel, settingTable, profileSetButton].map { item in
+        [backgroundView, profileImage, nicknameLabel, likeLabel, settingTable, profileSetButton].forEach { item in
             return view.addSubview(item)
         }
     }
