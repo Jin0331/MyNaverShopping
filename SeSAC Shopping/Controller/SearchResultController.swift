@@ -79,12 +79,6 @@ class SearchResultController: UIViewController, ViewSetup {
         configureCollectionViewProtocol()
         configureView()
         
-        // view가 띄워질 때, API request에서 sim(default)로 반환된다.
-        //        NaverShoppingAPIManager.shared
-        //            .callRequestAF(text: self.searchKeyword, start: self.start, display: self.display) { value, start in
-        //                self.searchResultUpdate(value: value, start: start)
-        //            }
-        
         DispatchQueue.global().async {
             NaverShoppingAPIManager.shared.callRequestURLSession(api: .shop(query: self.searchKeyword, display: String(self.display), sort: NaverAPI.RequestSort.sim.caseValue, start: String(self.start))) { (item : NaverShoppingModel?, start : Int?, error:NaverAPI.APIError?) in
                 
