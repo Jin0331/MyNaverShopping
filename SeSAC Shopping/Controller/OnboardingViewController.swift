@@ -52,7 +52,7 @@ class OnboardingViewController: UIViewController, ViewSetup{
     }
     
     func configureHierachy() {
-        [titleImage, mainImage, startButton].map { item in
+        [titleImage, mainImage, startButton].forEach { item in
             return view.addSubview(item)
         }
         

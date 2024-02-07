@@ -41,7 +41,7 @@ class SearchResultCollectionViewCell: UICollectionViewCell, ViewSetup {
     func configureHierachy() {
         [searchResultImage,searchResultMallName,
          searchResultTitle,searchResultPrice,
-         searchResultButton].map { item in
+         searchResultButton].forEach { item in
             return contentView.addSubview(item)
         }
     }

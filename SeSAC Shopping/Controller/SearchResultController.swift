@@ -55,7 +55,7 @@ class SearchResultController: UIViewController, ViewSetup {
     
     
     var searchKeyword : String = ""
-    var searchResult : NaverShopping = NaverShopping(lastBuildDate: "", total: 0, start: 0, display: 0, items: []) {
+    var searchResult : NaverShoppingModel = NaverShoppingModel(lastBuildDate: "", total: 0, start: 0, display: 0, items: []) {
         didSet {
             print(#function, "searchResult 수정됨")
             searchResultCollectionView.reloadData()
@@ -79,11 +79,20 @@ class SearchResultController: UIViewController, ViewSetup {
         configureCollectionViewProtocol()
         configureView()
         
-        // view가 띄워질 때, API request에서 sim(default)로 반환된다.
-        NaverShoppingAPIManager.shared
-            .callRequest(text: self.searchKeyword, start: self.start, display: self.display) { value, start in
-                self.searchResultUpdate(value: value, start: start)
+        DispatchQueue.global().async {
+            NaverShoppingAPIManager.shared.callRequestURLSession(api: .shop(query: self.searchKeyword, display: String(self.display), sort: NaverAPI.RequestSort.sim.caseValue, start: String(self.start))) { (item : NaverShoppingModel?, start : Int?, error:NaverAPI.APIError?) in
+                
+                if error == nil {
+                    guard let item = item else { return }
+                    guard let start = start else { return }
+                    
+                    print(#function, start)
+                    self.searchResultUpdate(value: item, start: start)
+                } else {
+                    dump(error)
+                }
             }
+        }
         
         // default
         for bt in searchResultButtonCollection {
@@ -93,7 +102,7 @@ class SearchResultController: UIViewController, ViewSetup {
     
     func configureView() {
         navigationItem.title = "\(searchKeyword)"
-        searchResultButtonCollection.map { bt in
+        searchResultButtonCollection.forEach { bt in
             bt.addTarget(self, action: #selector(buttonSearchSpecific), for: .touchUpInside)
             return
         }
@@ -103,10 +112,10 @@ class SearchResultController: UIViewController, ViewSetup {
     }
     
     func configureHierachy() {
-        [searchResultTotalCount, searchResultCollectionView, buttonStackView].map { item in
+        [searchResultTotalCount, searchResultCollectionView, buttonStackView].forEach { item in
             return view.addSubview(item)
         }
-        searchResultButtonCollection.map { item in
+        searchResultButtonCollection.forEach { item in
             return buttonStackView.addArrangedSubview(item)
         }
         
@@ -138,13 +147,22 @@ class SearchResultController: UIViewController, ViewSetup {
             bt.backgroundColor = sender.layer.name == bt.layer.name ? ImageStyle.pointColor :.clear
         }
         
-        // sort 방식에 따라 값 호출
-        NaverShoppingAPIManager.shared
-            .callRequest(text: self.searchKeyword, start: self.start, display: self.display,
-                         sort: sender.layer.name!) { value, start in
-                self.searchResultUpdate(value: value, start: start)
-                self.start = 1
+        let sortType = sender.layer.name!
+        DispatchQueue.global().async {
+            NaverShoppingAPIManager.shared.callRequestURLSession(api: .shop(query: self.searchKeyword, display: String(self.display), sort: sortType, start: String(self.start))) { (item : NaverShoppingModel?, start : Int?, error:NaverAPI.APIError?) in
+                
+                if error == nil {
+                    guard let item = item else { return }
+                    guard let start = start else { return }
+                    print(#function, start)
+                    
+                    self.searchResultUpdate(value: item, start: start)
+                    self.start = 1
+                } else {
+                    dump(error)
+                }
             }
+        }
         print("button start index = ", start)
     } // button 누를때, API sort별로 Start 초기화
     
@@ -219,8 +237,7 @@ extension SearchResultController : UICollectionViewDelegate, UICollectionViewDat
         
         searchResultCollectionView.reloadData()
     }
-    
-    
+
 }
 
 //MARK: - collection View pagination
@@ -234,10 +251,20 @@ extension SearchResultController : UICollectionViewDataSourcePrefetching {
                 print(#function, "- collection View pagination")
                 
                 self.start += self.display
-                NaverShoppingAPIManager.shared
-                    .callRequest(text: searchKeyword, start: self.start, display: self.display) { value, start in
-                        self.searchResultUpdate(value: value, start: start)
+                DispatchQueue.global().async {
+                    NaverShoppingAPIManager.shared.callRequestURLSession(api: .shop(query: self.searchKeyword, display: String(self.display), sort: NaverAPI.RequestSort.sim.caseValue, start: String(self.start))) { (item : NaverShoppingModel?, start : Int?, error:NaverAPI.APIError?) in
+                        
+                        if error == nil {
+                            guard let item = item else { return }
+                            guard let start = start else { return }
+                            
+                            print(#function, start)
+                            self.searchResultUpdate(value: item, start: start)
+                        } else {
+                            dump(error)
+                        }
                     }
+                }
             }
             print("pagination start index = ", start)
         }
@@ -252,7 +279,7 @@ extension SearchResultController : UICollectionViewDataSourcePrefetching {
 //MARK: - API request
 extension SearchResultController {
     // completion 내부에서 실행되는 함수
-    func searchResultUpdate(value: NaverShopping, start : Int){
+    func searchResultUpdate(value: NaverShoppingModel, start : Int){
         if start == 1 {
             self.searchResult = value
         } else {

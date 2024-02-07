@@ -45,6 +45,28 @@ class ProfileViewController: UIViewController, ViewSetup {
         return profileImageSet
     }()
     
+    //TODO: - 코드 정리해야 필.수. VC안에 View 항목이 섞여있어 파악하기 힘듬.
+    //MARK: - 닉네임 조건 Error 표현
+    enum ValidateError : Error {
+        case lessOrGreaterString
+        case isSpecialCharacter
+        case isNumber
+//        case vaild
+        
+        var message : String {
+            get {
+                switch self {
+                case .lessOrGreaterString:
+                    return "2글자 이상 10글자 미만으로 설정해주세요"
+                case .isSpecialCharacter:
+                    return "닉네임에 @,#,$,%는 포함할 수 없어요"
+                case .isNumber:
+                    return "닉네임에 숫자는 포함할 수 없어요"
+                }
+            }
+        }
+    }
+    
     var status : Bool = false
     var nickname : String = ""
     
@@ -75,7 +97,7 @@ class ProfileViewController: UIViewController, ViewSetup {
         super.viewDidLayoutSubviews()
         profileImage.configureCornerRadius()
     }
-        
+    
     
     func configureView() {
         
@@ -95,7 +117,7 @@ class ProfileViewController: UIViewController, ViewSetup {
     }
     
     func configureHierachy() {
-        [nicknameTextfield, profileImage, statusTextfield, completeButton, profileImageSet].map { item in
+        [nicknameTextfield, profileImage, statusTextfield, completeButton, profileImageSet].forEach { item in
             return view.addSubview(item)
         }
     }
@@ -132,29 +154,49 @@ class ProfileViewController: UIViewController, ViewSetup {
     }
     
     @objc func checkNickname(sender: UITextField) {
-
+        
+        nickname = sender.text!
+        
+        do {
+            try validateUserInputError(nickname: nickname)
+            statusTextfield.textColor = ImageStyle.pointColor
+            status = true
+            statusTextfield.text = "사용할 수 있는 닉네임이에요"
+        } catch {
+            
+            statusTextfield.textColor = .red
+            status = false
+            
+            switch error {
+            case ValidateError.lessOrGreaterString :
+                statusTextfield.text = ValidateError.lessOrGreaterString.message
+            case ValidateError.isSpecialCharacter :
+                statusTextfield.text = ValidateError.isSpecialCharacter.message
+            case ValidateError.isNumber :
+                statusTextfield.text = ValidateError.isNumber.message
+            default :
+                print("뭐지")
+            
+            }
+        }
+    }
+    
+    func validateUserInputError(nickname : String) throws {
         let specialCharacters = "@#$%"
         let numbers = "0123456789"
-        let statusMessage: String
-        nickname = sender.text!
         
         switch nickname {
         case _ where nickname.count < 2 || nickname.count >= 10:
-            statusMessage = TextfieldCheck.numberCount.rawValue
+            throw ValidateError.lessOrGreaterString
         case _ where nickname.contains(where: { specialCharacters.contains($0) }):
-            statusMessage = TextfieldCheck.specialChr.rawValue
+            throw ValidateError.isSpecialCharacter
         case _ where nickname.contains(where: { numbers.contains($0) }):
-            statusMessage = TextfieldCheck.containNum.rawValue
+            throw ValidateError.isNumber
         default:
-            statusMessage = TextfieldCheck.vaild.rawValue
+            print("알 수 없는 에러")
         }
-        
-        statusTextfield.textColor = statusMessage == TextfieldCheck.vaild.rawValue ? ImageStyle.pointColor : .red
-        status = statusMessage == TextfieldCheck.vaild.rawValue ? true : false
-        statusTextfield.text = statusMessage
-        
-        print(status)
     }
+    
     
     @objc func completeButtonClicked(sender: UIButton) {
         if status {

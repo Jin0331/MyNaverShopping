@@ -30,7 +30,7 @@ import Foundation
 
 //MARK: - Json to struct Using QuickType
 // MARK: - Welcome
-struct NaverShopping : Codable {
+struct NaverShoppingModel : Codable {
     let lastBuildDate: String
     let total, start, display: Int
     var items: [NaverShoppingItem]

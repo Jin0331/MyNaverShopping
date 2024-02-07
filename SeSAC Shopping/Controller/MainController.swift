@@ -104,7 +104,7 @@ extension MainViewController : ViewSetup {
     }
     
     func configureHierachy() {
-        [mainSearchbar, latestLabel, removeButton, mainTableView, mainEmptyImage, mainEmptyLabel].map { item in
+        [mainSearchbar, latestLabel, removeButton, mainTableView, mainEmptyImage, mainEmptyLabel].forEach { item in
             return view.addSubview(item)
         }
         
