@@ -15,7 +15,6 @@ class BaseViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureView()
-        hideKeyboardWhenTappedAround()
     }
     
     func configureHierarchy() {

@@ -34,6 +34,7 @@ class MainViewController: BaseViewController {
         navigationItem.title = "\(UserDefaultManager.shared.nickname)님의 새싹쇼핑"
         
         viewToggle()
+        hideKeyboardWhenTappedAround()
         
         mainView.mainTableView.delegate = self
         mainView.mainTableView.dataSource = self

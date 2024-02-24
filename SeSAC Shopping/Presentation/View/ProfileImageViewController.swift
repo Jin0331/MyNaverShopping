@@ -19,7 +19,6 @@ class ProfileImageViewController: BaseViewController {
         super.viewDidLoad()
         
         navigationDesign()
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -52,6 +51,9 @@ extension ProfileImageViewController : UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        print(#function)
+        
         // 선택된 값으로 교체
         UserDefaultManager.shared.tempProfileImage = UserDefaultManager.shared.assetList[indexPath.item]
         mainView.profileImage.setImage(name: UserDefaultManager.shared.tempProfileImage)
