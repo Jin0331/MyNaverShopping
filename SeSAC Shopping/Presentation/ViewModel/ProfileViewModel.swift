@@ -9,6 +9,66 @@ import Foundation
 
 class ProfileViewModel {
     
+    let inputNickname = Observable("")
+    let outputNicknameValidation = Observable("")
+    let outputNicknameValidationColor = Observable(false)
+    let outputStatus = Observable(false)
+    
+    init() {
+        
+        inputNickname.bind { [weak self] value in
+            self?.validateNickname(value)
+        }
+    }
+    
+    
+    private func validateNickname(_ nickname : String) {
+        do {
+            try validateUserInputError(nickname: nickname)
+            outputNicknameValidationColor.value = true
+            outputStatus.value = true
+            outputNicknameValidation.value = "사용할 수 있는 닉네임이에요"
+        } catch {
+            
+            outputNicknameValidationColor.value = false
+            outputStatus.value = false
+            
+            switch error {
+            case ValidateError.lessOrGreaterString :
+                outputNicknameValidation.value = ValidateError.lessOrGreaterString.message
+            case ValidateError.isSpecialCharacter :
+                outputNicknameValidation.value = ValidateError.isSpecialCharacter.message
+            case ValidateError.isNumber :
+                outputNicknameValidation.value = ValidateError.isNumber.message
+            default :
+                print("뭐지")
+            
+            }
+        }
+    }
+    
+   
+    
+    func validateUserInputError(nickname : String) throws {
+        let specialCharacters = "@#$%"
+        let numbers = "0123456789"
+        
+        switch nickname {
+        case _ where nickname.count < 2 || nickname.count >= 10:
+            throw ValidateError.lessOrGreaterString
+        case _ where nickname.contains(where: { specialCharacters.contains($0) }):
+            throw ValidateError.isSpecialCharacter
+        case _ where nickname.contains(where: { numbers.contains($0) }):
+            throw ValidateError.isNumber
+        default:
+            print("")
+        }
+    }
+    
+}
+
+//MARK: - 해당 뷰의 Error 관리 enum
+extension ProfileViewModel {
     //MARK: - 닉네임 조건 Error 표현
     enum ValidateError : Error {
         case lessOrGreaterString
@@ -28,5 +88,4 @@ class ProfileViewModel {
             }
         }
     }
-    
 }

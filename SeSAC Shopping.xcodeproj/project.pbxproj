@@ -33,6 +33,7 @@
 		DBBCDB212B89E0020026CAF7 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCDB202B89E0020026CAF7 /* BaseView.swift */; };
 		DBBCDB232B89E0830026CAF7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCDB222B89E0830026CAF7 /* ProfileView.swift */; };
 		DBBCDB252B89E1940026CAF7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCDB242B89E1940026CAF7 /* BaseViewController.swift */; };
+		DBBCDB272B89E4830026CAF7 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCDB262B89E4830026CAF7 /* Observable.swift */; };
 		DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */; };
 		DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */; };
 		DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */; };
@@ -72,6 +73,7 @@
 		DBBCDB202B89E0020026CAF7 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		DBBCDB222B89E0830026CAF7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DBBCDB242B89E1940026CAF7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		DBBCDB262B89E4830026CAF7 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				DBBCDB1F2B89DFF40026CAF7 /* Base */,
 				DBBCDB1E2B89DFDC0026CAF7 /* Extension */,
 				DB81C4332B594EA00068CEB7 /* Enumeration.swift */,
+				DBBCDB262B89E4830026CAF7 /* Observable.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -169,8 +172,8 @@
 				DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */,
 				DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */,
 				DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */,
-				DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */,
 				DBBCDB222B89E0830026CAF7 /* ProfileView.swift */,
+				DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */,
 				DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */,
 				DB9070EA2B590714006EF2EE /* Custom */,
 			);
@@ -331,6 +334,7 @@
 				DBBCDB212B89E0020026CAF7 /* BaseView.swift in Sources */,
 				DB9070F02B5907A8006EF2EE /* UIVew + Extension.swift in Sources */,
 				DBC322CB2B5D05EB0064956A /* ProfileViewController.swift in Sources */,
+				DBBCDB272B89E4830026CAF7 /* Observable.swift in Sources */,
 				DBE87C792B6680D600EA2AF2 /* UIViewController + Extension.swift in Sources */,
 				DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */,
 				DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */,

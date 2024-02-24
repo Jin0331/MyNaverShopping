@@ -20,12 +20,6 @@ extension UIViewController {
 }
 
 extension UIViewController {
-    static var identifier: String {
-        return String(describing: self)
-    }
-    var identifier_: String {
-        return String(describing: type(of: self))
-    }
     
     static let userNotificationCenter = UNUserNotificationCenter.current() // notficiation
     
