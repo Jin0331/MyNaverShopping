@@ -82,9 +82,11 @@ class MainTableViewCell: UITableViewCell{
     
     func configureView() {
         self.backgroundColor = .clear
+        self.selectionStyle = .none
         
         configureHierachy()
         setupConstraints()
+        
     }
 }
 

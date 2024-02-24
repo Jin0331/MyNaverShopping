@@ -15,6 +15,7 @@ class BaseViewController: UIViewController {
         configureHierarchy()
         configureLayout()
         configureView()
+        hideKeyboardWhenTappedAround()
     }
     
     func configureHierarchy() {
@@ -27,7 +28,16 @@ class BaseViewController: UIViewController {
     
     func configureView() {
         
-        view.backgroundColor = .black
+        view.backgroundColor = ImageStyle.backgroundColor
     }
 
+    func hideKeyboardWhenTappedAround() {
+        let tapGesture = UITapGestureRecognizer(target: self,
+                         action: #selector(hideKeyboard))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
 }

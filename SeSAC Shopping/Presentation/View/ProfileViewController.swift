@@ -68,6 +68,7 @@ class ProfileViewController: BaseViewController {
     
     @objc func completeButtonClicked(sender: UIButton) {
         if viewModel.outputStatus.value {
+            UserDefaultManager.shared.userState = UserDefaultManager.UserStateCode.old.state
             viewChangeToMain() // main View로 전환
         } else {
             print("아무일도 발생하지 않는다...!")

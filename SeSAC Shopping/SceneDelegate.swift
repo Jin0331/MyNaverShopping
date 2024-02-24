@@ -18,7 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         let userState = UserDefaultManager.shared.userState
-        print(userState)
+        print(userState, "유저 스테이트")
+        
                 
         if userState == UserDefaultManager.UserStateCode.new.state {
             window = UIWindow(windowScene: scene)

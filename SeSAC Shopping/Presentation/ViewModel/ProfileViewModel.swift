@@ -24,7 +24,6 @@ class ProfileViewModel {
             UserDefaultManager.shared.nickname = self.inputNickname.value
             UserDefaultManager.shared.profileImage = UserDefaultManager.shared.tempProfileImage
             UserDefaultManager.shared.tempProfileImage = UserDefaultManager.shared.profileImage
-            UserDefaultManager.shared.userState = UserDefaultManager.UserStateCode.old.state
         }
     }
     
