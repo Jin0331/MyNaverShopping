@@ -19,7 +19,7 @@ extension UIViewController {
     }
 }
 
-extension UIViewController : ResuableProtocol {
+extension UIViewController {
     static var identifier: String {
         return String(describing: self)
     }

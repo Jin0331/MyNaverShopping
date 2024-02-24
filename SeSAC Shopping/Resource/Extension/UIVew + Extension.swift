@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIView : ResuableProtocol {
+extension UIView  {
     static var identifier: String {
         return String(describing: self)
     }

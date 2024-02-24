@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileImageCollectionViewCell: UICollectionViewCell, ViewSetup{
+class ProfileImageCollectionViewCell: UICollectionViewCell {
     
     let profileImage : ProfileImageView = {
         let profileImage = ProfileImageView(frame: .zero)

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTableViewCell: UITableViewCell, ViewSetup{
+class MainTableViewCell: UITableViewCell{
     let mainCellLabel : UILabel = {
        let mainCellLabel = UILabel()
         mainCellLabel.textColor = ImageStyle.textColor

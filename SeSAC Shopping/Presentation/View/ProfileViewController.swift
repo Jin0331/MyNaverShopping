@@ -7,43 +7,16 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController, ViewSetup {
+class ProfileViewController: BaseViewController {
     
-    let nicknameTextfield : CommonTextField = {
-        let nicknameTextfield = CommonTextField()
-        nicknameTextfield.profileTextField()
-        
-        return nicknameTextfield
-    }()
+    let mainView = ProfileView()
+    var status : Bool = false
+    var nickname : String = ""
+
+    override func loadView() {
+        self.view = mainView
+    }
     
-    let profileImage : ProfileImageView = {
-        let profileImage = ProfileImageView(frame: .zero)
-        profileImage.configureImageSpecific(borderWidth: 4, userDefaultImageName: UserDefaultManager.shared.tempProfileImage)
-        
-        return profileImage
-    }()
-    
-    let statusTextfield : UILabel = {
-        let statusTextfield = UILabel()
-        statusTextfield.backgroundColor = .clear
-        statusTextfield.font = ImageStyle.normalFontSize
-        
-        return statusTextfield
-    }()
-    
-    let completeButton : CommonButton = {
-        let completeButton = CommonButton()
-        completeButton.configureCompleteButton()
-        
-        return completeButton
-    }()
-    
-    let profileImageSet : CommonButton = {
-        let profileImageSet = CommonButton()
-        profileImageSet.configureProfileSetButton()
-        
-        return profileImageSet
-    }()
     
     //TODO: - 코드 정리해야 필.수. VC안에 View 항목이 섞여있어 파악하기 힘듬.
     //MARK: - 닉네임 조건 Error 표현
@@ -66,8 +39,7 @@ class ProfileViewController: UIViewController, ViewSetup {
         }
     }
     
-    var status : Bool = false
-    var nickname : String = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,16 +61,15 @@ class ProfileViewController: UIViewController, ViewSetup {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        profileImage.configureImageSpecific(borderWidth: 4, userDefaultImageName: UserDefaultManager.shared.tempProfileImage)
+        mainView.profileImage.configureImageSpecific(borderWidth: 4, userDefaultImageName: UserDefaultManager.shared.tempProfileImage)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        profileImage.configureCornerRadius()
+        mainView.profileImage.configureCornerRadius()
     }
     
-    
-    func configureView() {
+    override func configureView() {
         
         if UserDefaultManager.shared.userState == UserDefaultManager.UserStateCode.new.state {
             navigationItem.title = "프로필 설정"
@@ -106,51 +77,13 @@ class ProfileViewController: UIViewController, ViewSetup {
             navigationItem.title = "프로필 수정"
         }
         
-        nicknameTextfield.addTarget(self, action: #selector(checkNickname), for: .editingChanged)
-        completeButton.addTarget(self, action: #selector(completeButtonClicked), for: .touchUpInside)
-        profileImageSet.addTarget(self, action: #selector(profileChange), for: .touchUpInside)
+        mainView.nicknameTextfield.addTarget(self, action: #selector(checkNickname), for: .editingChanged)
+        mainView.completeButton.addTarget(self, action: #selector(completeButtonClicked), for: .touchUpInside)
+        mainView.profileImageSet.addTarget(self, action: #selector(profileChange), for: .touchUpInside)
         hideKeyboardWhenTappedAround()
-        
-        configureHierachy()
-        setupConstraints()
     }
     
-    func configureHierachy() {
-        [nicknameTextfield, profileImage, statusTextfield, completeButton, profileImageSet].forEach { item in
-            return view.addSubview(item)
-        }
-    }
-    
-    func setupConstraints() {
-        profileImage.snp.makeConstraints { make in
-            make.width.height.equalTo(90)
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.centerX.equalTo(view.safeAreaLayoutGuide)
-        }
-        
-        profileImageSet.snp.makeConstraints { make in
-            make.width.height.equalTo(30)
-            make.bottom.trailing.equalTo(profileImage)
-        }
-        
-        nicknameTextfield.snp.makeConstraints { make in
-            make.top.equalTo(profileImage.snp.bottom).offset(30)
-            make.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(60)
-            make.height.equalTo(50)
-        }
-        
-        statusTextfield.snp.makeConstraints { make in
-            make.height.equalTo(40)
-            make.top.equalTo(nicknameTextfield.snp.bottom).offset(10)
-            make.leading.trailing.equalTo(nicknameTextfield).inset(10)
-        }
-        
-        completeButton.snp.makeConstraints { make in
-            make.height.equalTo(50)
-            make.top.equalTo(statusTextfield.snp.bottom).offset(40)
-            make.leading.trailing.equalTo(nicknameTextfield)
-        }
-    }
+
     
     @objc func checkNickname(sender: UITextField) {
         
@@ -158,21 +91,21 @@ class ProfileViewController: UIViewController, ViewSetup {
         
         do {
             try validateUserInputError(nickname: nickname)
-            statusTextfield.textColor = ImageStyle.pointColor
+            mainView.statusTextfield.textColor = ImageStyle.pointColor
             status = true
-            statusTextfield.text = "사용할 수 있는 닉네임이에요"
+            mainView.statusTextfield.text = "사용할 수 있는 닉네임이에요"
         } catch {
             
-            statusTextfield.textColor = .red
+            mainView.statusTextfield.textColor = .red
             status = false
             
             switch error {
             case ValidateError.lessOrGreaterString :
-                statusTextfield.text = ValidateError.lessOrGreaterString.message
+                mainView.statusTextfield.text = ValidateError.lessOrGreaterString.message
             case ValidateError.isSpecialCharacter :
-                statusTextfield.text = ValidateError.isSpecialCharacter.message
+                mainView.statusTextfield.text = ValidateError.isSpecialCharacter.message
             case ValidateError.isNumber :
-                statusTextfield.text = ValidateError.isNumber.message
+                mainView.statusTextfield.text = ValidateError.isNumber.message
             default :
                 print("뭐지")
             

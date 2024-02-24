@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class SearchResultCollectionViewCell: UICollectionViewCell, ViewSetup {
+class SearchResultCollectionViewCell: UICollectionViewCell {
 
     let searchResultImage = UIImageView()
     let searchResultMallName = UILabel()

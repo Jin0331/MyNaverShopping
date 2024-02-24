@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileImageViewController: UIViewController, ViewSetup {
+class ProfileImageViewController: UIViewController {
     
     let profileImage : ProfileImageView = {
         let profileImage = ProfileImageView(frame: .zero)

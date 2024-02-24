@@ -83,7 +83,7 @@ class SettingViewController: UIViewController {
     
 }
 
-extension SettingViewController : ViewSetup {
+extension SettingViewController  {
     func configureView() {
         view.backgroundColor = ImageStyle.backgroundColor
         self.navigationItem.title = "설정"
