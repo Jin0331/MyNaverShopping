@@ -30,6 +30,8 @@
 		DBB376B32B67583200DA1C8F /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB376B22B67583200DA1C8F /* ProfileImageView.swift */; };
 		DBB376B52B67C8C700DA1C8F /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB376B42B67C8C700DA1C8F /* CommonButton.swift */; };
 		DBB376B72B67CBCF00DA1C8F /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB376B62B67CBCF00DA1C8F /* CommonTextField.swift */; };
+		DBBCDB1D2B89DEFD0026CAF7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCDB1C2B89DEFD0026CAF7 /* ProfileViewModel.swift */; };
+		DBBCDB212B89E0020026CAF7 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCDB202B89E0020026CAF7 /* BaseView.swift */; };
 		DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */; };
 		DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */; };
 		DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */; };
@@ -66,6 +68,8 @@
 		DBB376B22B67583200DA1C8F /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		DBB376B42B67C8C700DA1C8F /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		DBB376B62B67CBCF00DA1C8F /* CommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextField.swift; sourceTree = "<group>"; };
+		DBBCDB1C2B89DEFD0026CAF7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		DBBCDB202B89E0020026CAF7 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -124,16 +128,15 @@
 		DB9070E92B590703006EF2EE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				DBBCDB1F2B89DFF40026CAF7 /* Base */,
+				DBBCDB1E2B89DFDC0026CAF7 /* Extension */,
 				DB9070ED2B590790006EF2EE /* Protocol.swift */,
 				DB81C4332B594EA00068CEB7 /* Enumeration.swift */,
-				DB9070EF2B5907A8006EF2EE /* UIVew + Extension.swift */,
-				DBE87C762B665AA400EA2AF2 /* UITabBarController + Extension.swift */,
-				DBE87C782B6680D600EA2AF2 /* UIViewController + Extension.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		DB9070EA2B590714006EF2EE /* View */ = {
+		DB9070EA2B590714006EF2EE /* Custom */ = {
 			isa = PBXGroup;
 			children = (
 				DBA43A452B597FE500DED8CD /* CollectionViewCell */,
@@ -142,7 +145,7 @@
 				DBB376B42B67C8C700DA1C8F /* CommonButton.swift */,
 				DBB376B62B67CBCF00DA1C8F /* CommonTextField.swift */,
 			);
-			path = View;
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		DB9070EB2B590719006EF2EE /* Model */ = {
@@ -157,7 +160,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		DB9070EC2B59071D006EF2EE /* Controller */ = {
+		DB9070EC2B59071D006EF2EE /* View */ = {
 			isa = PBXGroup;
 			children = (
 				DB9070D92B590563006EF2EE /* MainController.swift */,
@@ -167,8 +170,9 @@
 				DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */,
 				DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */,
 				DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */,
+				DB9070EA2B590714006EF2EE /* Custom */,
 			);
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
 		DB9070F52B5944DE006EF2EE /* TableViewCell */ = {
@@ -192,11 +196,37 @@
 		DBBCDB1A2B89DC470026CAF7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				DB9070EC2B59071D006EF2EE /* Controller */,
+				DBBCDB1B2B89DD840026CAF7 /* ViewModel */,
+				DB9070EC2B59071D006EF2EE /* View */,
 				DB9070EB2B590719006EF2EE /* Model */,
-				DB9070EA2B590714006EF2EE /* View */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		DBBCDB1B2B89DD840026CAF7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBBCDB1C2B89DEFD0026CAF7 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DBBCDB1E2B89DFDC0026CAF7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DB9070EF2B5907A8006EF2EE /* UIVew + Extension.swift */,
+				DBE87C762B665AA400EA2AF2 /* UITabBarController + Extension.swift */,
+				DBE87C782B6680D600EA2AF2 /* UIViewController + Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		DBBCDB1F2B89DFF40026CAF7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DBBCDB202B89E0020026CAF7 /* BaseView.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,6 +315,7 @@
 				DBB376B72B67CBCF00DA1C8F /* CommonTextField.swift in Sources */,
 				DBB376B32B67583200DA1C8F /* ProfileImageView.swift in Sources */,
 				DBB376B52B67C8C700DA1C8F /* CommonButton.swift in Sources */,
+				DBBCDB1D2B89DEFD0026CAF7 /* ProfileViewModel.swift in Sources */,
 				DB1CA5102B5A4724000EB832 /* API.swift in Sources */,
 				DB9070F22B5907BE006EF2EE /* UserDefaultManager.swift in Sources */,
 				DBDDFFF82B726D980040FA51 /* NaverAPI.swift in Sources */,
@@ -292,6 +323,7 @@
 				DB1CA5122B5A4928000EB832 /* NaverShoppingModel.swift in Sources */,
 				DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */,
 				DB17A6052B5F9C8800B6ACD2 /* NaverShoppingAPIManager.swift in Sources */,
+				DBBCDB212B89E0020026CAF7 /* BaseView.swift in Sources */,
 				DB9070F02B5907A8006EF2EE /* UIVew + Extension.swift in Sources */,
 				DBC322CB2B5D05EB0064956A /* ProfileViewController.swift in Sources */,
 				DBE87C792B6680D600EA2AF2 /* UIViewController + Extension.swift in Sources */,

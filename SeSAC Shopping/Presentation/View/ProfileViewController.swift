@@ -51,7 +51,6 @@ class ProfileViewController: UIViewController, ViewSetup {
         case lessOrGreaterString
         case isSpecialCharacter
         case isNumber
-//        case vaild
         
         var message : String {
             get {
