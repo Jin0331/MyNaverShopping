@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class SettingTableViewCell: UITableViewCell, ViewSetup{
+class SettingTableViewCell: UITableViewCell {
     
     let settingLabel : UILabel = {
         let settingLabel = UILabel()

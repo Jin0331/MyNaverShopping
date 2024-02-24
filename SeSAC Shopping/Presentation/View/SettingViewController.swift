@@ -21,8 +21,8 @@ class SettingViewController: UIViewController {
         return backgroundView
     }()
     
-    let profileImage : ProfileImageView = {
-        let profileImage = ProfileImageView(frame: .zero)
+    let profileImage : CommonProfileImageView = {
+        let profileImage = CommonProfileImageView(frame: .zero)
         profileImage.configureImageSpecific(borderWidth: 2.5, userDefaultImageName: UserDefaultManager.shared.profileImage)
                 
        return profileImage
@@ -83,7 +83,7 @@ class SettingViewController: UIViewController {
     
 }
 
-extension SettingViewController : ViewSetup {
+extension SettingViewController  {
     func configureView() {
         view.backgroundColor = ImageStyle.backgroundColor
         self.navigationItem.title = "설정"

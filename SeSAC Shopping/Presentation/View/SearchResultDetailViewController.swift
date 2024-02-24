@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class SearchResultDetailViewController: UIViewController, ViewSetup {
+class SearchResultDetailViewController: UIViewController {
     
     let searchDetailWebView = WKWebView()
     var item : NaverShoppingItem?

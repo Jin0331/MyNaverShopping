@@ -8,24 +8,6 @@
 import UIKit
 
 extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tapGesture = UITapGestureRecognizer(target: self,
-                         action: #selector(hideKeyboard))
-        view.addGestureRecognizer(tapGesture)
-    }
-
-    @objc func hideKeyboard() {
-        view.endEditing(true)
-    }
-}
-
-extension UIViewController : ResuableProtocol {
-    static var identifier: String {
-        return String(describing: self)
-    }
-    var identifier_: String {
-        return String(describing: type(of: self))
-    }
     
     static let userNotificationCenter = UNUserNotificationCenter.current() // notficiation
     

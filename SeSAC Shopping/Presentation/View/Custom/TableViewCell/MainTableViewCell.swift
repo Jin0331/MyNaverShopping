@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTableViewCell: UITableViewCell, ViewSetup{
+class MainTableViewCell: UITableViewCell{
     let mainCellLabel : UILabel = {
        let mainCellLabel = UILabel()
         mainCellLabel.textColor = ImageStyle.textColor
@@ -82,9 +82,11 @@ class MainTableViewCell: UITableViewCell, ViewSetup{
     
     func configureView() {
         self.backgroundColor = .clear
+        self.selectionStyle = .none
         
         configureHierachy()
         setupConstraints()
+        
     }
 }
 

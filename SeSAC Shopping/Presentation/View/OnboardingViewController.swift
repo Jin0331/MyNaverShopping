@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class OnboardingViewController: UIViewController, ViewSetup{
+class OnboardingViewController: UIViewController{
     
     //MARK: - UI
     let titleImage : UIImageView = {

@@ -14,7 +14,7 @@ import Alamofire
 //TODO: - cell 선택했을 때 상세화면 - 완료
 //TODO: - 디자인 - 완료
 
-class SearchResultController: UIViewController, ViewSetup {
+class SearchResultController: UIViewController {
     
     lazy var searchResultTotalCount : UILabel = {
         let searchResultTotalCount = UILabel()
