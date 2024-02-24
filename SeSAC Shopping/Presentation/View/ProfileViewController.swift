@@ -20,11 +20,6 @@ class ProfileViewController: BaseViewController {
         super.viewDidLoad()
         
         navigationDesign()
-        configureView()
-        
-        // 처음 화면 설정에서는 랜덤으로 먼저 이미지를 뿌리고, 해당 이미지를 저장한다. 이게 되네 ㅎ 앞에는 get으로 set
-        UserDefaultManager.shared.profileImage = UserDefaultManager.shared.profileImage
-        UserDefaultManager.shared.tempProfileImage = UserDefaultManager.shared.profileImage
         
         viewModel.outputNicknameValidation.bind { [weak self] value in
             self?.mainView.statusTextfield.text = value
@@ -55,6 +50,10 @@ class ProfileViewController: BaseViewController {
     
     override func configureView() {
         
+        // 처음 화면 설정에서는 랜덤으로 먼저 이미지를 뿌리고, 해당 이미지를 저장한다. 이게 되네 ㅎ 앞에는 get으로 set
+        UserDefaultManager.shared.profileImage = UserDefaultManager.shared.profileImage
+        UserDefaultManager.shared.tempProfileImage = UserDefaultManager.shared.profileImage
+        
         navigationItem.title = UserDefaultManager.shared.userState == UserDefaultManager.UserStateCode.new.state ? "프로필 설정" : "프로필 수정"
         
         mainView.nicknameTextfield.addTarget(self, action: #selector(checkNickname), for: .editingChanged)
@@ -69,11 +68,6 @@ class ProfileViewController: BaseViewController {
     
     @objc func completeButtonClicked(sender: UIButton) {
         if viewModel.outputStatus.value {
-            UserDefaultManager.shared.nickname = viewModel.inputNickname.value
-            UserDefaultManager.shared.profileImage = UserDefaultManager.shared.tempProfileImage
-            UserDefaultManager.shared.tempProfileImage = UserDefaultManager.shared.profileImage
-            UserDefaultManager.shared.userState = UserDefaultManager.UserStateCode.old.state
-            
             viewChangeToMain() // main View로 전환
         } else {
             print("아무일도 발생하지 않는다...!")

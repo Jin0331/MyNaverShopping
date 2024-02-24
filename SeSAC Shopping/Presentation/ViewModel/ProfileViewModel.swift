@@ -19,6 +19,13 @@ class ProfileViewModel {
         inputNickname.bind { [weak self] value in
             self?.validateNickname(value)
         }
+        
+        outputStatus.bind { [self] _ in
+            UserDefaultManager.shared.nickname = self.inputNickname.value
+            UserDefaultManager.shared.profileImage = UserDefaultManager.shared.tempProfileImage
+            UserDefaultManager.shared.tempProfileImage = UserDefaultManager.shared.profileImage
+            UserDefaultManager.shared.userState = UserDefaultManager.UserStateCode.old.state
+        }
     }
     
     
@@ -49,7 +56,7 @@ class ProfileViewModel {
     
    
     
-    func validateUserInputError(nickname : String) throws {
+    private func validateUserInputError(nickname : String) throws {
         let specialCharacters = "@#$%"
         let numbers = "0123456789"
         
@@ -70,7 +77,7 @@ class ProfileViewModel {
 //MARK: - 해당 뷰의 Error 관리 enum
 extension ProfileViewModel {
     //MARK: - 닉네임 조건 Error 표현
-    enum ValidateError : Error {
+    private enum ValidateError : Error {
         case lessOrGreaterString
         case isSpecialCharacter
         case isNumber
