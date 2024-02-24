@@ -17,8 +17,8 @@ class ProfileView : BaseView {
         return nicknameTextfield
     }()
     
-    let profileImage : ProfileImageView = {
-        let profileImage = ProfileImageView(frame: .zero)
+    let profileImage : CommonProfileImageView = {
+        let profileImage = CommonProfileImageView(frame: .zero)
         profileImage.configureImageSpecific(borderWidth: 4, userDefaultImageName: UserDefaultManager.shared.tempProfileImage)
         
         return profileImage

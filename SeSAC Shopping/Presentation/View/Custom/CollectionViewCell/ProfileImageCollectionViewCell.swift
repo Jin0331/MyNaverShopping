@@ -9,8 +9,8 @@ import UIKit
 
 class ProfileImageCollectionViewCell: UICollectionViewCell {
     
-    let profileImage : ProfileImageView = {
-        let profileImage = ProfileImageView(frame: .zero)
+    let profileImage : CommonProfileImageView = {
+        let profileImage = CommonProfileImageView(frame: .zero)
         
         return profileImage
     }()

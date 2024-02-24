@@ -21,8 +21,8 @@ class SettingViewController: UIViewController {
         return backgroundView
     }()
     
-    let profileImage : ProfileImageView = {
-        let profileImage = ProfileImageView(frame: .zero)
+    let profileImage : CommonProfileImageView = {
+        let profileImage = CommonProfileImageView(frame: .zero)
         profileImage.configureImageSpecific(borderWidth: 2.5, userDefaultImageName: UserDefaultManager.shared.profileImage)
                 
        return profileImage

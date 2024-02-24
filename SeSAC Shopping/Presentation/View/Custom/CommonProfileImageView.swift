@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileImageView: UIImageView {
+class CommonProfileImageView: UIImageView {
   
     override init(frame: CGRect) {
         super.init(frame: frame)

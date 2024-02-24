@@ -26,7 +26,7 @@
 		DB9070F82B594A33006EF2EE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */; };
 		DBA43A472B59802700DED8CD /* SearchResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA43A462B59802700DED8CD /* SearchResultController.swift */; };
 		DBA43A4A2B59805D00DED8CD /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */; };
-		DBB376B32B67583200DA1C8F /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB376B22B67583200DA1C8F /* ProfileImageView.swift */; };
+		DBB376B32B67583200DA1C8F /* CommonProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB376B22B67583200DA1C8F /* CommonProfileImageView.swift */; };
 		DBB376B52B67C8C700DA1C8F /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB376B42B67C8C700DA1C8F /* CommonButton.swift */; };
 		DBB376B72B67CBCF00DA1C8F /* CommonTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB376B62B67CBCF00DA1C8F /* CommonTextField.swift */; };
 		DBBCDB1D2B89DEFD0026CAF7 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCDB1C2B89DEFD0026CAF7 /* ProfileViewModel.swift */; };
@@ -34,6 +34,7 @@
 		DBBCDB232B89E0830026CAF7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCDB222B89E0830026CAF7 /* ProfileView.swift */; };
 		DBBCDB252B89E1940026CAF7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCDB242B89E1940026CAF7 /* BaseViewController.swift */; };
 		DBBCDB272B89E4830026CAF7 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCDB262B89E4830026CAF7 /* Observable.swift */; };
+		DBBCDB292B89F0B10026CAF7 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBBCDB282B89F0B10026CAF7 /* ProfileImageView.swift */; };
 		DBC322BF2B5BBBFD0064956A /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */; };
 		DBC322C22B5CD26D0064956A /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */; };
 		DBC322C72B5CF0B70064956A /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */; };
@@ -66,7 +67,7 @@
 		DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		DBA43A462B59802700DED8CD /* SearchResultController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultController.swift; sourceTree = "<group>"; };
 		DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
-		DBB376B22B67583200DA1C8F /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		DBB376B22B67583200DA1C8F /* CommonProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonProfileImageView.swift; sourceTree = "<group>"; };
 		DBB376B42B67C8C700DA1C8F /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		DBB376B62B67CBCF00DA1C8F /* CommonTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextField.swift; sourceTree = "<group>"; };
 		DBBCDB1C2B89DEFD0026CAF7 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -74,6 +75,7 @@
 		DBBCDB222B89E0830026CAF7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		DBBCDB242B89E1940026CAF7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DBBCDB262B89E4830026CAF7 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		DBBCDB282B89F0B10026CAF7 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		DBC322BE2B5BBBFD0064956A /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DBC322C02B5CD26D0064956A /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -145,7 +147,7 @@
 			children = (
 				DBA43A452B597FE500DED8CD /* CollectionViewCell */,
 				DB9070F52B5944DE006EF2EE /* TableViewCell */,
-				DBB376B22B67583200DA1C8F /* ProfileImageView.swift */,
+				DBB376B22B67583200DA1C8F /* CommonProfileImageView.swift */,
 				DBB376B42B67C8C700DA1C8F /* CommonButton.swift */,
 				DBB376B62B67CBCF00DA1C8F /* CommonTextField.swift */,
 			);
@@ -174,6 +176,7 @@
 				DBC322C62B5CF0B70064956A /* OnboardingViewController.swift */,
 				DBBCDB222B89E0830026CAF7 /* ProfileView.swift */,
 				DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */,
+				DBBCDB282B89F0B10026CAF7 /* ProfileImageView.swift */,
 				DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */,
 				DB9070EA2B590714006EF2EE /* Custom */,
 			);
@@ -319,7 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBB376B72B67CBCF00DA1C8F /* CommonTextField.swift in Sources */,
-				DBB376B32B67583200DA1C8F /* ProfileImageView.swift in Sources */,
+				DBB376B32B67583200DA1C8F /* CommonProfileImageView.swift in Sources */,
 				DBB376B52B67C8C700DA1C8F /* CommonButton.swift in Sources */,
 				DBBCDB1D2B89DEFD0026CAF7 /* ProfileViewModel.swift in Sources */,
 				DB1CA5102B5A4724000EB832 /* API.swift in Sources */,
@@ -344,6 +347,7 @@
 				DBE87C772B665AA400EA2AF2 /* UITabBarController + Extension.swift in Sources */,
 				DB81C4342B594EA00068CEB7 /* Enumeration.swift in Sources */,
 				DB9070F82B594A33006EF2EE /* MainTableViewCell.swift in Sources */,
+				DBBCDB292B89F0B10026CAF7 /* ProfileImageView.swift in Sources */,
 				DB9070D62B590563006EF2EE /* AppDelegate.swift in Sources */,
 				DB9070D82B590563006EF2EE /* SceneDelegate.swift in Sources */,
 				DB2E569F2B5D4BFA00AE8FFF /* ProfileImageViewController.swift in Sources */,
