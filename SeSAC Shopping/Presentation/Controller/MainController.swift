@@ -148,6 +148,10 @@ extension MainViewController : ViewSetup {
         mainTableView.isHidden = searchKeywordList.count == 0 ? true : false
         mainEmptyImage.isHidden = searchKeywordList.count == 0 ? false : true
         mainEmptyLabel.isHidden = searchKeywordList.count == 0 ? false : true
+        
+        removeButton.isHidden = searchKeywordList.count == 0 ? true : false
+        latestLabel.isHidden = searchKeywordList.count == 0 ? true : false
+
     }
     
     func screenTransition(sendText : String) {
