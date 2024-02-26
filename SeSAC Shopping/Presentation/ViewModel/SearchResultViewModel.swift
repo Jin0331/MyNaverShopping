@@ -34,12 +34,9 @@ class SearchResultViewModel {
             if let value  {
                 self.callRequest(sortType: value)
             }
-            
         }
     }
-    
-    
-    
+
     private func callRequest() {
         DispatchQueue.global().async {
             NaverShoppingAPIManager.shared.callRequestURLSession(api: .shop(query: self.inputKeyword.value, display: String(self.display.value), sort: NaverAPI.RequestSort.sim.caseValue, start: String(self.start.value))) { (item : NaverShoppingModel?, start : Int?, error:NaverAPI.APIError?) in
@@ -83,10 +80,6 @@ class SearchResultViewModel {
             self.searchResult.value.items.append(contentsOf: value.items)
         }
         
-//        // 상단으로 올리기
-//        if self.start.value == 1 {
-//            self.mainView.searchResultCollectionView.setContentOffset(.zero, animated: false)
-//        }
         
         //TODO: - 기존 값에 새로운 값이 추가되었을 때 비교하여 저장하는 함수 필요 - 구현완료
         UserDefaultManager.shared.userDefaultUpdateForLike(new: searchResult.value.productIdwithLike)

@@ -38,6 +38,13 @@ class SearchResultViewController: BaseViewController {
             self.mainView.searchResultCollectionView.reloadData()
             self.mainView.searchResultTotalCount.text = "\(value.totalChange) 개의 검색 결과"
         }
+        
+        viewModel.start.bind { value in
+            // 상단으로 올리기
+            if value == 1 {
+                self.mainView.searchResultCollectionView.setContentOffset(.zero, animated: false)
+            }
+        }
     }
     
     override func configureView() {
@@ -126,26 +133,5 @@ extension SearchResultViewController : UICollectionViewDataSourcePrefetching {
                 viewModel.inputViewDidLoadCallRequestTriger.value = ()
             }
         }
-    }
-}
-
-//MARK: - API request
-extension SearchResultViewController {
-    // completion 내부에서 실행되는 함수
-    func searchResultUpdate(value: NaverShoppingModel, start : Int){
-        if start == 1 {
-            self.viewModel.searchResult.value = value
-        } else {
-            self.viewModel.searchResult.value.items.append(contentsOf: value.items)
-        }
-        
-        // 상단으로 올리기
-        if start == 1 {
-            self.mainView.searchResultCollectionView.setContentOffset(.zero, animated: false)
-        }
-        
-        //TODO: - 기존 값에 새로운 값이 추가되었을 때 비교하여 저장하는 함수 필요 - 구현완료
-        UserDefaultManager.shared.userDefaultUpdateForLike(new: self.viewModel.searchResult.value.productIdwithLike)
-        print(#function)
     }
 }
