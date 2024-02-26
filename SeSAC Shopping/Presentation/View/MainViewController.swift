@@ -60,9 +60,9 @@ extension MainViewController  {
     }
     
     func screenTransition(sendText : String) {
-        let vc = SearchResultController()
+        let vc = SearchResultViewController()
         
-        vc.searchKeyword = sendText
+        vc.viewModel.inputKeyword.value = sendText
         view.endEditing(true)
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -36,6 +36,8 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     func configureView() {
         configureHierachy()
         setupConstraints()
+        backgroundColor = .clear
+        
     }
     
     func configureHierachy() {
