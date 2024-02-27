@@ -36,38 +36,35 @@ class SearchResultViewModel {
             }
         }
     }
-
+    
     private func callRequest() {
-        DispatchQueue.global().async {
-            NaverShoppingAPIManager.shared.callRequestURLSession(api: .shop(query: self.inputKeyword.value, display: String(self.display.value), sort: NaverAPI.RequestSort.sim.caseValue, start: String(self.start.value))) { (item : NaverShoppingModel?, start : Int?, error:NaverAPI.APIError?) in
+        NaverShoppingAPIManager.shared.callRequestURLSession(api: .shop(query: self.inputKeyword.value, display: String(self.display.value), sort: NaverAPI.RequestSort.sim.caseValue, start: String(self.start.value))) { (item : NaverShoppingModel?, start : Int?, error:NaverAPI.APIError?) in
+            
+            if error == nil {
+                guard let item = item else { return }
+                guard let start = start else { return }
                 
-                if error == nil {
-                    guard let item = item else { return }
-                    guard let start = start else { return }
-                    
-                    print(#function, start)
-                    self.searchResultUpdate(value: item, start: start)
-                } else {
-                    dump(error)
-                }
+                print(#function, start)
+                self.searchResultUpdate(value: item, start: start)
+            } else {
+                dump(error)
             }
         }
     }
     
     private func callRequest(sortType : NaverAPI.RequestSort) {
-        DispatchQueue.global().async {
-            NaverShoppingAPIManager.shared.callRequestURLSession(api: .shop(query: self.inputKeyword.value, display: String(self.display.value), sort: sortType.caseValue, start: String(self.start.value))) { (item : NaverShoppingModel?, start : Int?, error:NaverAPI.APIError?) in
+        
+        NaverShoppingAPIManager.shared.callRequestURLSession(api: .shop(query: self.inputKeyword.value, display: String(self.display.value), sort: sortType.caseValue, start: String(self.start.value))) { (item : NaverShoppingModel?, start : Int?, error:NaverAPI.APIError?) in
+            
+            if error == nil {
+                guard let item = item else { return }
+                guard let start = start else { return }
+                print(#function, start)
                 
-                if error == nil {
-                    guard let item = item else { return }
-                    guard let start = start else { return }
-                    print(#function, start)
-                    
-                    self.searchResultUpdate(value: item, start: start)
-                    self.start.value = 1
-                } else {
-                    dump(error)
-                }
+                self.searchResultUpdate(value: item, start: start)
+                self.start.value = 1
+            } else {
+                dump(error)
             }
         }
         
