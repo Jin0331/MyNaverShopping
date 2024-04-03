@@ -6,54 +6,81 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
-class ProfileViewModel {
+final class ProfileViewModel {
     
-    let inputNickname = Observable("")
-    let outputNicknameValidation = Observable("")
-    let outputNicknameValidationColor = Observable(false)
-    let outputStatus = Observable(false)
+    let disposeBag = DisposeBag()
+    let input = Input()
+    let output = Output()
+    
+    struct Input {
+        let inputNickname = PublishSubject<String>()
+    }
+    
+    struct Output {
+        let outputNicknameValidation = PublishRelay<String>()
+        let outputNicknameValidationColor = PublishRelay<Bool>()
+        let outputStatus = BehaviorRelay<Bool>(value: false)
+
+    }
     
     init() {
-        
-        inputNickname.bind { [weak self] value in
-            self?.validateNickname(value)
-        }
-        
-        outputStatus.bind { [self] _ in
-            UserDefaultManager.shared.nickname = self.inputNickname.value
-            UserDefaultManager.shared.profileImage = UserDefaultManager.shared.tempProfileImage
-            UserDefaultManager.shared.tempProfileImage = UserDefaultManager.shared.profileImage
-        }
+        transform()
     }
     
     
-    private func validateNickname(_ nickname : String) {
+    private func transform() {
+        
+        // textfield validation
+        let validation = input.inputNickname
+            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+        
+        validation
+            .subscribe(with: self) { owner, value in
+                let validationResult = owner.validateNickname(value)
+                owner.output.outputNicknameValidation.accept(validationResult.validationText)
+                owner.output.outputNicknameValidationColor.accept(validationResult.validationColor)
+                owner.output.outputStatus.accept(validationResult.validationStatus)
+                
+                UserDefaultManager.shared.nickname = value
+                UserDefaultManager.shared.profileImage = UserDefaultManager.shared.tempProfileImage
+                UserDefaultManager.shared.tempProfileImage = UserDefaultManager.shared.profileImage
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func validateNickname(_ nickname : String) -> (validationColor:Bool, validationStatus:Bool, validationText:String) {
+        
+        var validationColor : Bool
+        var status : Bool
+        var validationText : String = ""
+        
         do {
             try validateUserInputError(nickname: nickname)
-            outputNicknameValidationColor.value = true
-            outputStatus.value = true
-            outputNicknameValidation.value = "사용할 수 있는 닉네임이에요"
+            validationColor = true
+            status = true
+            validationText = "사용할 수 있는 닉네임이에요"
         } catch {
             
-            outputNicknameValidationColor.value = false
-            outputStatus.value = false
-            
+            validationColor = false
+            status = false
             switch error {
             case ValidateError.lessOrGreaterString :
-                outputNicknameValidation.value = ValidateError.lessOrGreaterString.message
+                validationText = ValidateError.lessOrGreaterString.message
             case ValidateError.isSpecialCharacter :
-                outputNicknameValidation.value = ValidateError.isSpecialCharacter.message
+                validationText = ValidateError.isSpecialCharacter.message
             case ValidateError.isNumber :
-                outputNicknameValidation.value = ValidateError.isNumber.message
+                validationText = ValidateError.isNumber.message
             default :
                 print("뭐지")
-            
             }
         }
+        
+        return (validationColor, status, validationText)
     }
-    
-   
     
     private func validateUserInputError(nickname : String) throws {
         let specialCharacters = "@#$%"

@@ -58,6 +58,5 @@ class CommonButton : UIButton {
         clipsToBounds = true
         layer.cornerRadius = 10
     }
-    
 }
 

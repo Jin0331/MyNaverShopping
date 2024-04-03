@@ -82,7 +82,6 @@ class ProfileView : BaseView {
             make.leading.trailing.equalTo(nicknameTextfield)
         }
     }
-    
 }
 
 

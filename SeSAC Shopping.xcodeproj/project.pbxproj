@@ -15,6 +15,8 @@
 		DB1CA5222B5B7A1D000EB832 /* SearchResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */; };
 		DB2E569F2B5D4BFA00AE8FFF /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */; };
 		DB2E56A22B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E56A02B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift */; };
+		DB5029FB2BBD74E300F3559F /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DB5029FA2BBD74E300F3559F /* RxCocoa */; };
+		DB5029FD2BBD74E300F3559F /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DB5029FC2BBD74E300F3559F /* RxSwift */; };
 		DB81C4342B594EA00068CEB7 /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB81C4332B594EA00068CEB7 /* Enumeration.swift */; };
 		DB9070D62B590563006EF2EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D52B590563006EF2EE /* AppDelegate.swift */; };
 		DB9070D82B590563006EF2EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070D72B590563006EF2EE /* SceneDelegate.swift */; };
@@ -98,11 +100,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB5029FB2BBD74E300F3559F /* RxCocoa in Frameworks */,
 				DBE87C752B65405F00EA2AF2 /* SnapKit-Dynamic in Frameworks */,
 				DBC322CE2B5D072C0064956A /* TextFieldEffects in Frameworks */,
 				DBE87C732B65405F00EA2AF2 /* SnapKit in Frameworks */,
 				DB1CA51A2B5A57EC000EB832 /* Kingfisher in Frameworks */,
 				DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */,
+				DB5029FD2BBD74E300F3559F /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +276,8 @@
 				DBC322CD2B5D072C0064956A /* TextFieldEffects */,
 				DBE87C722B65405F00EA2AF2 /* SnapKit */,
 				DBE87C742B65405F00EA2AF2 /* SnapKit-Dynamic */,
+				DB5029FA2BBD74E300F3559F /* RxCocoa */,
+				DB5029FC2BBD74E300F3559F /* RxSwift */,
 			);
 			productName = "Recap Assignment";
 			productReference = DB9070D22B590563006EF2EE /* SeSAC Shopping.app */;
@@ -306,6 +312,7 @@
 				DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 				DBE87C712B65405F00EA2AF2 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				DB5029F92BBD74E300F3559F /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = DB9070D32B590563006EF2EE /* Products */;
 			projectDirPath = "";
@@ -610,6 +617,14 @@
 				minimumVersion = 7.10.2;
 			};
 		};
+		DB5029F92BBD74E300F3559F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.6.0;
+			};
+		};
 		DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
@@ -638,6 +653,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		DB5029FA2BBD74E300F3559F /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB5029F92BBD74E300F3559F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		DB5029FC2BBD74E300F3559F /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB5029F92BBD74E300F3559F /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 		DBC322CD2B5D072C0064956A /* TextFieldEffects */ = {
 			isa = XCSwiftPackageProductDependency;
