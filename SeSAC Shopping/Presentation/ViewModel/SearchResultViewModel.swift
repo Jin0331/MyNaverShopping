@@ -26,7 +26,7 @@ class SearchResultViewModel {
     func transform() {
         
         inputViewDidLoadCallRequestTriger.bind { _ in
-            self.callRequest()
+            self.callRequestSwiftConcurrency()
         }
         
         inputbuttonSearchSpecificCallRequestTriger.bind { value in
@@ -67,8 +67,53 @@ class SearchResultViewModel {
                 dump(error)
             }
         }
-        
     }
+    
+    private func callRequestSwiftConcurrency() {
+        Task {
+            // error handling
+            do {
+                let (item, start) = try await NaverShoppingAPIManager.shared.callRequestURLSessionConcurrency(api: .shop(query: self.inputKeyword.value, display: String(self.display.value), sort: NaverAPI.RequestSort.sim.caseValue, start: String(self.start.value))) as (NaverShoppingModel?, Int?)
+                
+                guard let item = item else { return }
+                guard let start = start else { return }
+                
+                print(#function, start)
+                
+                await MainActor.run {
+                    self.searchResultUpdate(value: item, start: start)
+                }
+                
+
+            } catch {
+                print(error, "✅")
+            }
+        }
+    }
+    
+    private func callRequestSwiftConcurrency(sortType : NaverAPI.RequestSort) {
+        Task {
+            // error handling
+            do {
+                let (item, start) = try await NaverShoppingAPIManager.shared.callRequestURLSessionConcurrency(api: .shop(query: self.inputKeyword.value, display: String(self.display.value), sort: sortType.caseValue, start: String(self.start.value))) as (NaverShoppingModel?, Int?)
+                
+                guard let item = item else { return }
+                guard let start = start else { return }
+                print(#function, start)
+                
+                await MainActor.run {
+                    self.searchResultUpdate(value: item, start: start)
+                    self.start.value = 1
+
+                }
+
+            } catch {
+                print(error, "✅")
+            }
+        }
+    }
+    
+    
     
     private func searchResultUpdate(value: NaverShoppingModel, start : Int){
         if self.start.value == 1 {

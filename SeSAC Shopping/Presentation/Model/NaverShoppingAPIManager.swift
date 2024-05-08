@@ -124,6 +124,9 @@ let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=
     
     // Swift Concurrency
     func callRequestURLSessionConcurrency<T: Decodable>(api : NaverAPI.Shop) async throws -> (T?, Int?) {
+        
+        print(api.endPoint.absoluteString)
+        
         var urlComponents = URLComponents(string: api.endPoint.absoluteString)
         let queryItems = api.parameter.map { (key: String, value: Any) in
             
@@ -140,6 +143,8 @@ let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=
         request.addValue(API.naverClientId, forHTTPHeaderField: "X-Naver-Client-Id")
         request.addValue(API.naverClientSecret, forHTTPHeaderField: "X-Naver-Client-Secret")
         
+        print(request)
+        
         let (data, response) = try await URLSession.shared.data(for: request)
         
         guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
@@ -148,6 +153,9 @@ let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=
         
         do {
             let result = try JSONDecoder().decode(T.self, from: data)
+            
+            print(result)
+            
             return (result, Int(api.start))
         } catch {
             throw NaverAPI.APIError.invalidDecodable
