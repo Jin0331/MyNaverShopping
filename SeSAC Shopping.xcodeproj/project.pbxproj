@@ -11,7 +11,6 @@
 		DB1CA5102B5A4724000EB832 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA50F2B5A4724000EB832 /* API.swift */; };
 		DB1CA5122B5A4928000EB832 /* NaverShoppingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA5112B5A4928000EB832 /* NaverShoppingModel.swift */; };
 		DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DB1CA5142B5A4941000EB832 /* Alamofire */; };
-		DB1CA51A2B5A57EC000EB832 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DB1CA5192B5A57EC000EB832 /* Kingfisher */; };
 		DB1CA5222B5B7A1D000EB832 /* SearchResultDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA5212B5B7A1D000EB832 /* SearchResultDetailViewController.swift */; };
 		DB2E569F2B5D4BFA00AE8FFF /* ProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */; };
 		DB2E56A22B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2E56A02B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift */; };
@@ -26,6 +25,7 @@
 		DB9070F02B5907A8006EF2EE /* UIVew + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070EF2B5907A8006EF2EE /* UIVew + Extension.swift */; };
 		DB9070F22B5907BE006EF2EE /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070F12B5907BE006EF2EE /* UserDefaultManager.swift */; };
 		DB9070F82B594A33006EF2EE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9070F62B594A33006EF2EE /* MainTableViewCell.swift */; };
+		DB9E306F2BEA195600448396 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DB9E306E2BEA195600448396 /* Kingfisher */; };
 		DBA43A472B59802700DED8CD /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA43A462B59802700DED8CD /* SearchResultViewController.swift */; };
 		DBA43A4A2B59805D00DED8CD /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA43A482B59805D00DED8CD /* SearchResultCollectionViewCell.swift */; };
 		DBB376B32B67583200DA1C8F /* CommonProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB376B22B67583200DA1C8F /* CommonProfileImageView.swift */; };
@@ -102,9 +102,9 @@
 			files = (
 				DB5029FB2BBD74E300F3559F /* RxCocoa in Frameworks */,
 				DBE87C752B65405F00EA2AF2 /* SnapKit-Dynamic in Frameworks */,
+				DB9E306F2BEA195600448396 /* Kingfisher in Frameworks */,
 				DBC322CE2B5D072C0064956A /* TextFieldEffects in Frameworks */,
 				DBE87C732B65405F00EA2AF2 /* SnapKit in Frameworks */,
-				DB1CA51A2B5A57EC000EB832 /* Kingfisher in Frameworks */,
 				DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */,
 				DB5029FD2BBD74E300F3559F /* RxSwift in Frameworks */,
 			);
@@ -272,12 +272,12 @@
 			name = "SeSAC Shopping";
 			packageProductDependencies = (
 				DB1CA5142B5A4941000EB832 /* Alamofire */,
-				DB1CA5192B5A57EC000EB832 /* Kingfisher */,
 				DBC322CD2B5D072C0064956A /* TextFieldEffects */,
 				DBE87C722B65405F00EA2AF2 /* SnapKit */,
 				DBE87C742B65405F00EA2AF2 /* SnapKit-Dynamic */,
 				DB5029FA2BBD74E300F3559F /* RxCocoa */,
 				DB5029FC2BBD74E300F3559F /* RxSwift */,
+				DB9E306E2BEA195600448396 /* Kingfisher */,
 			);
 			productName = "Recap Assignment";
 			productReference = DB9070D22B590563006EF2EE /* SeSAC Shopping.app */;
@@ -309,10 +309,10 @@
 			mainGroup = DB9070C92B590563006EF2EE;
 			packageReferences = (
 				DB1CA5132B5A4941000EB832 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 				DBE87C712B65405F00EA2AF2 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DB5029F92BBD74E300F3559F /* XCRemoteSwiftPackageReference "RxSwift" */,
+				DB9E306D2BEA195600448396 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = DB9070D32B590563006EF2EE /* Products */;
 			projectDirPath = "";
@@ -609,20 +609,20 @@
 				minimumVersion = 5.8.1;
 			};
 		};
-		DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.10.2;
-			};
-		};
 		DB5029F92BBD74E300F3559F /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 6.6.0;
+			};
+		};
+		DB9E306D2BEA195600448396 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.0;
 			};
 		};
 		DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
@@ -649,11 +649,6 @@
 			package = DB1CA5132B5A4941000EB832 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		DB1CA5192B5A57EC000EB832 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DB1CA5182B5A57EC000EB832 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
 		DB5029FA2BBD74E300F3559F /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DB5029F92BBD74E300F3559F /* XCRemoteSwiftPackageReference "RxSwift" */;
@@ -663,6 +658,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DB5029F92BBD74E300F3559F /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		DB9E306E2BEA195600448396 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB9E306D2BEA195600448396 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		DBC322CD2B5D072C0064956A /* TextFieldEffects */ = {
 			isa = XCSwiftPackageProductDependency;
