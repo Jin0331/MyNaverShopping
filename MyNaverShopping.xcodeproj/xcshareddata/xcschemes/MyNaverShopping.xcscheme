@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DB9070D12B590563006EF2EE"
-               BuildableName = "SeSAC Shopping.app"
-               BlueprintName = "SeSAC Shopping"
-               ReferencedContainer = "container:SeSAC Shopping.xcodeproj">
+               BuildableName = "MyNaverShopping.app"
+               BlueprintName = "MyNaverShopping"
+               ReferencedContainer = "container:MyNaverShopping.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB9070D12B590563006EF2EE"
-            BuildableName = "SeSAC Shopping.app"
-            BlueprintName = "SeSAC Shopping"
-            ReferencedContainer = "container:SeSAC Shopping.xcodeproj">
+            BuildableName = "MyNaverShopping.app"
+            BlueprintName = "MyNaverShopping"
+            ReferencedContainer = "container:MyNaverShopping.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DB9070D12B590563006EF2EE"
-            BuildableName = "SeSAC Shopping.app"
-            BlueprintName = "SeSAC Shopping"
-            ReferencedContainer = "container:SeSAC Shopping.xcodeproj">
+            BuildableName = "MyNaverShopping.app"
+            BlueprintName = "MyNaverShopping"
+            ReferencedContainer = "container:MyNaverShopping.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

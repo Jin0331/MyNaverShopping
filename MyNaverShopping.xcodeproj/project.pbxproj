@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1333D22C1144E60087EE45 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DB1333D12C1144E60087EE45 /* SnapKit */; };
 		DB17A6052B5F9C8800B6ACD2 /* NaverShoppingAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB17A6042B5F9C8800B6ACD2 /* NaverShoppingAPIManager.swift */; };
 		DB1CA5102B5A4724000EB832 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA50F2B5A4724000EB832 /* API.swift */; };
 		DB1CA5122B5A4928000EB832 /* NaverShoppingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1CA5112B5A4928000EB832 /* NaverShoppingModel.swift */; };
@@ -47,8 +48,6 @@
 		DBC322CB2B5D05EB0064956A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC322CA2B5D05EB0064956A /* ProfileViewController.swift */; };
 		DBC322CE2B5D072C0064956A /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = DBC322CD2B5D072C0064956A /* TextFieldEffects */; };
 		DBDDFFF82B726D980040FA51 /* NaverAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDDFFF72B726D980040FA51 /* NaverAPI.swift */; };
-		DBE87C732B65405F00EA2AF2 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DBE87C722B65405F00EA2AF2 /* SnapKit */; };
-		DBE87C752B65405F00EA2AF2 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = DBE87C742B65405F00EA2AF2 /* SnapKit-Dynamic */; };
 		DBE87C772B665AA400EA2AF2 /* UITabBarController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE87C762B665AA400EA2AF2 /* UITabBarController + Extension.swift */; };
 		DBE87C792B6680D600EA2AF2 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE87C782B6680D600EA2AF2 /* UIViewController + Extension.swift */; };
 /* End PBXBuildFile section */
@@ -61,7 +60,7 @@
 		DB2E569E2B5D4BFA00AE8FFF /* ProfileImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageViewController.swift; sourceTree = "<group>"; };
 		DB2E56A02B5D4CEB00AE8FFF /* ProfileImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DB81C4332B594EA00068CEB7 /* Enumeration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumeration.swift; sourceTree = "<group>"; };
-		DB9070D22B590563006EF2EE /* SeSAC Shopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeSAC Shopping.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB9070D22B590563006EF2EE /* MyNaverShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyNaverShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9070D52B590563006EF2EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB9070D72B590563006EF2EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DB9070D92B590563006EF2EE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -101,10 +100,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB5029FB2BBD74E300F3559F /* RxCocoa in Frameworks */,
-				DBE87C752B65405F00EA2AF2 /* SnapKit-Dynamic in Frameworks */,
 				DB9E306F2BEA195600448396 /* Kingfisher in Frameworks */,
 				DBC322CE2B5D072C0064956A /* TextFieldEffects in Frameworks */,
-				DBE87C732B65405F00EA2AF2 /* SnapKit in Frameworks */,
+				DB1333D22C1144E60087EE45 /* SnapKit in Frameworks */,
 				DB1CA5152B5A4941000EB832 /* Alamofire in Frameworks */,
 				DB5029FD2BBD74E300F3559F /* RxSwift in Frameworks */,
 			);
@@ -116,7 +114,7 @@
 		DB9070C92B590563006EF2EE = {
 			isa = PBXGroup;
 			children = (
-				DB9070D42B590563006EF2EE /* SeSAC Shopping */,
+				DB9070D42B590563006EF2EE /* MyNaverShopping */,
 				DB9070D32B590563006EF2EE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,12 +122,12 @@
 		DB9070D32B590563006EF2EE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB9070D22B590563006EF2EE /* SeSAC Shopping.app */,
+				DB9070D22B590563006EF2EE /* MyNaverShopping.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DB9070D42B590563006EF2EE /* SeSAC Shopping */ = {
+		DB9070D42B590563006EF2EE /* MyNaverShopping */ = {
 			isa = PBXGroup;
 			children = (
 				DBBCDB1A2B89DC470026CAF7 /* Presentation */,
@@ -140,7 +138,7 @@
 				DB9070E02B590565006EF2EE /* LaunchScreen.storyboard */,
 				DB9070E32B590565006EF2EE /* Info.plist */,
 			);
-			path = "SeSAC Shopping";
+			path = MyNaverShopping;
 			sourceTree = "<group>";
 		};
 		DB9070E92B590703006EF2EE /* Resource */ = {
@@ -257,9 +255,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DB9070D12B590563006EF2EE /* SeSAC Shopping */ = {
+		DB9070D12B590563006EF2EE /* MyNaverShopping */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DB9070E62B590565006EF2EE /* Build configuration list for PBXNativeTarget "SeSAC Shopping" */;
+			buildConfigurationList = DB9070E62B590565006EF2EE /* Build configuration list for PBXNativeTarget "MyNaverShopping" */;
 			buildPhases = (
 				DB9070CE2B590563006EF2EE /* Sources */,
 				DB9070CF2B590563006EF2EE /* Frameworks */,
@@ -269,18 +267,17 @@
 			);
 			dependencies = (
 			);
-			name = "SeSAC Shopping";
+			name = MyNaverShopping;
 			packageProductDependencies = (
 				DB1CA5142B5A4941000EB832 /* Alamofire */,
 				DBC322CD2B5D072C0064956A /* TextFieldEffects */,
-				DBE87C722B65405F00EA2AF2 /* SnapKit */,
-				DBE87C742B65405F00EA2AF2 /* SnapKit-Dynamic */,
 				DB5029FA2BBD74E300F3559F /* RxCocoa */,
 				DB5029FC2BBD74E300F3559F /* RxSwift */,
 				DB9E306E2BEA195600448396 /* Kingfisher */,
+				DB1333D12C1144E60087EE45 /* SnapKit */,
 			);
 			productName = "Recap Assignment";
-			productReference = DB9070D22B590563006EF2EE /* SeSAC Shopping.app */;
+			productReference = DB9070D22B590563006EF2EE /* MyNaverShopping.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -298,7 +295,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DB9070CD2B590563006EF2EE /* Build configuration list for PBXProject "SeSAC Shopping" */;
+			buildConfigurationList = DB9070CD2B590563006EF2EE /* Build configuration list for PBXProject "MyNaverShopping" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -310,15 +307,15 @@
 			packageReferences = (
 				DB1CA5132B5A4941000EB832 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
-				DBE87C712B65405F00EA2AF2 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DB5029F92BBD74E300F3559F /* XCRemoteSwiftPackageReference "RxSwift" */,
 				DB9E306D2BEA195600448396 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DB1333D02C1144E60087EE45 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = DB9070D32B590563006EF2EE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DB9070D12B590563006EF2EE /* SeSAC Shopping */,
+				DB9070D12B590563006EF2EE /* MyNaverShopping */,
 			);
 		};
 /* End PBXProject section */
@@ -520,7 +517,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SUZFV58S8B;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "SeSAC Shopping/Info.plist";
+				INFOPLIST_FILE = MyNaverShopping/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "이진우";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -532,8 +529,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jinoo.SeSAC-Shopping";
-				PRODUCT_NAME = "SeSAC Shopping";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinoo.MyNaverShopping;
+				PRODUCT_NAME = MyNaverShopping;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -553,7 +550,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SUZFV58S8B;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "SeSAC Shopping/Info.plist";
+				INFOPLIST_FILE = MyNaverShopping/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "이진우";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -565,8 +562,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jinoo.SeSAC-Shopping";
-				PRODUCT_NAME = "SeSAC Shopping";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jinoo.MyNaverShopping;
+				PRODUCT_NAME = MyNaverShopping;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -580,7 +577,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DB9070CD2B590563006EF2EE /* Build configuration list for PBXProject "SeSAC Shopping" */ = {
+		DB9070CD2B590563006EF2EE /* Build configuration list for PBXProject "MyNaverShopping" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB9070E42B590565006EF2EE /* Debug */,
@@ -589,7 +586,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DB9070E62B590565006EF2EE /* Build configuration list for PBXNativeTarget "SeSAC Shopping" */ = {
+		DB9070E62B590565006EF2EE /* Build configuration list for PBXNativeTarget "MyNaverShopping" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DB9070E72B590565006EF2EE /* Debug */,
@@ -601,6 +598,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		DB1333D02C1144E60087EE45 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		DB1CA5132B5A4941000EB832 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire";
@@ -633,17 +638,14 @@
 				minimumVersion = 1.7.0;
 			};
 		};
-		DBE87C712B65405F00EA2AF2 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DB1333D12C1144E60087EE45 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB1333D02C1144E60087EE45 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		DB1CA5142B5A4941000EB832 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DB1CA5132B5A4941000EB832 /* XCRemoteSwiftPackageReference "Alamofire" */;
@@ -668,16 +670,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DBC322CC2B5D072C0064956A /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
 			productName = TextFieldEffects;
-		};
-		DBE87C722B65405F00EA2AF2 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DBE87C712B65405F00EA2AF2 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		DBE87C742B65405F00EA2AF2 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DBE87C712B65405F00EA2AF2 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
