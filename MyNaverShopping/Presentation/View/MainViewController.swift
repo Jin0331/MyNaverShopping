@@ -79,7 +79,7 @@ class MainViewController: BaseViewController {
     
     
     override func configureView() {
-        navigationItem.title = "\(UserDefaultManager.shared.nickname)님의 새싹쇼핑"
+        navigationItem.title = "\(UserDefaultManager.shared.nickname)님의 쇼핑"
         hideKeyboardWhenTappedAround()
     }
     

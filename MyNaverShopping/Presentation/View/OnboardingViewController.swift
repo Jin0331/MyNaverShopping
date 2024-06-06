@@ -21,7 +21,7 @@ class OnboardingViewController: UIViewController{
     
     let mainImage : UIImageView = {
         let mainImage = UIImageView()
-        mainImage.image = #imageLiteral(resourceName: "onboarding")
+        mainImage.image = #imageLiteral(resourceName: "main")
         mainImage.contentMode = .scaleAspectFill
         
         return mainImage
