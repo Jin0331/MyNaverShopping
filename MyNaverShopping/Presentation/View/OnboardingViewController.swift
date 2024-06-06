@@ -13,7 +13,7 @@ class OnboardingViewController: UIViewController{
     //MARK: - UI
     let titleImage : UIImageView = {
         let titleImage = UIImageView()
-        titleImage.image = #imageLiteral(resourceName: "sesacShopping")
+        titleImage.image = #imageLiteral(resourceName: "title")
         titleImage.contentMode = .scaleAspectFit
         
         return titleImage
@@ -62,8 +62,8 @@ class OnboardingViewController: UIViewController{
         titleImage.snp.makeConstraints { make in
             make.centerX.equalTo(view.safeAreaLayoutGuide)
             make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
-            make.height.equalTo(150)
-            make.width.equalTo(250)
+            make.height.equalTo(200)
+            make.width.equalTo(300)
         }
         
         mainImage.snp.makeConstraints { make in

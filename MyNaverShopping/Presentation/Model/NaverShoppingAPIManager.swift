@@ -68,10 +68,10 @@ let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=
             }
     }
     
+    
     func callRequestURLSession<T: Decodable>(api : NaverAPI.Shop, completionHandler : @escaping (T?, Int?, NaverAPI.APIError?) -> Void) {
         
-        print(api.parameter)
-        
+        // URL Request 부분
         // ✅ query 추가 !!! 이모지!?
         var urlComponents = URLComponents(string: api.endPoint.absoluteString)
         let queryItems = api.parameter.map { (key: String, value: Any) in
@@ -102,9 +102,6 @@ let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=
                     return
                 }
                 
-//                guard let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) else {
-//                    return
-                
                 guard let response = response as? HTTPURLResponse else {
                     completionHandler(nil, nil, .invalidResponse)
                     return
@@ -125,4 +122,43 @@ let url = "https://openapi.naver.com/v1/search/shop.json?query=\(query)&display=
         }.resume()
     }
     
+    // Swift Concurrency
+    func callRequestURLSessionConcurrency<T: Decodable>(api : NaverAPI.Shop) async throws -> (T?, Int?) {
+        
+        print(api.endPoint.absoluteString)
+        
+        var urlComponents = URLComponents(string: api.endPoint.absoluteString)
+        let queryItems = api.parameter.map { (key: String, value: Any) in
+            
+            if let value = value as? String {
+                return URLQueryItem(name: key, value: value)
+            } else {
+                return URLQueryItem(name: key, value: "")
+            }
+        }
+        urlComponents?.queryItems = queryItems
+        
+        var request = URLRequest(url: (urlComponents?.url)!)
+        request.httpMethod = "GET"
+        request.addValue(API.naverClientId, forHTTPHeaderField: "X-Naver-Client-Id")
+        request.addValue(API.naverClientSecret, forHTTPHeaderField: "X-Naver-Client-Secret")
+        
+        print(request)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw NaverAPI.APIError.invalidResponse
+        }
+        
+        do {
+            let result = try JSONDecoder().decode(T.self, from: data)
+            
+            print(result)
+            
+            return (result, Int(api.start))
+        } catch {
+            throw NaverAPI.APIError.invalidDecodable
+        }
+    }
 }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MainView : BaseView {
     //MARK: - UI
@@ -56,7 +58,7 @@ class MainView : BaseView {
         let mainTableView = UITableView()
         mainTableView.backgroundColor = .clear
         mainTableView.separatorStyle = .none
-        
+        mainTableView.rowHeight = 50
         mainTableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.identifier)
         
         return mainTableView

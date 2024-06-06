@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class MainTableViewCell: UITableViewCell{
     let mainCellLabel : UILabel = {
@@ -40,10 +41,13 @@ class MainTableViewCell: UITableViewCell{
         return mainCellClickedButton
     }()
     
+    let disposeBag = DisposeBag()
     
     // 코드로 구성할 때 실행되는 초기화 구문으로, awakeFromNib에서 작성되는 코드도 함꼐 작성
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configureHierachy()
+        setupConstraints()
         configureView()
 
     }
@@ -83,16 +87,14 @@ class MainTableViewCell: UITableViewCell{
     func configureView() {
         self.backgroundColor = .clear
         self.selectionStyle = .none
-        
-        configureHierachy()
-        setupConstraints()
-        
     }
-}
-
-
-extension MainTableViewCell {
+    
     func setCellDate(labelString : String) {
         mainCellLabel.text = labelString
     }
+
+    override func prepareForReuse() {
+        mainCellLabel.text = nil
+    }
+    
 }
