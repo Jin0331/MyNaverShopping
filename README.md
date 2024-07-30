@@ -1,4 +1,4 @@
-# 🔎 **MyNaverShopping - 빠른 네이버 쇼핑 검색**
+# 🔎 **My Naver Shopping - 네이버 쇼핑 검색**
 
 ![merge](https://github.com/Jin0331/MyNaverShopping/assets/42958809/4339dc66-1b1f-492d-b8be-4f20f151ed30)
 
